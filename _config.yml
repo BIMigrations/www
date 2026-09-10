@@ -1,0 +1,29 @@
+title: BITransition
+tagline: BI migration, automated.
+description: >-
+  Your BI estate — models, transformations, calculations, dashboards —
+  decompiled into open specifications you own, then regenerated natively
+  on whichever platform you choose.
+url: "https://bitransition.com"
+baseurl: ""
+lang: en
+
+author:
+  name: BITransition Ltd.
+
+# Build settings
+markdown: kramdown
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .bundle

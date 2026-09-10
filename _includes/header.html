@@ -1,0 +1,16 @@
+<header style="position:fixed;top:18px;left:0;right:0;z-index:40;display:flex;justify-content:center;padding:0 16px;pointer-events:none">
+  <div style="pointer-events:auto;display:flex;align-items:center;gap:6px;background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(18px);border:1px solid var(--line2);border-radius:999px;padding:6px 6px 6px 16px">
+    <a href="{{ '/' | relative_url }}" style="display:flex;align-items:center;gap:10px;margin-right:14px;color:var(--ink)">
+      <svg width="22" height="22" viewBox="0 0 72 72" style="display:block"><polygon points="36,6 64,21 36,36 8,21" style="fill:var(--ink)"></polygon><polygon points="8,21 36,36 36,66 8,51" style="fill:var(--amber)"></polygon><polygon points="36,36 64,21 64,51 36,66" style="fill:var(--teal)"></polygon></svg>
+      <span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1">BI<span style="color:var(--muted);font-weight:400;margin:0 4px">/</span>Transition</span>
+    </a>
+    <a href="{{ '/#manifesto' | relative_url }}" style="font-size:13px;font-weight:500;color:var(--ink2);padding:8px 12px;border-radius:999px" data-hover="background:var(--line);color:var(--ink)">Why</a>
+    <a href="{{ '/#method' | relative_url }}" style="font-size:13px;font-weight:500;color:var(--ink2);padding:8px 12px;border-radius:999px" data-hover="background:var(--line);color:var(--ink)">Method</a>
+    <a href="{{ '/soon/' | relative_url }}" style="font-size:13px;font-weight:500;color:var(--ink2);padding:8px 12px;border-radius:999px" data-hover="background:var(--line);color:var(--ink)">Platforms</a>
+    <a href="{{ '/soon/' | relative_url }}" style="font-size:13px;font-weight:500;color:var(--ink2);padding:8px 12px;border-radius:999px" data-hover="background:var(--line);color:var(--ink)">Case studies</a>
+    <a href="{{ '/soon/' | relative_url }}" style="font-size:13px;font-weight:500;color:var(--ink2);padding:8px 12px;border-radius:999px" data-hover="background:var(--line);color:var(--ink)">Insights</a>
+    <a href="{{ '/soon/' | relative_url }}" style="font-size:13px;font-weight:500;color:var(--ink2);padding:8px 12px;border-radius:999px" data-hover="background:var(--line);color:var(--ink)">About</a>
+    <button onclick="BIToggleTheme()" style="background:transparent;border:none;color:var(--ink2);font-family:inherit;font-size:13px;font-weight:500;padding:8px 12px;border-radius:999px;cursor:pointer" data-hover="background:var(--line);color:var(--ink)"><span id="theme-label">Dark</span></button>
+    <a href="{{ '/#scan' | relative_url }}" style="background:var(--ink);color:var(--bg);font-size:13px;font-weight:600;padding:9px 16px;border-radius:999px;margin-left:4px" data-hover="background:var(--teal);color:var(--teal-ink)">Start a scan</a>
+  </div>
+</header>

@@ -5,28 +5,28 @@ description: This page is being designed section by section. The home page is li
 permalink: /soon/
 ---
 
-<div style="min-height:100vh;background:var(--bg);color:var(--ink);display:flex;flex-direction:column">
-  <header style="border-bottom:1px solid var(--line);padding:20px 32px">
-    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px">
-      <a href="{{ '/' | relative_url }}" style="display:flex;align-items:center;gap:10px;color:var(--ink)">
-        <svg width="22" height="22" viewBox="0 0 72 72" style="display:block"><polygon points="36,6 64,21 36,36 8,21" style="fill:var(--ink)"></polygon><polygon points="8,21 36,36 36,66 8,51" style="fill:var(--amber)"></polygon><polygon points="36,36 64,21 64,51 36,66" style="fill:var(--teal)"></polygon></svg>
-        <span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">BI<span style="color:var(--muted);font-weight:400;margin:0 4px">/</span>Transition</span>
+<div class="soon">
+  <header class="soon-header">
+    <div class="soon-bar">
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="BITransition home">
+        <svg class="logo-mark" width="22" height="22" viewBox="0 0 72 72" aria-hidden="true"><polygon points="36,6 64,21 36,36 8,21" style="fill:var(--ink)"></polygon><polygon points="8,21 36,36 36,66 8,51" style="fill:var(--amber)"></polygon><polygon points="36,36 64,21 64,51 36,66" style="fill:var(--teal)"></polygon></svg>
+        <span class="wordmark">BI<i>/</i>Transition</span>
       </a>
-      <button onclick="BIToggleTheme()" style="background:transparent;border:1px solid var(--line2);color:var(--ink2);font-family:inherit;font-size:13px;font-weight:500;padding:8px 14px;border-radius:999px;cursor:pointer" data-hover="border-color:var(--ink);color:var(--ink)"><span id="theme-label">Dark</span></button>
+      <button class="pill-btn" type="button" onclick="BIToggleTheme()"><span id="theme-label">Dark</span></button>
     </div>
   </header>
-  <main style="flex:1;display:grid;place-items:center;padding:80px 32px">
-    <div style="max-width:620px;text-align:center">
-      <div style="font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:24px">In design</div>
-      <h1 style="font-size:clamp(40px,6vw,76px);line-height:.96;letter-spacing:-0.045em;font-weight:700;margin:0 0 20px">This page is <span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;color:var(--teal)">next.</span></h1>
-      <p style="font-size:18px;line-height:1.55;color:var(--ink2);margin:0 0 32px">The home page is live; the rest of the site is being designed section by section. Head back, or start a free estate scan and we'll come to you.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="{{ '/' | relative_url }}" style="background:var(--ink);color:var(--bg);font-size:15px;font-weight:600;padding:15px 24px;border-radius:999px" data-hover="background:var(--teal);color:var(--teal-ink)">← Back to home</a>
-        <a href="{{ '/#scan' | relative_url }}" style="border:1px solid var(--line2);color:var(--ink);font-size:15px;font-weight:600;padding:15px 24px;border-radius:999px" data-hover="border-color:var(--ink);color:var(--ink)">Free estate scan</a>
+  <main class="soon-main">
+    <div class="soon-card">
+      <div class="eyebrow">In design</div>
+      <h1 class="soon-title">This page is <span class="serif c-teal">next.</span></h1>
+      <p class="soon-copy">The home page is live; the rest of the site is being designed section by section. Head back, or start a free estate scan and we'll come to you.</p>
+      <div class="soon-ctas">
+        <a class="btn btn-ink btn-sm" href="{{ '/' | relative_url }}">← Back to home</a>
+        <a class="btn btn-ghost btn-sm" href="{{ '/#scan' | relative_url }}">Free estate scan</a>
       </div>
     </div>
   </main>
-  <footer style="border-top:1px solid var(--line);padding:24px 32px">
-    <div style="max-width:1400px;margin:0 auto;font-size:13px;color:var(--muted)">© 2026 BITransition Ltd. · BI migration, automated.</div>
+  <footer class="soon-footer">
+    <div>© 2026 BITransition Ltd. · BI migration, automated.</div>
   </footer>
 </div>

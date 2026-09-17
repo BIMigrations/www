@@ -1,0 +1,26 @@
+---
+title: Page not found
+crumb: Not found
+heading: "This page has <em>moved on.</em>"
+description: The page you're looking for doesn't exist, or it has moved. Try one of these instead.
+permalink: /404.html
+layout: page
+full_width: true
+sitemap: false
+links:
+  - title: Home
+    text: How BITransition moves BI estates without re-deriving them by hand.
+    url: /
+    link: Go home
+  - title: Supported platforms
+    text: Domo, Power BI, Looker, Qlik and more.
+    url: /platforms/
+    link: See platforms
+  - title: Contact
+    text: Tell us what you were looking for.
+    url: /contact/
+    link: Get in touch
+---
+<div class="wrap page-body page-body-full">
+  {% include cards.html items=page.links %}
+</div>

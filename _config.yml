@@ -3,7 +3,7 @@ tagline: BI migration, automated.
 description: >-
   Your BI estate — models, transformations, calculations, dashboards —
   decompiled into open specifications you own, then regenerated natively
-  on whichever platform you choose.
+  on whichever BI platform you choose.
 url: "https://bitransition.com"
 baseurl: ""
 lang: en
@@ -11,10 +11,66 @@ lang: en
 author:
   name: BITransition Ltd.
 
+# Where the scan and contact forms POST to (e.g. a Formspree endpoint).
+# Leave empty to keep the forms inert.
+form_endpoint: ""
+
 # Build settings
 markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
 sass:
   style: compressed
+
+# Insights are regular Jekyll posts
+permalink: /insights/:title/
+
+collections:
+  case_studies:
+    output: true
+    permalink: /case-studies/:name/
+  guides:
+    output: true
+    permalink: /migration-guides/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: page
+      parent_title: Insights
+      parent_url: /insights/
+  - scope:
+      path: ""
+      type: case_studies
+    values:
+      layout: page
+      parent_title: Case studies
+      parent_url: /case-studies/
+  - scope:
+      path: ""
+      type: guides
+    values:
+      layout: page
+      parent_title: Migration guides
+      parent_url: /migration-guides/
+  - scope:
+      path: platforms
+    values:
+      layout: page
+      parent_title: Platforms
+      parent_url: /platforms/
+  - scope:
+      path: services
+    values:
+      layout: page
+      parent_title: Services
 
 plugins:
   - jekyll-seo-tag

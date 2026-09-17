@@ -1,0 +1,57 @@
+---
+title: Supported platforms
+crumb: Platforms
+heading: "Every estate. <em>Any</em> BI platform."
+description: We read the BI platform you're leaving, translate it once into open specifications, and regenerate it natively on the one you're moving to.
+permalink: /platforms/
+full_width: true
+steps:
+  - title: Read
+    text: A read-only scan of the source platform inventories every dataset, transformation, calculated field, dashboard and permission — with usage, so dormant content can be retired first.
+  - title: Translate
+    text: The estate becomes open specifications in your repository — SQL, Airflow and Python, JSON and YAML, plus a field-level lineage graph. This half is platform-neutral.
+  - title: Regenerate
+    text: Our automated migration tool produces native artifacts on the target BI platform, and parity tests compare every metric against the source before cutover.
+---
+<div class="wrap page-body page-body-full">
+
+  <div class="section-head">
+    <div class="eyebrow">Featured platforms</div>
+    <h2 class="section-title">Deep support, <em>in both directions.</em></h2>
+  </div>
+
+  <div class="platform-grid">
+    {%- for p in site.data.platforms %}
+    <a class="platform-card" href="{{ '/platforms/' | append: p.slug | append: '/' | relative_url }}">
+      <span class="platform-top">
+        <span class="plat-mono plat-mono-lg plat-{{ p.tint }}">{{ p.mono }}</span>
+        <span class="chips">{% for r in p.roles %}<span class="chip{% if r == 'Target' %} chip-teal{% endif %}">{{ r }}</span>{% endfor %}</span>
+      </span>
+      <strong class="platform-name">{{ p.name }}</strong>
+      <span class="platform-sum">{{ p.summary }}</span>
+      <span class="card-link">Explore {{ p.name }} <span aria-hidden="true">→</span></span>
+    </a>
+    {%- endfor %}
+  </div>
+
+  <div class="section-head">
+    <div class="eyebrow">Also in scope</div>
+    <h2 class="section-title">The rest of the <em>estate.</em></h2>
+    <p class="section-copy">Most estates aren't on a single platform. These are in scope for scans and migrations today — talk to us about anything not listed.</p>
+  </div>
+
+  <div class="scope-list">
+    <div class="scope-row"><strong>Tableau</strong><span>Workbooks, data sources, calculated fields and LOD expressions</span><span class="chips"><span class="chip">Source</span><span class="chip chip-teal">Target</span></span></div>
+    <div class="scope-row"><strong>MicroStrategy</strong><span>Schema objects, metrics, reports and dossiers</span><span class="chips"><span class="chip">Source</span></span></div>
+    <div class="scope-row"><strong>Cognos</strong><span>Framework Manager packages, data modules and reports</span><span class="chips"><span class="chip">Source</span></span></div>
+    <div class="scope-row"><strong>Sigma</strong><span>Workbooks and data models generated from open specifications</span><span class="chips"><span class="chip chip-teal">Target</span></span></div>
+    <div class="scope-row"><strong>Superset</strong><span>Datasets, charts and dashboards generated from open specifications</span><span class="chips"><span class="chip chip-teal">Target</span></span></div>
+  </div>
+
+  <div class="section-head">
+    <div class="eyebrow">How a platform pair works</div>
+    <h2 class="section-title">Translate <em>once.</em> Target anything.</h2>
+  </div>
+
+  {% include cards.html numbered=true items=page.steps %}
+</div>

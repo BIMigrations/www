@@ -388,8 +388,46 @@
     kick();
   }
 
+  /* ---------- Sub-page "On this page" list ---------- */
+  function buildToc() {
+    var toc = document.querySelector('.toc');
+    var list = toc && toc.querySelector('.toc-list');
+    if (!list) return;
+    var heads = Array.prototype.slice.call(document.querySelectorAll('.prose > h2[id]'));
+    if (heads.length < 2) return;
+    var links = heads.map(function (h) {
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      li.appendChild(a);
+      list.appendChild(li);
+      return a;
+    });
+    toc.hidden = false;
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var i = heads.indexOf(en.target);
+        links.forEach(function (l, j) { l.classList.toggle('is-active', j === i); });
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    heads.forEach(function (h) { io.observe(h); });
+  }
+
+  /* ---------- Contact form: preselect topic from ?interest= ---------- */
+  function prefillContact() {
+    var select = document.getElementById('contact-interest');
+    if (!select || !window.URLSearchParams) return;
+    var want = new URLSearchParams(window.location.search).get('interest');
+    if (want && select.querySelector('option[value="' + want.replace(/[^a-z]/gi, '') + '"]')) select.value = want;
+  }
+
   /* ---------- Init ---------- */
   function init() {
+    buildToc();
+    prefillContact();
     syncThemeUI();
     wireThemeSwitch();
     wireMenu();

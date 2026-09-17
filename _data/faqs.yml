@@ -1,0 +1,47 @@
+- q: What do you need from us to start?
+  a: |
+    A read-only metadata export from your current BI platform. It describes your datasets, calculations and dashboards — not the data inside them. No platform access is required for the free estate scan, and we sign a mutual NDA as standard. We'll send platform-specific instructions for producing the export.
+
+- q: Which BI platforms do you support?
+  a: |
+    Our featured platforms are [Domo](/platforms/domo/), [Power BI](/platforms/power-bi/), [Looker](/platforms/looker/) and [Qlik](/platforms/qlik/) (Qlik Sense and QlikView). Tableau, MicroStrategy and Cognos are also in scope as sources, and Tableau, Sigma and Superset as targets. See [supported platforms](/platforms/) for the full list.
+
+- q: What are "open specifications"?
+  a: |
+    Plain-text descriptions of your estate that any engineer can read: SQL for models, Airflow and Python for transformations, JSON and YAML for dashboard definitions, plus a field-level lineage graph. They live in your repository and belong to you. [More on open specifications](/open-specifications/).
+
+- q: Is this just a SQL translator?
+  a: |
+    No. SQL translation is one part of it. Our automated migration tool reads the whole estate — models, transformations, calculated fields, dashboards and permissions — translates it into open specifications, and then produces native artifacts on the target BI platform, with calculations rewritten in that platform's own language.
+
+- q: How much of the migration is automated?
+  a: |
+    In a typical estate, around 78% is converted by our automated migration tool with no analyst in the loop. The rest — unusual calculations, undocumented business logic, platform-specific features — is handled by our engineers, and every item is tracked in the same backlog.
+
+- q: How do you prove the numbers still match?
+  a: |
+    With automated parity tests. Every migrated metric is calculated on both the source and the target for the same slices and compared. Anything outside the agreed tolerance is investigated and fixed before cutover. You receive the parity report. [More on risk and governance](/risk-governance/).
+
+- q: How long does a migration take?
+  a: |
+    It depends on the size and complexity of the estate, which is exactly what the [estate assessment](/services/estate-assessment/) measures. Across our engagements, the median time from kickoff to cutover is 11 weeks.
+
+- q: Do we have to freeze development during the migration?
+  a: |
+    Not for the whole project. Work is delivered in waves, and each wave has a short change window before its cutover. Changes made to the source in the meantime are picked up by a re-scan and carried into the specifications.
+
+- q: What happens to dashboards nobody uses?
+  a: |
+    We recommend retiring them rather than migrating them. Usage data from the scan shows what hasn't been opened in a long time, and your owners decide what goes. Retired items remain in the specifications, so nothing is lost. See [rationalisation](/services/rationalisation/).
+
+- q: Can we change BI platform again later?
+  a: |
+    Yes — that's the point. Because the estate is held as open specifications, moving to a different BI platform means re-running our automated migration tool against the specs, not starting a complete migration project from scratch.
+
+- q: Do you work with our consultancy or systems integrator?
+  a: |
+    Yes. We regularly work alongside partners and in-house teams, from co-delivery to partners running our tool themselves. See [engagement models](/services/engagement-models/) and [partners](/partners/).
+
+- q: Who owns what you produce?
+  a: |
+    You do. The open specifications, the regenerated artifacts, the lineage graph and the parity reports are delivered into your environment and repository.

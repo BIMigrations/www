@@ -1,0 +1,64 @@
+---
+layout: default
+---
+<div class="page" data-accent="{{ page.accent | default: 'teal' }}">
+
+  {% include header.html %}
+
+  <main>
+    <section class="subpage-hero">
+      <div class="abs sh-glow"></div>
+      <div class="abs sh-rings"></div>
+      <div class="abs sh-dots"></div>
+      <div class="wrap subpage-hero-inner">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="{{ '/' | relative_url }}">Home</a>
+          {%- if page.parent_title and page.parent_title != "" and page.parent_url != page.url %}
+          <span class="crumb-sep" aria-hidden="true">/</span>
+          {%- if page.parent_url %}<a href="{{ page.parent_url | relative_url }}">{{ page.parent_title }}</a>{% else %}<span>{{ page.parent_title }}</span>{% endif %}
+          {%- endif %}
+          <span class="crumb-sep" aria-hidden="true">/</span>
+          <span class="crumb-current" aria-current="page">{{ page.crumb | default: page.title }}</span>
+        </nav>
+        <h1 class="subpage-title">{{ page.heading | default: page.title }}</h1>
+        {%- if page.description %}
+        <p class="subpage-lead">{{ page.description }}</p>
+        {%- endif %}
+        {%- if page.collection == "posts" %}
+        {%- assign words = content | strip_html | number_of_words %}
+        <div class="subpage-meta"><span class="dot dot-teal"></span>{{ page.date | date: "%-d %B %Y" }}<span aria-hidden="true">·</span>{{ words | divided_by: 220 | plus: 1 }} min read</div>
+        {%- endif %}
+        {%- if page.draft_notice %}
+        <div class="notice"><span class="dot dot-amber"></span>{{ page.draft_notice }}</div>
+        {%- endif %}
+      </div>
+    </section>
+
+    {% if page.full_width -%}
+    {{ content }}
+    {%- else -%}
+    <div class="wrap page-body">
+      <div class="prose">
+{{ content }}
+      </div>
+      <aside class="page-aside">
+        <div class="aside-sticky">
+          <nav class="toc" aria-label="On this page" hidden>
+            <span class="toc-head">On this page</span>
+            <ol class="toc-list"></ol>
+          </nav>
+          <div class="aside-card">
+            <span class="eyebrow">Free estate scan</span>
+            <p>A read-only metadata export is enough to start.</p>
+            <a class="btn btn-teal btn-sm" href="{{ '/#scan' | relative_url }}">Start a scan <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </aside>
+    </div>
+    {%- endif %}
+
+    {% unless page.hide_cta %}{% include cta.html %}{% endunless %}
+  </main>
+
+  {% include footer.html %}
+</div>

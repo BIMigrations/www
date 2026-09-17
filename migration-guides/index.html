@@ -1,0 +1,22 @@
+---
+title: Migration guides
+heading: "Platform to platform, <em>concept by concept.</em>"
+description: How the building blocks of one BI platform map onto another — and where a migration needs extra care.
+permalink: /migration-guides/
+parent_title: Resources
+full_width: true
+---
+<div class="wrap page-body page-body-full">
+  <div class="study-grid">
+    {%- assign guides = site.guides | sort: "order" %}
+    {%- for g in guides %}
+    <a class="platform-card" href="{{ g.url | relative_url }}">
+      <span class="chips"><span class="chip">{{ g.from }}</span><span class="chip-arrow" aria-hidden="true">→</span><span class="chip chip-teal">{{ g.to }}</span></span>
+      <strong class="platform-name">{{ g.crumb }}</strong>
+      <span class="platform-sum">{{ g.description }}</span>
+      <span class="card-link">Read the guide <span aria-hidden="true">→</span></span>
+    </a>
+    {%- endfor %}
+  </div>
+  <p class="feed-note">Looking for a different platform pair? <a href="{{ '/contact/' | relative_url }}">Tell us what you're moving</a>.</p>
+</div>

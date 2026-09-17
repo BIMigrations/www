@@ -1,0 +1,8 @@
+<div class="faq">
+{%- for item in include.items %}
+<details class="faq-item">
+<summary><span>{{ item.q }}</span><span class="faq-icon" aria-hidden="true"></span></summary>
+<div class="faq-a">{{ item.a | markdownify }}</div>
+</details>
+{%- endfor %}
+</div>

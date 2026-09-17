@@ -1,0 +1,1 @@
+{% if site.form_endpoint and site.form_endpoint != "" %}action="{{ site.form_endpoint }}" method="post"{% else %}action="#" onsubmit="return false"{% endif %}

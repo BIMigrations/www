@@ -1,0 +1,23 @@
+---
+title: Insights
+heading: "Notes from the <em>migration floor.</em>"
+description: Practical thinking on BI migrations, rationalisation and proving the numbers still match.
+permalink: /insights/
+parent_title: Resources
+full_width: true
+---
+<div class="wrap page-body page-body-full">
+  <div class="post-list">
+    {%- for post in site.posts %}
+    <a class="post-row" href="{{ post.url | relative_url }}">
+      <span class="post-date">{{ post.date | date: "%-d %b %Y" }}</span>
+      <span class="post-main">
+        <strong class="post-title">{{ post.title }}</strong>
+        <span class="post-excerpt">{{ post.description }}</span>
+      </span>
+      <span class="post-arrow" aria-hidden="true">→</span>
+    </a>
+    {%- endfor %}
+  </div>
+  <p class="feed-note">Prefer a feed reader? <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a>.</p>
+</div>

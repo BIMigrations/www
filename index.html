@@ -4,7 +4,7 @@ title: BITransition — Move everything
 description: >-
   Your BI estate — models, transformations, calculations, dashboards —
   decompiled into open specifications you own, then regenerated natively
-  on whichever platform you choose.
+  on whichever BI platform you choose.
 ---
 
 <div class="page">
@@ -29,7 +29,7 @@ description: >-
         </div>
         <h1 class="hero-title">Move<br>every<span class="serif c-teal">thing.</span></h1>
         <div class="hero-foot">
-          <p class="hero-lead">Your BI estate — models, transformations, calculations, dashboards — decompiled into open specifications you own, then regenerated natively on whichever platform you choose.</p>
+          <p class="hero-lead">Your BI estate — models, transformations, calculations, dashboards — decompiled into open specifications you own, then regenerated natively on whichever BI platform you choose.</p>
           <div class="hero-ctas">
             <a class="btn btn-teal" href="#scan">Free estate scan <span aria-hidden="true">→</span></a>
             <a class="btn btn-ghost" href="#reveal">See the reveal</a>
@@ -61,17 +61,17 @@ description: >-
             <article class="pillar">
               <div class="pillar-letter">A</div>
               <p class="pillar-lead">A hand-rebuilt dashboard binds all of the analysis to one vendor's file format.</p>
-              <p class="pillar-body">Every calculation gets re-derived by an analyst reading the old screen and inferring intent. Choose a different target two years later and the same estate is interpreted from scratch, by different people, with different answers.</p>
+              <p class="pillar-body">Every calculation gets re-derived by an analyst interpreting the old estate and inferring intent. Choose a different BI platform years later and the same estate is interpreted from scratch, by different people, resulting in potentially different answers.</p>
             </article>
             <article class="pillar">
               <div class="pillar-letter">B</div>
               <p class="pillar-lead">So we split the migration in two — and only the second half is platform-specific.</p>
-              <p class="pillar-body">First the estate becomes open specifications: SQL for models, Airflow and Python for transformations, JSON and YAML for dashboard definitions, plus a field-level lineage graph. It lands in your repository as reviewable pull requests, not inside a black box.</p>
+              <p class="pillar-body">First the estate becomes open specifications: SQL for models, Airflow and Python for transformations, JSON and YAML for dashboard definitions, plus a field-level lineage graph. It lands in your repository, not inside a black box.</p>
             </article>
             <article class="pillar">
               <div class="pillar-letter">C</div>
               <p class="pillar-lead">The expensive half is done once, and it never expires.</p>
-              <p class="pillar-body">Generators turn those specs into native artifacts on Power BI, Tableau, Looker, Sigma or Superset. Change your mind about the target and you re-run a generator — not the project.</p>
+              <p class="pillar-body">Our automated migration tool turns open specs into native artifacts in Power BI, Tableau, Looker, Sigma or Superset. Change your mind about your BI platform and you re-run the tool — not a complete migration project.</p>
             </article>
           </div>
           <div class="pillar-nav">
@@ -158,7 +158,7 @@ description: >-
           <div class="step-num" aria-hidden="true">03</div>
           <div class="step-body">
             <h3>Regenerate</h3>
-            <p>Generators emit native artifacts on the target, with calculations rewritten in its own language. Automated parity tests then compare every metric against the source before cutover.</p>
+            <p>Our automated migration tool emits native artifacts on the target BI platform, with calculations rewritten in its own language. Automated parity tests then compare every metric against the source before cutover.</p>
           </div>
         </article>
       </div>
@@ -169,7 +169,7 @@ description: >-
       <div class="abs proof-rings"></div>
       <div class="wrap proof-inner">
         <div class="proof-num">78%</div>
-        <p class="proof-copy serif">of a typical estate is converted by tooling, with no analyst in the loop.</p>
+        <p class="proof-copy serif">of a typical estate is converted by our automated migration tool, with no analyst in the loop.</p>
         <div class="proof-stats">
           <div><div class="proof-stat-num">11 wk</div><div class="proof-stat-label">Median cutover</div></div>
           <div><div class="proof-stat-num">1 : 1</div><div class="proof-stat-label">Value parity</div></div>
@@ -183,7 +183,8 @@ description: >-
       <div class="scan-ring"></div>
       <div class="wrap scan-inner">
         <h2 class="scan-title">Show us your <span class="serif c-teal">estate.</span></h2>
-        <form class="scan-form" action="#" onsubmit="return false">
+        <form class="scan-form" {% include form-attrs.html %}>
+          <input type="hidden" name="source" value="home-scan">
           <label class="sr-only" for="scan-email">Work email</label>
           <input class="scan-input" id="scan-email" type="email" name="email" placeholder="work@company.com" autocomplete="email" inputmode="email">
           <button class="scan-submit" type="submit">Request free scan →</button>

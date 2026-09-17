@@ -1,0 +1,28 @@
+# Featured platforms — drives the nav dropdown, the mobile menu and /platforms/.
+# Each has a page at /platforms/<slug>/.
+- name: Domo
+  slug: domo
+  mono: Do
+  tint: amber
+  roles: [Source]
+  summary: DataSets, Magic ETL and SQL DataFlows, Beast Modes, cards and PDP policies — moved without re-deriving a single calculation by hand.
+- name: Power BI
+  slug: power-bi
+  mono: Pb
+  tint: teal
+  roles: [Target, Source]
+  summary: Semantic models, DAX measures, Power Query and reports generated natively, with row-level security mapped from the source.
+- name: Looker
+  slug: looker
+  mono: Lk
+  tint: ink
+  roles: [Source, Target]
+  summary: LookML views, explores and derived tables read as the specifications they almost already are — and written back out when Looker is the destination.
+- name: Qlik
+  slug: qlik
+  mono: Qk
+  tint: amber
+  roles: [Source]
+  summary: Qlik Sense and QlikView load scripts, QVDs, set analysis and Section Access unpacked into open specifications.
+
+# Also in scope — listed on /platforms/ without a dedicated page.

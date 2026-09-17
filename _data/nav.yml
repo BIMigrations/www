@@ -1,0 +1,73 @@
+# Top navigation — keep this short. Everything else lives in the footer
+# (and the grouped "more" list in the mobile menu).
+primary:
+  - title: Why
+    url: "/#manifesto"
+  - title: Method
+    url: "/#method"
+  - title: Platforms
+    url: /platforms/
+    platforms: true   # renders the platform dropdown from _data/platforms.yml
+  - title: Case studies
+    url: /case-studies/
+  - title: Insights
+    url: /insights/
+  - title: About
+    url: /about/
+
+footer:
+  - title: Platform
+    links:
+      - { title: Supported platforms, url: /platforms/ }
+      - { title: How it works, url: "/#method" }
+      - { title: Open specifications, url: /open-specifications/ }
+      - { title: Risk & governance, url: /risk-governance/ }
+  - title: Services
+    links:
+      - { title: Estate assessment, url: /services/estate-assessment/ }
+      - { title: Full migration, url: /services/full-migration/ }
+      - { title: Rationalisation, url: /services/rationalisation/ }
+      - { title: Engagement models, url: /services/engagement-models/ }
+  - title: Resources
+    links:
+      - { title: Case studies, url: /case-studies/ }
+      - { title: Insights, url: /insights/ }
+      - { title: Migration guides, url: /migration-guides/ }
+      - { title: FAQs, url: /faqs/ }
+      - { title: "Free estate scan →", url: "/#scan", cta: true }
+  - title: Company
+    links:
+      - { title: About us, url: /about/ }
+      - { title: Careers, url: /careers/ }
+      - { title: Partners, url: /partners/ }
+      - { title: Contact, url: /contact/ }
+
+legal:
+  - { title: Security, url: /security/ }
+  - { title: Privacy, url: /privacy/ }
+  - { title: Terms, url: /terms/ }
+
+# Secondary links shown compactly in the mobile menu
+menu_more:
+  - title: Services
+    links:
+      - { title: Estate assessment, url: /services/estate-assessment/ }
+      - { title: Full migration, url: /services/full-migration/ }
+      - { title: Rationalisation, url: /services/rationalisation/ }
+      - { title: Engagement models, url: /services/engagement-models/ }
+  - title: Resources
+    links:
+      - { title: Open specifications, url: /open-specifications/ }
+      - { title: Risk & governance, url: /risk-governance/ }
+      - { title: Migration guides, url: /migration-guides/ }
+      - { title: FAQs, url: /faqs/ }
+  - title: Company
+    links:
+      - { title: Careers, url: /careers/ }
+      - { title: Partners, url: /partners/ }
+      - { title: Contact, url: /contact/ }
+  - title: Legal
+    links:
+      - { title: Security, url: /security/ }
+      - { title: Privacy, url: /privacy/ }
+      - { title: Terms, url: /terms/ }

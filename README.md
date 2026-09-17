@@ -13,36 +13,43 @@ Then open http://localhost:4000.
 
 ## Structure
 
-- `index.html` — home page (hero, manifesto, before/after reveal, method, scan CTA)
-- `soon.html` — placeholder for pages still in design (`/soon/`)
-- `_layouts/default.html` — HTML shell: fonts, favicon, theme bootstrap, SEO
-- `_includes/header.html`, `_includes/footer.html` — shared nav and footer
-- `assets/css/main.css` — theme tokens (light/dark) and base styles
-- `assets/js/main.js` — theme toggle, hero particle field, platform marquee,
-  before/after slider, and the decorative grids
+| Path | What it is |
+|---|---|
+| `index.html` | Home page (hero, manifesto, before/after reveal, method, scan CTA) |
+| `_layouts/default.html` | HTML shell: fonts, favicon, theme bootstrap, SEO |
+| `_layouts/page.html` | Shared sub-page layout: hero, breadcrumbs, content + "On this page", CTA band |
+| `_includes/` | Header (nav, platform dropdown, mobile menu), footer, cards, FAQ, CTA, form attributes |
+| `_data/nav.yml` | **All navigation** — top nav, footer sitemap, legal links, mobile "more" groups |
+| `_data/platforms.yml` | Featured platforms (drives the dropdown, menu and `/platforms/`) |
+| `_data/faqs.yml` | Questions on `/faqs/` |
+| `platforms/` | `/platforms/` and one page per featured platform |
+| `services/` | Estate assessment, full migration, rationalisation, engagement models |
+| `_posts/` | Insights articles (`/insights/<slug>/`) |
+| `_guides/` | Migration guides (`/migration-guides/<slug>/`) |
+| `_case_studies/` | Case studies (`/case-studies/<slug>/`) — see the template below |
+| `*.md` at the root | About, open specifications, risk & governance, FAQs, careers, partners, security, privacy, terms |
+| `contact.html`, `404.html` | Contact form and not-found page |
+| `assets/css/main.css` | Theme tokens and all styles (breakpoints at 1000px and 760px) |
+| `assets/js/main.js` | Theme, menu, hero field, marquee, compare slider, carousel, dock, table of contents |
 
-The design was produced in Claude Design (`.dc.html` canvases) and ported to
-standard HTML/CSS/vanilla-JS here. Light is the default theme; the choice is
-remembered in `localStorage`.
+## Adding content
+
+- **A page:** create a Markdown file with front matter (`title`, `heading` — HTML allowed, use `<em>` for the serif accent — `description`, `permalink`). The `page` layout is applied automatically. Use `{% include cards.html items=page.<list> %}` for card grids.
+- **An insight:** add `_posts/YYYY-MM-DD-slug.md` with `title`, `heading` and `description`.
+- **A migration guide:** add `_guides/<slug>.md` with `from`, `to`, `crumb` and `order`.
+- **A case study:** copy `_case_studies/example-case-study.md`, fill it in, and set `published: true` once the client has approved it. Until then `/case-studies/` shows an explanatory empty state.
+- **Navigation:** edit `_data/nav.yml`. Keep the top nav short — new pages belong in the footer groups and `menu_more`.
+
+## Forms
+
+The home-page scan form and `/contact/` post to `form_endpoint` in `_config.yml` (for example, a Formspree URL). While it's empty, the forms don't submit.
 
 ## Responsive behaviour
 
-Styles are class-based in `main.css`, with breakpoints at the bottom of the file:
+- **≤ 1000px** — the pill nav collapses to a full-screen menu with the primary links, platform chips, grouped secondary links, theme switch and scan CTA. Sub-pages drop the sticky "On this page" sidebar.
+- **≤ 760px** — dedicated mobile layouts: vertical particle funnel in the hero, swipeable manifesto cards, touch-friendly before/after, stacking method cards, a floating scan dock, single-column cards and forms.
 
-- **≤ 1000px** — the pill nav collapses to a menu button that opens a
-  full-screen numbered menu (with the theme switch and scan CTA).
-- **≤ 760px** — a dedicated mobile layout rather than a squeezed desktop:
-  - Hero: the particle field runs top→bottom and converges into the teal
-    "Anywhere" dot; the headline breaks to three lines.
-  - Manifesto: A/B/C become swipeable scroll-snap cards.
-  - Before/after: a portrait compare with touch dragging that doesn't block
-    vertical scrolling, plus a one-time sweep to show it's interactive.
-  - Method: steps become sticky cards that stack as you scroll.
-  - A floating "Free estate scan" dock appears whenever no other scan CTA is
-    on screen.
-
-Hover styles are gated behind `@media (hover: hover)`, and
-`prefers-reduced-motion` stops the marquee, particle animation and sweep.
+Hover styles are gated behind `@media (hover: hover)`, and `prefers-reduced-motion` stops the marquee, particle animation and sweep.
 
 ## Build
 

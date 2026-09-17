@@ -1,0 +1,46 @@
+---
+title: Case studies
+heading: "Estates, <em>moved.</em>"
+description: Write-ups of real BI migrations — what we found, what was retired, how it translated and how parity was proved.
+permalink: /case-studies/
+parent_title: Resources
+full_width: true
+covers:
+  - label: Part 01
+    title: The estate as found
+    text: Platforms, scale, usage and the problems the team was living with.
+  - label: Part 02
+    title: What was retired
+    text: How much of the estate was dormant or duplicated, and how owners decided.
+  - label: Part 03
+    title: How it translated
+    text: What our automated migration tool converted, and where engineers stepped in.
+  - label: Part 04
+    title: How parity was proved
+    text: The tests, the tolerances and the sign-off behind each cutover.
+---
+<div class="wrap page-body page-body-full">
+  {%- assign studies = site.case_studies | sort: "date" | reverse %}
+  {%- if studies.size > 0 %}
+  <div class="study-grid">
+    {%- for s in studies %}
+    <a class="platform-card" href="{{ s.url | relative_url }}">
+      <span class="chips"><span class="chip">{{ s.from }}</span><span class="chip chip-teal">{{ s.to }}</span></span>
+      <strong class="platform-name">{{ s.title }}</strong>
+      <span class="platform-sum">{{ s.description }}</span>
+      <span class="card-link">Read the case study <span aria-hidden="true">→</span></span>
+    </a>
+    {%- endfor %}
+  </div>
+  {%- else %}
+  <div class="empty-state">
+    <span class="eyebrow">Coming to this page</span>
+    <p>Case studies are published here once each client has approved the write-up. Every one follows the same four parts, so you can compare like with like.</p>
+  </div>
+  {% include cards.html items=page.covers %}
+  <div class="empty-actions">
+    <a class="btn btn-ink btn-sm" href="{{ '/contact/' | relative_url }}">Ask about a reference call <span aria-hidden="true">→</span></a>
+    <a class="btn btn-ghost btn-sm" href="{{ '/insights/' | relative_url }}">Read our insights</a>
+  </div>
+  {%- endif %}
+</div>

@@ -5,12 +5,26 @@
       <span class="wordmark">BI<i>/</i>Transition</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a class="nav-link" href="{{ '/#manifesto' | relative_url }}">Why</a>
-      <a class="nav-link" href="{{ '/#method' | relative_url }}">Method</a>
-      <a class="nav-link" href="{{ '/soon/' | relative_url }}">Platforms</a>
-      <a class="nav-link" href="{{ '/soon/' | relative_url }}">Case studies</a>
-      <a class="nav-link" href="{{ '/soon/' | relative_url }}">Insights</a>
-      <a class="nav-link" href="{{ '/soon/' | relative_url }}">About</a>
+      {%- for item in site.data.nav.primary -%}
+      {%- assign head = item.url | slice: 0, 2 -%}
+      {%- assign active = false -%}
+      {%- if head != "/#" and page.url contains item.url -%}{%- assign active = true -%}{%- endif -%}
+      {%- if item.platforms %}
+      <div class="nav-drop">
+        <a class="nav-link{% if active %} is-active{% endif %}" href="{{ item.url | relative_url }}"{% if active %} aria-current="true"{% endif %}>{{ item.title }}<svg class="nav-caret" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-panel">
+          <div class="nav-panel-inner">
+            {%- for p in site.data.platforms %}
+            <a class="nav-plat" href="{{ '/platforms/' | append: p.slug | append: '/' | relative_url }}"><span class="plat-mono plat-{{ p.tint }}">{{ p.mono }}</span><span class="nav-plat-text"><strong>{{ p.name }}</strong><small>{{ p.roles | join: " · " }}</small></span></a>
+            {%- endfor %}
+            <a class="nav-plat-all" href="{{ item.url | relative_url }}">All supported platforms <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      {%- else %}
+      <a class="nav-link{% if active %} is-active{% endif %}" href="{{ item.url | relative_url }}"{% if active %} aria-current="true"{% endif %}>{{ item.title }}</a>
+      {%- endif -%}
+      {%- endfor %}
     </nav>
     <button class="nav-link theme-toggle" type="button" onclick="BIToggleTheme()"><span id="theme-label">Dark</span></button>
     <a class="nav-cta" href="{{ '/#scan' | relative_url }}">Start a scan</a>
@@ -20,14 +34,30 @@
 
 <div class="menu" id="menu" aria-hidden="true">
   <div class="menu-inner">
-    <nav class="menu-links" aria-label="Menu">
-      <a href="{{ '/#manifesto' | relative_url }}"><span class="menu-num">01</span>Why</a>
-      <a href="{{ '/#method' | relative_url }}"><span class="menu-num">02</span>Method</a>
-      <a href="{{ '/soon/' | relative_url }}"><span class="menu-num">03</span>Platforms<em class="serif menu-soon">soon</em></a>
-      <a href="{{ '/soon/' | relative_url }}"><span class="menu-num">04</span>Case studies<em class="serif menu-soon">soon</em></a>
-      <a href="{{ '/soon/' | relative_url }}"><span class="menu-num">05</span>Insights<em class="serif menu-soon">soon</em></a>
-      <a href="{{ '/soon/' | relative_url }}"><span class="menu-num">06</span>About<em class="serif menu-soon">soon</em></a>
-    </nav>
+    <div class="menu-main">
+      <nav class="menu-links" aria-label="Menu">
+        {%- for item in site.data.nav.primary %}
+        <a href="{{ item.url | relative_url }}"><span class="menu-num">0{{ forloop.index }}</span>{{ item.title }}</a>
+        {%- if item.platforms %}
+        <div class="menu-sub">
+          {%- for p in site.data.platforms %}
+          <a href="{{ '/platforms/' | append: p.slug | append: '/' | relative_url }}">{{ p.name }}</a>
+          {%- endfor %}
+        </div>
+        {%- endif -%}
+        {%- endfor %}
+      </nav>
+      <div class="menu-more">
+        {%- for g in site.data.nav.menu_more %}
+        <div class="menu-group">
+          <span class="menu-group-head">{{ g.title }}</span>
+          {%- for l in g.links %}
+          <a href="{{ l.url | relative_url }}">{{ l.title | escape }}</a>
+          {%- endfor %}
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
     <div class="menu-foot">
       <div class="theme-switch" role="group" aria-label="Theme">
         <button type="button" data-set-theme="light" aria-pressed="false">Light</button>

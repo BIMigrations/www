@@ -1,46 +1,25 @@
 <footer class="site-footer">
   <div class="wrap footer-sitemap">
+    {%- for g in site.data.nav.footer %}
     <div class="footer-col">
-      <span class="footer-head">Platform</span>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Supported platforms</a>
-      <a class="footer-link" href="{{ '/#method' | relative_url }}">How it works</a>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Open specifications</a>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Risk &amp; governance</a>
+      <span class="footer-head">{{ g.title }}</span>
+      {%- for l in g.links %}
+      <a class="footer-link{% if l.cta %} footer-link-cta{% endif %}" href="{{ l.url | relative_url }}">{{ l.title | escape }}</a>
+      {%- endfor %}
     </div>
-    <div class="footer-col">
-      <span class="footer-head">Services</span>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Estate assessment</a>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Full migration</a>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Rationalisation</a>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Engagement models</a>
-    </div>
-    <div class="footer-col">
-      <span class="footer-head">Resources</span>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Case studies</a>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Insights</a>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Migration guides</a>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">FAQ</a>
-      <a class="footer-link footer-link-cta" href="{{ '/#scan' | relative_url }}">Free estate scan →</a>
-    </div>
-    <div class="footer-col">
-      <span class="footer-head">Company</span>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">About us</a>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Careers</a>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Partners</a>
-      <a class="footer-link" href="{{ '/soon/' | relative_url }}">Contact</a>
-    </div>
+    {%- endfor %}
   </div>
   <div class="footer-mark" aria-hidden="true">BI<span>/</span>Transition</div>
   <div class="wrap footer-bar">
-    <div class="footer-brand">
+    <a class="footer-brand" href="{{ '/' | relative_url }}" aria-label="BITransition home">
       <svg class="logo-mark" width="20" height="20" viewBox="0 0 72 72" aria-hidden="true"><polygon points="36,6 64,21 36,36 8,21" style="fill:var(--ink)"></polygon><polygon points="8,21 36,36 36,66 8,51" style="fill:var(--amber)"></polygon><polygon points="36,36 64,21 64,51 36,66" style="fill:var(--teal)"></polygon></svg>
       <span class="wordmark">BI<i>/</i>Transition</span>
-    </div>
+    </a>
     <div class="footer-legal">
-      <a href="{{ '/soon/' | relative_url }}">Security</a>
-      <a href="{{ '/soon/' | relative_url }}">Privacy</a>
-      <a href="{{ '/soon/' | relative_url }}">Terms</a>
-      <span>© 2026 BITransition Ltd.</span>
+      {%- for l in site.data.nav.legal %}
+      <a href="{{ l.url | relative_url }}">{{ l.title }}</a>
+      {%- endfor %}
+      <span>© {{ site.time | date: "%Y" }} BITransition Ltd.</span>
     </div>
   </div>
 </footer>

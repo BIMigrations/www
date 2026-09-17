@@ -1,0 +1,15 @@
+{%- comment -%}
+  Card grid. Usage: {% include cards.html items=page.cards numbered=true %}
+  Each item: title, text, optional label, url, link.
+{%- endcomment -%}
+<div class="cards">
+{%- for c in include.items %}
+<div class="card">
+{%- if include.numbered %}<div class="card-num" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</div>{% endif -%}
+{%- if c.label %}<div class="card-label">{{ c.label }}</div>{% endif %}
+<h3 class="card-title">{{ c.title }}</h3>
+<p class="card-text">{{ c.text }}</p>
+{%- if c.url %}<a class="card-link" href="{{ c.url | relative_url }}">{{ c.link | default: "Read more" }} <span aria-hidden="true">→</span></a>{% endif %}
+</div>
+{%- endfor %}
+</div>

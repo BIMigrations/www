@@ -1,7 +1,8 @@
 ---
 title: Partners
 heading: "Better migrations, <em>together.</em>"
-description: We work alongside the consultancies, systems integrators and platform teams our clients already trust — bringing automation and open specifications to their delivery.
+lead: "We work alongside the consultancies, systems integrators and platform teams our clients already trust — bringing automation and open specifications to their delivery."
+description: "Partner with BITransition: automation, open specifications and parity testing for consultancies, SIs and platform teams delivering BI migrations."
 permalink: /partners/
 parent_title: Company
 types:

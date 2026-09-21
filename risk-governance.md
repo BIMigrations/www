@@ -28,9 +28,9 @@ For every migrated metric, the same question is asked of the source and the targ
 
 ## Access and *row-level security*
 
-Permissions are part of the estate, so they're migrated the same way as everything else. We read the source platform's controls — Domo PDP policies, Qlik Section Access, Looker access filters, Power BI row-level security — into platform-neutral **access policies**, then create the equivalent on the target.
+Permissions are part of the estate, so they're migrated the same way as everything else. We read the source platform's controls — Domo PDP policies, Tableau user filters, Qlik Section Access, Looker access filters, Power BI row-level security — into platform-neutral **access policies**, then create the equivalent on the target.
 
-Each role is tested by checking what a user in that role can see on the source and on the target.
+Each role is tested by checking what a user in that role can see on the source and on the target — for example, PDP policies in a [Domo to Power BI migration](/domo-to-power-bi/), or user filters in a [Tableau to Power BI migration](/tableau-to-power-bi/).
 
 ## Lineage you can *audit*
 

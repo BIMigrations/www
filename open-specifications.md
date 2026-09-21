@@ -44,7 +44,7 @@ source:
   object: "Beast Mode: Net Rev (v2)"
 ```
 
-A **model** is the SQL behind it:
+That metric came from a Domo Beast Mode — exactly what happens in a [Domo to Power BI migration](/domo-to-power-bi/). A **model** is the SQL behind it:
 
 ```sql
 -- models/finance/orders.sql

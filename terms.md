@@ -2,7 +2,7 @@
 title: Terms of use
 crumb: Terms
 heading: "Terms of <em>use.</em>"
-description: The terms that apply when you use this website.
+description: "The terms of use that apply when you visit and use the BITransition website, including content, trademarks, links and liability."
 permalink: /terms/
 parent_title: Legal
 draft_notice: Draft — these terms are pending legal review and their wording may change.

@@ -7,9 +7,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cpolygon points='36,6 64,21 36,36 8,21' fill='%230A0C10'/%3E%3Cpolygon points='8,21 36,36 36,66 8,51' fill='%23C7681B'/%3E%3Cpolygon points='36,36 64,21 64,51 36,66' fill='%230B7F6B'/%3E%3C/svg%3E">
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="32x32">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ '/assets/img/favicon-96.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {% seo %}
+  {% feed_meta %}
+  {%- if page.noindex %}
+  <meta name="robots" content="noindex, follow">
+  {%- endif %}
+  {% include schema.html %}
   <script>
     // Set theme before paint to avoid a flash. Design default: light.
     (function () {
@@ -25,6 +33,6 @@
 </head>
 <body>
   {{ content }}
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
 </body>
 </html>

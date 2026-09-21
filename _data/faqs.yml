@@ -4,7 +4,15 @@
 
 - q: Which BI platforms do you support?
   a: |
-    Our featured platforms are [Domo](/platforms/domo/), [Power BI](/platforms/power-bi/), [Looker](/platforms/looker/) and [Qlik](/platforms/qlik/) (Qlik Sense and QlikView). Tableau, MicroStrategy and Cognos are also in scope as sources, and Tableau, Sigma and Superset as targets. See [supported platforms](/platforms/) for the full list.
+    Our featured platforms are [Domo](/platforms/domo/), [Tableau](/platforms/tableau/), [Power BI](/platforms/power-bi/), [Looker](/platforms/looker/) and [Qlik](/platforms/qlik/) (Qlik Sense and QlikView). MicroStrategy and Cognos are also in scope as sources, and Sigma and Superset as targets. See [supported platforms](/platforms/) for the full list.
+
+- q: Do you migrate Domo to Power BI?
+  a: |
+    Yes — it's one of the routes we run most. DataSets, Magic ETL and SQL DataFlows, Beast Modes, cards and PDP policies are converted into native Power BI semantic models, DAX measures, reports and row-level security, with every metric parity-tested. See [Domo to Power BI migration](/domo-to-power-bi/).
+
+- q: Do you migrate Tableau to Power BI?
+  a: |
+    Yes. Workbooks, data sources, extracts, calculated fields, LOD expressions, table calculations and user filters are converted into native Power BI, with every metric parity-tested. See [Tableau to Power BI migration](/tableau-to-power-bi/) and our guide to [converting Tableau calculations to DAX](/migration-guides/tableau-to-power-bi/).
 
 - q: What are "open specifications"?
   a: |

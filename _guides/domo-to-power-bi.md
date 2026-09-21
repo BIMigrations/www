@@ -1,14 +1,14 @@
 ---
-title: Domo to Power BI migration guide
-crumb: Domo to Power BI
+title: "Domo to Power BI Mapping: Beast Modes to DAX"
+crumb: Domo to Power BI mapping
 heading: "Domo to Power BI, <em>mapped.</em>"
-description: How DataSets, DataFlows, Beast Modes, cards and PDP policies map onto Power BI — and the places that need the most care.
+description: How Domo DataSets, DataFlows, Beast Modes, cards and PDP policies map onto Power BI concepts — and the places a migration needs the most care.
 from: Domo
 to: Power BI
 order: 1
 ---
 
-Domo and Power BI organise analytics differently. Domo keeps data preparation, calculations and visuals close together around each DataSet. Power BI centres on the semantic model: tables, relationships and measures shared by many reports. A good migration doesn't copy one into the other. It reshapes the estate around the model.
+This guide is the detailed companion to our [Domo to Power BI migration](/domo-to-power-bi/) service. Domo and Power BI organise analytics differently. Domo keeps data preparation, calculations and visuals close together around each DataSet. Power BI centres on the semantic model: tables, relationships and measures shared by many reports. A good migration doesn't copy one into the other. It reshapes the estate around the model.
 
 ## Concept *mapping*
 
@@ -56,4 +56,4 @@ Domo cards often read wide, denormalised DataSets. In Power BI, reshaping these 
 6. Rebuild pages as reports; map PDP policies to row-level security roles.
 7. Run both platforms in parallel, sign off each wave, then cut over.
 
-See also: [Domo](/platforms/domo/) · [Power BI](/platforms/power-bi/) · [Full migration](/services/full-migration/)
+See also: [Domo to Power BI migration](/domo-to-power-bi/) · [Domo](/platforms/domo/) · [Power BI](/platforms/power-bi/) · [Full migration](/services/full-migration/)

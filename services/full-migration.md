@@ -1,7 +1,8 @@
 ---
 title: Full migration
 heading: "The whole estate. <em>Rebuilt natively.</em>"
-description: From first scan to final cutover — your BI estate translated into open specifications and regenerated natively on the BI platform you choose, with parity proved along the way.
+lead: "From first scan to final cutover — your BI estate translated into open specifications and regenerated natively on the BI platform you choose, with parity proved along the way."
+description: "End-to-end BI migration: your estate translated into open specifications and regenerated natively on your chosen BI platform, with parity proved."
 permalink: /services/full-migration/
 phases:
   - title: Scan
@@ -18,7 +19,7 @@ phases:
     text: Wave by wave, with sign-off and the source kept live until sign-off.
 ---
 
-A full migration takes your estate from the platform you're leaving to the one you've chosen, with the numbers proved to match before anyone switches over.
+A full migration takes your estate from the platform you're leaving to the one you've chosen, with the numbers proved to match before anyone switches over. The routes we run most often are [Domo to Power BI](/domo-to-power-bi/) and [Tableau to Power BI](/tableau-to-power-bi/).
 
 ## How a migration *runs*
 

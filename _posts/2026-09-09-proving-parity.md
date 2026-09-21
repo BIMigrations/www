@@ -1,5 +1,5 @@
 ---
-title: "Proving parity: how to know the numbers still match"
+title: "Proving Parity After a BI Migration"
 heading: "Proving <em>parity.</em>"
 description: A migrated dashboard that looks right isn't finished. Here's how automated parity tests show the numbers really match before anyone cuts over.
 ---
@@ -10,7 +10,7 @@ The fastest way to lose trust in a new BI platform is for someone to spot a numb
 
 A rebuilt dashboard can look identical and still be wrong. Common causes:
 
-- A calculation evaluated in a different context — per row instead of per group, or across a join that fans out.
+- A calculation evaluated in a different context — per row instead of per group, or across a join that fans out. Tableau LOD expressions rewritten in DAX are a classic case (see [Tableau to Power BI migration](/tableau-to-power-bi/)), as are Domo Beast Modes (see [Domo to Power BI migration](/domo-to-power-bi/)).
 - A filter applied at a different stage.
 - Nulls, rounding or time zones handled differently.
 - Row-level security that's slightly more or less permissive than before.

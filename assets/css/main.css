@@ -723,7 +723,11 @@ img { max-width: 100%; }
 .platform-grid, .study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
 /* four featured platforms: 2-up, then 4-up — never 3 + 1 */
 .platform-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-@media (min-width: 1080px) { .platform-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.platform-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (min-width: 1200px) {
+  .platform-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .platform-grid > :last-child:nth-child(odd) { grid-column: auto; }
+}
 .platform-card {
   position: relative; display: flex; flex-direction: column; gap: 14px; min-height: 300px; padding: 26px;
   background: var(--bg2); border: 1px solid var(--line); border-radius: 26px; color: var(--ink);
@@ -850,4 +854,80 @@ img { max-width: 100%; }
   .empty-state p { font-size: 18px; }
   .empty-actions { display: grid; }
   .empty-actions .btn { justify-content: center; }
+}
+
+/* ==========================================================================
+   Migration routes — nav mega panel, menu, home section, footer
+   ========================================================================== */
+.nav-mega { width: 580px; grid-template-columns: 1fr 1fr; gap: 6px 10px; padding: 12px; }
+.nav-col { display: flex; flex-direction: column; gap: 2px; }
+.nav-col-head { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding: 6px 10px 8px; }
+.nav-col-routes { border-left: 1px solid var(--line); padding-left: 10px; }
+.nav-route { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 12px; align-items: center; padding: 10px; border-radius: 14px; color: var(--ink); transition: background .2s; }
+.nav-route .route-pair { grid-row: 1 / 3; }
+.nav-route strong { font-size: 14px; font-weight: 600; }
+.nav-route small { font-size: 11.5px; color: var(--muted); }
+.nav-route-sm { display: flex; justify-content: space-between; padding: 8px 10px; border-radius: 10px; font-size: 13px; color: var(--ink2); }
+.nav-route-sm span { color: var(--muted); font-size: 11.5px; }
+@media (hover: hover) {
+  .nav-route:hover { background: var(--line); color: var(--ink); }
+  .nav-route-sm:hover { background: var(--line); color: var(--ink); }
+}
+
+.route-pair { display: inline-flex; align-items: center; gap: 8px; }
+.route-arrow { color: var(--muted); font-size: 18px; }
+.route-pair-sm { gap: 4px; }
+.route-pair-sm .plat-mono { width: 26px; height: 26px; border-radius: 8px; font-size: 10.5px; }
+.route-pair-sm .route-arrow { font-size: 12px; }
+
+.menu-sub a.menu-route { color: var(--teal); border-color: color-mix(in srgb, var(--teal) 45%, transparent); }
+
+.routes { padding-top: 40px; padding-bottom: 140px; }
+.routes-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 48px; }
+.routes-head .eyebrow { margin-bottom: 24px; }
+.routes-title { font-size: clamp(40px, 5.4vw, 84px); line-height: .94; letter-spacing: -0.045em; font-weight: 700; margin: 0; }
+.routes-copy { font-size: 16px; line-height: 1.55; color: var(--ink2); max-width: 40ch; margin: 0; }
+
+.route-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.route-card {
+  position: relative; display: flex; flex-direction: column; gap: 16px; padding: 30px;
+  background: var(--bg2); border: 1px solid var(--line); border-radius: 28px; color: var(--ink); overflow: hidden;
+  transition: border-color .2s, transform .25s var(--ease);
+}
+.route-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 80% at 100% 0%, var(--glow-teal), transparent 70%); }
+.route-card > * { position: relative; }
+.route-card .route-pair .plat-mono { width: 56px; height: 56px; border-radius: 16px; font-size: 20px; }
+.route-card .route-arrow { font-size: 24px; }
+.route-name { font-size: clamp(30px, 3vw, 44px); font-weight: 700; letter-spacing: -0.045em; line-height: 1; margin-top: 12px; }
+.route-sum { font-size: 16px; line-height: 1.55; color: var(--ink2); max-width: 52ch; }
+.route-card .card-link { margin-top: auto; padding-top: 8px; }
+@media (hover: hover) { .route-card:hover { border-color: var(--ink); color: var(--ink); transform: translateY(-3px); } }
+.route-more { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 24px 0 0; font-size: 14.5px; }
+.route-more span { color: var(--muted); }
+.route-more a { color: var(--ink2); text-decoration: underline; text-decoration-color: var(--line2); text-underline-offset: 4px; }
+@media (hover: hover) { .route-more a:hover { color: var(--ink); text-decoration-color: var(--ink); } }
+
+.page-body-full .route-grid { margin-bottom: 8px; }
+.subpage-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; animation: rise 1s .24s var(--ease) both; }
+
+.footer-routes { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 28px; padding-top: 28px; padding-bottom: 28px; border-top: 1px solid var(--line); }
+.footer-routes-links { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+.footer-routes-links a { font-size: 14.5px; color: var(--ink2); }
+@media (hover: hover) { .footer-routes-links a:hover { color: var(--ink); } }
+
+@media (max-width: 760px) {
+  .routes { padding-top: 24px; padding-bottom: 88px; }
+  .routes-head { gap: 18px; margin-bottom: 28px; }
+  .routes-title { font-size: 13.5vw; }
+  .routes-copy { font-size: 15px; }
+  .route-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .route-card { padding: 22px; border-radius: 22px; }
+  .route-card .route-pair .plat-mono { width: 46px; height: 46px; border-radius: 13px; font-size: 17px; }
+  .route-name { font-size: 32px; }
+  .route-sum { font-size: 15px; }
+  .route-more { flex-direction: column; gap: 10px; }
+  .subpage-ctas { display: grid; }
+  .subpage-ctas .btn { justify-content: center; }
+  .footer-routes { flex-direction: column; gap: 14px; }
+  .footer-routes-links { flex-direction: column; gap: 12px; }
 }

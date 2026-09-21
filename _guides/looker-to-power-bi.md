@@ -5,7 +5,7 @@ heading: "Looker to Power BI, <em>mapped.</em>"
 description: How LookML models, explores, views, derived tables and access filters map onto Power BI semantic models and reports.
 from: Looker
 to: Power BI
-order: 3
+order: 4
 ---
 
 Looker and Power BI both put a semantic layer at the centre, which makes this one of the more natural migrations. LookML is already code. The work is in resolving what that code does at query time, and in modelling it correctly for Power BI's engine.

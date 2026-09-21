@@ -9,7 +9,18 @@ baseurl: ""
 lang: en
 
 author:
-  name: BITransition Ltd.
+  name: BITransition
+  type: Organization
+  url: https://bitransition.com
+
+# Used by jekyll-seo-tag and the Organization structured data
+logo: /assets/img/logo.png
+twitter:
+  card: summary_large_image
+
+# Search Console verification: paste the token Google gives you, e.g.
+# webmaster_verifications:
+#   google: abc123
 
 # Where the scan and contact forms POST to (e.g. a Formspree endpoint).
 # Leave empty to keep the forms inert.
@@ -34,6 +45,10 @@ collections:
     permalink: /migration-guides/:name/
 
 defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og/default.png
   - scope:
       path: ""
       type: pages
@@ -83,3 +98,4 @@ exclude:
   - README.md
   - vendor
   - .bundle
+  - _case_studies/example-case-study.md

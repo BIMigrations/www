@@ -6,20 +6,23 @@ description: DataSets, DataFlows, Beast Modes, cards and PDP policies — read, 
 permalink: /platforms/domo/
 accent: amber
 related:
+  - label: Migration service
+    title: Domo to Power BI migration
+    text: The dedicated page for the route we're asked about most.
+    url: /domo-to-power-bi/
+    link: Domo to Power BI
   - label: Migration guide
-    title: Domo to Power BI
-    text: A concept-by-concept mapping, with the places that need extra care.
+    title: Domo to Power BI concept mapping
+    text: Beast Modes, DataFlows and PDP policies mapped concept by concept.
     url: /migration-guides/domo-to-power-bi/
     link: Read the guide
   - label: Service
     title: Estate assessment
     text: Find out what's in your Domo instance — and what's still used — before you plan the move.
     url: /services/estate-assessment/
-  - label: Resource
-    title: Open specifications
-    text: What your Domo estate looks like once it's plain SQL, Python, JSON and YAML.
-    url: /open-specifications/
 ---
+
+Moving to Power BI? See our dedicated page on **[Domo to Power BI migration](/domo-to-power-bi/)**.
 
 Domo estates grow quickly: a connector here, a Magic ETL there, a Beast Mode copied into a dozen cards with slightly different logic. Moving off Domo by rebuilding cards by eye means re-deriving all of it. We read it instead.
 

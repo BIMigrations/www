@@ -2,7 +2,8 @@
 title: Looker migration
 crumb: Looker
 heading: "LookML in. <em>Anything</em> out."
-description: Looker is already half-way to open specifications. We read LookML models, explores and derived tables, and carry them to your next BI platform — or bring other estates into Looker.
+lead: "Looker is already half-way to open specifications. We read LookML models, explores and derived tables, and carry them to your next BI platform — or bring other estates into Looker."
+description: "Looker migration: LookML models, explores, derived tables and access filters translated into open specifications and regenerated natively on any BI platform."
 permalink: /platforms/looker/
 related:
   - label: Migration guide

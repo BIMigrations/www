@@ -9,6 +9,14 @@
     </div>
     {%- endfor %}
   </div>
+  <div class="wrap footer-routes">
+    <span class="footer-head">Popular migrations</span>
+    <div class="footer-routes-links">
+      {%- for r in site.data.routes %}
+      <a href="{{ r.url | relative_url }}">{{ r.link }}</a>
+      {%- endfor %}
+    </div>
+  </div>
   <div class="footer-mark" aria-hidden="true">BI<span>/</span>Transition</div>
   <div class="wrap footer-bar">
     <a class="footer-brand" href="{{ '/' | relative_url }}" aria-label="BITransition home">

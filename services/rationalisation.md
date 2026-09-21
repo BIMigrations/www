@@ -1,7 +1,8 @@
 ---
 title: Rationalisation
 heading: "Retire first. <em>Migrate less.</em>"
-description: Most estates carry years of dormant, duplicated and conflicting content. Rationalisation removes it before migration, so you only pay to move what people actually use.
+lead: "Most estates carry years of dormant, duplicated and conflicting content. Rationalisation removes it before migration, so you only pay to move what people actually use."
+description: "BI rationalisation: retire dormant, duplicated and conflicting dashboards before migration, so you only pay to move what people actually use."
 permalink: /services/rationalisation/
 accent: amber
 finds:
@@ -15,7 +16,7 @@ finds:
     text: Datasets and pipelines that no longer feed anything anyone looks at.
 ---
 
-The cheapest dashboard to migrate is the one nobody opens. Rationalisation uses evidence from your own estate to decide what makes the trip.
+The cheapest dashboard to migrate is the one nobody opens — in a [Tableau to Power BI migration](/tableau-to-power-bi/) that's often stale workbooks; in a [Domo to Power BI migration](/domo-to-power-bi/), unused cards and duplicated Beast Modes. Rationalisation uses evidence from your own estate to decide what makes the trip.
 
 ## What we *look for*
 

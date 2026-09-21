@@ -5,7 +5,7 @@ heading: "Qlik to Power BI, <em>mapped.</em>"
 description: From load scripts, QVDs and set analysis to star schemas, pipelines and DAX — for both Qlik Sense and QlikView.
 from: Qlik
 to: Power BI
-order: 2
+order: 3
 ---
 
 Qlik and Power BI both have powerful in-memory engines, but they're built on different ideas. Qlik's associative model links every table automatically and lets users explore through selections. Power BI relies on explicit relationships and measures evaluated in filter context. The migration is as much remodelling as translation.

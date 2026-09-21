@@ -1,0 +1,32 @@
+# Migration routes, most-searched first. Featured routes have a dedicated
+# landing page and appear in the nav, home page, footer and related links.
+- name: Domo to Power BI
+  url: /domo-to-power-bi/
+  featured: true
+  from: { name: Domo, mono: Do, tint: amber }
+  to: { name: Power BI, mono: Pb, tint: teal }
+  kind: Migration service
+  summary: DataSets, Magic ETL, Beast Modes, cards and PDP policies converted to native Power BI — semantic models, DAX and row-level security — with every metric parity-tested.
+  points: [Beast Mode → DAX, PDP → RLS, Magic ETL → pipelines]
+  link: Domo to Power BI migration
+- name: Tableau to Power BI
+  url: /tableau-to-power-bi/
+  featured: true
+  from: { name: Tableau, mono: Tb, tint: ink }
+  to: { name: Power BI, mono: Pb, tint: teal }
+  kind: Migration service
+  summary: Workbooks, data sources, LOD expressions, table calculations and user filters converted to native Power BI reports, semantic models and DAX — with parity proved before cutover.
+  points: [LOD expressions → DAX, Extracts → models, User filters → RLS]
+  link: Tableau to Power BI migration
+- name: Qlik to Power BI
+  url: /migration-guides/qlik-to-power-bi/
+  from: { name: Qlik, mono: Qk, tint: amber }
+  to: { name: Power BI, mono: Pb, tint: teal }
+  kind: Migration guide
+  link: Qlik to Power BI migration guide
+- name: Looker to Power BI
+  url: /migration-guides/looker-to-power-bi/
+  from: { name: Looker, mono: Lk, tint: ink }
+  to: { name: Power BI, mono: Pb, tint: teal }
+  kind: Migration guide
+  link: Looker to Power BI migration guide

@@ -2,7 +2,8 @@
 title: Qlik migration
 crumb: Qlik
 heading: "Unpack Qlik. <em>Line by line.</em>"
-description: Qlik Sense and QlikView load scripts, QVDs, set analysis and Section Access — translated into open specifications and regenerated natively on your next BI platform.
+lead: "Qlik Sense and QlikView load scripts, QVDs, set analysis and Section Access — translated into open specifications and regenerated natively on your next BI platform."
+description: "Qlik Sense and QlikView migration: load scripts, QVDs, set analysis and Section Access translated and regenerated natively on your next BI platform."
 permalink: /platforms/qlik/
 accent: amber
 related:

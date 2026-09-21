@@ -13,10 +13,22 @@
       <div class="nav-drop">
         <a class="nav-link{% if active %} is-active{% endif %}" href="{{ item.url | relative_url }}"{% if active %} aria-current="true"{% endif %}>{{ item.title }}<svg class="nav-caret" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav-panel">
-          <div class="nav-panel-inner">
-            {%- for p in site.data.platforms %}
-            <a class="nav-plat" href="{{ '/platforms/' | append: p.slug | append: '/' | relative_url }}"><span class="plat-mono plat-{{ p.tint }}">{{ p.mono }}</span><span class="nav-plat-text"><strong>{{ p.name }}</strong><small>{{ p.roles | join: " · " }}</small></span></a>
-            {%- endfor %}
+          <div class="nav-panel-inner nav-mega">
+            <div class="nav-col">
+              <span class="nav-col-head">Platforms</span>
+              {%- for p in site.data.platforms %}
+              <a class="nav-plat" href="{{ '/platforms/' | append: p.slug | append: '/' | relative_url }}"><span class="plat-mono plat-{{ p.tint }}">{{ p.mono }}</span><span class="nav-plat-text"><strong>{{ p.name }}</strong><small>{{ p.roles | join: " · " }}</small></span></a>
+              {%- endfor %}
+            </div>
+            <div class="nav-col nav-col-routes">
+              <span class="nav-col-head">Popular migrations</span>
+              {%- for r in site.data.routes %}{% if r.featured %}
+              <a class="nav-route" href="{{ r.url | relative_url }}"><span class="route-pair route-pair-sm" aria-hidden="true"><span class="plat-mono plat-{{ r.from.tint }}">{{ r.from.mono }}</span><span class="route-arrow">→</span><span class="plat-mono plat-{{ r.to.tint }}">{{ r.to.mono }}</span></span><strong>{{ r.name }}</strong><small>{{ r.kind }}</small></a>
+              {%- endif %}{% endfor %}
+              {%- for r in site.data.routes %}{% unless r.featured %}
+              <a class="nav-route-sm" href="{{ r.url | relative_url }}">{{ r.name }} <span>guide</span></a>
+              {%- endunless %}{% endfor %}
+            </div>
             <a class="nav-plat-all" href="{{ item.url | relative_url }}">All supported platforms <span aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -43,6 +55,9 @@
           {%- for p in site.data.platforms %}
           <a href="{{ '/platforms/' | append: p.slug | append: '/' | relative_url }}">{{ p.name }}</a>
           {%- endfor %}
+          {%- for r in site.data.routes %}{% if r.featured %}
+          <a class="menu-route" href="{{ r.url | relative_url }}">{{ r.from.name }} → {{ r.to.name }}</a>
+          {%- endif %}{% endfor %}
         </div>
         {%- endif -%}
         {%- endfor %}

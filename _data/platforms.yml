@@ -6,6 +6,12 @@
   tint: amber
   roles: [Source]
   summary: DataSets, Magic ETL and SQL DataFlows, Beast Modes, cards and PDP policies — moved without re-deriving a single calculation by hand.
+- name: Tableau
+  slug: tableau
+  mono: Tb
+  tint: ink
+  roles: [Source, Target]
+  summary: Workbooks, published data sources, extracts, LOD expressions, table calculations and user filters — translated once and regenerated natively.
 - name: Power BI
   slug: power-bi
   mono: Pb

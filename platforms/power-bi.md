@@ -5,24 +5,24 @@ heading: "Native Power BI. <em>Not</em> a lookalike."
 description: Semantic models, DAX measures, Power Query and reports generated from open specifications — with row-level security mapped and every metric parity-tested.
 permalink: /platforms/power-bi/
 related:
-  - label: Migration guide
-    title: Domo to Power BI
-    text: How DataSets, Beast Modes and PDP policies land in Power BI.
-    url: /migration-guides/domo-to-power-bi/
-    link: Read the guide
+  - label: Migration service
+    title: Domo to Power BI migration
+    text: DataSets, Beast Modes and PDP policies converted to native Power BI.
+    url: /domo-to-power-bi/
+    link: Domo to Power BI
+  - label: Migration service
+    title: Tableau to Power BI migration
+    text: Workbooks, LOD expressions and user filters converted to native Power BI.
+    url: /tableau-to-power-bi/
+    link: Tableau to Power BI
   - label: Migration guide
     title: Qlik to Power BI
     text: From load scripts and set analysis to star schemas and DAX.
     url: /migration-guides/qlik-to-power-bi/
     link: Read the guide
-  - label: Migration guide
-    title: Looker to Power BI
-    text: From LookML explores and derived tables to semantic models.
-    url: /migration-guides/looker-to-power-bi/
-    link: Read the guide
 ---
 
-Power BI is the most common destination we see. The goal is not a copy that looks right on the first screen. It's a model your team would have built themselves: a clean star schema, measures written in idiomatic DAX, and security that behaves the way it did before.
+Power BI is the most common destination we see, and the routes we're asked about most are **[Domo to Power BI](/domo-to-power-bi/)** and **[Tableau to Power BI](/tableau-to-power-bi/)**. We also migrate [Qlik to Power BI](/migration-guides/qlik-to-power-bi/) and [Looker to Power BI](/migration-guides/looker-to-power-bi/). The goal is not a copy that looks right on the first screen. It's a model your team would have built themselves: a clean star schema, measures written in idiomatic DAX, and security that behaves the way it did before.
 
 ## What we *generate*
 

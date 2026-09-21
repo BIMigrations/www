@@ -18,7 +18,7 @@ covers:
     text: A wave-by-wave migration plan with timeline and effort, based on your actual inventory.
 ---
 
-Most migration estimates are guesses: a count of dashboards, multiplied by a number of days. An estate assessment replaces the guess with a measured inventory of your whole estate.
+Most migration estimates are guesses: a count of dashboards, multiplied by a number of days. An estate assessment replaces the guess with a measured inventory of your whole estate — whether you're planning a [Domo to Power BI migration](/domo-to-power-bi/), a [Tableau to Power BI migration](/tableau-to-power-bi/) or something else.
 
 ## Start with the free *scan*
 

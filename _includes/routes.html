@@ -1,0 +1,22 @@
+{%- comment -%}
+  Featured migration routes as large cards, plus a line of links to the rest.
+  Usage: {% include routes.html exclude=page.url %}
+{%- endcomment -%}
+<div class="route-grid">
+{%- for r in site.data.routes %}
+{%- if r.featured and r.url != include.exclude %}
+<a class="route-card" href="{{ r.url | relative_url }}">
+<span class="route-pair" aria-hidden="true"><span class="plat-mono plat-{{ r.from.tint }}">{{ r.from.mono }}</span><span class="route-arrow">→</span><span class="plat-mono plat-{{ r.to.tint }}">{{ r.to.mono }}</span></span>
+<strong class="route-name">{{ r.name }}</strong>
+<span class="route-sum">{{ r.summary }}</span>
+<span class="chips">{% for pt in r.points %}<span class="chip">{{ pt }}</span>{% endfor %}</span>
+<span class="card-link">{{ r.link }} <span aria-hidden="true">→</span></span>
+</a>
+{%- endif %}
+{%- endfor %}
+</div>
+<p class="route-more"><span>More routes:</span>
+{%- for r in site.data.routes %}{% unless r.featured %}{% if r.url != include.exclude %}
+<a href="{{ r.url | relative_url }}">{{ r.link }}</a>
+{%- endif %}{% endunless %}{% endfor %}
+<a href="{{ '/platforms/' | relative_url }}">All supported platforms</a></p>

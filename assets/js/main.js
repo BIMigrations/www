@@ -277,15 +277,29 @@
       var dpr = Math.min(2, window.devicePixelRatio || 1);
       W = r.width; H = r.height; c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       mobile = mqMobile.matches;
-      var dot = hero.querySelector('.hero-kicker .dot-teal');
-      if (mobile && dot) {
-        // offset* ignores the kicker's entrance transform, so the target is stable mid-animation
+      // The green target: the ringed dot on desktop, the "Anywhere" dot on mobile
+      var dot = hero.querySelector(mobile ? '.hero-kicker .dot-teal' : '.hero-target');
+      if (dot) {
+        // offset* ignores entrance transforms, so the target is stable mid-animation
         var x = dot.offsetWidth / 2, y = dot.offsetHeight / 2, el = dot;
         while (el && el !== hero) { x += el.offsetLeft; y += el.offsetTop; el = el.offsetParent; }
         tx = x; ty = y;
+      } else { tx = W * 0.9; ty = H * 0.42; }
+      if (mobile) {
         hero.style.setProperty('--tx', tx + 'px');
         hero.style.setProperty('--ty', ty + 'px');
       }
+    }
+
+    var SPEED = 0.5;   // relative to the original design's pace
+    var FADE = 0.05;   // how long (in t) a card lingers in the target before respawning
+    function respawn(p, rate) {
+      p.t += p.speed * rate;
+      if (p.t > 1 + FADE) { p.t = -0.08; p.lane = Math.random(); }
+    }
+    function fadeIn(t, pt) {
+      var a = 0.25 + 0.65 * (1 - Math.abs(0.5 - t) * 1.2);
+      return pt > 1 ? a * Math.max(0, 1 - (pt - 1) / FADE) : a;
     }
 
     var mouse = { x: -1e4, y: -1e4 };
@@ -299,50 +313,48 @@
     var amber = toRGB(hex('--amber')), teal = toRGB(hex('--teal')), tick = 0;
 
     function drawHorizontal(now, advance) {
-      var cy = H * 0.42, spreadIn = H * 0.36, spreadOut = H * 0.14;
+      var spreadIn = H * 0.36;
       for (var idx = 0; idx < P.length; idx++) {
         var p = P[idx];
-        if (advance) { p.t += p.speed; if (p.t > 1.08) { p.t = -0.08; p.lane = Math.random(); } }
+        if (advance) respawn(p, SPEED);
         var t = Math.min(1, Math.max(0, p.t));
         var e = t * t * (3 - 2 * t);
-        var x = -40 + p.t * (W + 80);
-        var spread = spreadIn + (spreadOut - spreadIn) * e;
-        var y = cy + (p.lane - 0.5) * 2 * spread * (1 - e) + (p.lane - 0.5) * 2 * spreadOut * e;
-        y += Math.sin(now * 0.0012 + p.wob + x * 0.01) * 10 * (1 - e);
+        var k = 1 - e; // spread, wobble and pointer push all vanish at the target, so every card lands dead centre
+        var x = -40 + t * (tx + 40);
+        var y = ty + (p.lane - 0.5) * 2 * spreadIn * k;
+        y += Math.sin(now * 0.0012 + p.wob + x * 0.01) * 10 * k;
         var dx = x - mouse.x, dy = y - mouse.y, d2 = dx * dx + dy * dy;
-        if (d2 < 22000) { y += (dy / Math.sqrt(d2 + 1)) * (1 - d2 / 22000) * 34; }
-        paint(x, y, p.w * (1 - e * 0.35), p.h, (1 - e) * (p.lane - 0.5) * 0.9, e, 0.25 + 0.65 * (1 - Math.abs(0.5 - t) * 1.2));
+        if (d2 < 22000) { y += (dy / Math.sqrt(d2 + 1)) * (1 - d2 / 22000) * 34 * k; }
+        paint(x, y, p.w * (1 - e * 0.55), p.h * (1 - e * 0.4), k * (p.lane - 0.5) * 0.9, e, fadeIn(t, p.t));
       }
+      // faint lanes converging on the target
       ctx.strokeStyle = 'rgba(' + teal[0] + ',' + teal[1] + ',' + teal[2] + ',0.08)'; ctx.lineWidth = 1;
       for (var li = 0; li < 6; li++) {
-        var ly = cy + (li - 2.5) * spreadOut * 0.5;
-        ctx.beginPath(); ctx.moveTo(W * 0.55, ly); ctx.lineTo(W, ly); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(tx - W * 0.35, ty + (li - 2.5) * H * 0.05); ctx.lineTo(tx, ty); ctx.stroke();
       }
     }
 
     function drawVertical(now, advance) {
-      var L = ty + 40, spreadIn = W * 0.62, spreadOut = W * 0.03;
+      var spreadIn = W * 0.62;
       for (var idx = 0; idx < 200; idx++) {
         var p = P[idx];
-        if (advance) { p.t += p.speed * 1.6; if (p.t > 1.08) { p.t = -0.08; p.lane = Math.random(); } }
+        if (advance) respawn(p, 1.6 * SPEED);
         var t = Math.min(1, Math.max(0, p.t));
         var e = t * t * (3 - 2 * t);
-        var y = -40 + p.t * L;
-        var spread = spreadIn + (spreadOut - spreadIn) * e;
+        var k = 1 - e;
+        var y = -40 + t * (ty + 40);
         var cx = W * 0.5 + (tx - W * 0.5) * e; // enter centred, sweep diagonally into the target
-        var x = cx + (p.lane - 0.5) * 2 * spread * (1 - e) + (p.lane - 0.5) * 2 * spreadOut * e;
-        x += Math.sin(now * 0.0012 + p.wob + y * 0.01) * 8 * (1 - e);
+        var x = cx + (p.lane - 0.5) * 2 * spreadIn * k;
+        x += Math.sin(now * 0.0012 + p.wob + y * 0.01) * 8 * k;
         var dx = x - mouse.x, dy = y - mouse.y, d2 = dx * dx + dy * dy;
-        if (d2 < 16000) { x += (dx / Math.sqrt(d2 + 1)) * (1 - d2 / 16000) * 30; }
-        var alpha = 0.25 + 0.65 * (1 - Math.abs(0.5 - t) * 1.2);
-        if (p.t > 1) alpha *= Math.max(0, 1 - (p.t - 1) / 0.08);
-        paint(x, y, p.w * 0.85 * (1 - e * 0.35), p.h * 0.85, Math.PI / 2 + (1 - e) * (p.lane - 0.5) * 0.9, e, alpha);
+        if (d2 < 16000) { x += (dx / Math.sqrt(d2 + 1)) * (1 - d2 / 16000) * 30 * k; }
+        paint(x, y, p.w * 0.85 * (1 - e * 0.55), p.h * 0.85 * (1 - e * 0.4), Math.PI / 2 + k * (p.lane - 0.5) * 0.9, e, fadeIn(t, p.t));
       }
       // funnel hairlines + halo around the target dot
       ctx.strokeStyle = 'rgba(' + teal[0] + ',' + teal[1] + ',' + teal[2] + ',0.12)'; ctx.lineWidth = 1;
       var hx = W * 0.5 + (tx - W * 0.5) * 0.4;
       for (var li = 0; li < 6; li++) {
-        ctx.beginPath(); ctx.moveTo(hx + (li - 2.5) * 26, ty * 0.42); ctx.lineTo(tx + (li - 2.5) * 3, ty - 12); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(hx + (li - 2.5) * 26, ty * 0.42); ctx.lineTo(tx, ty); ctx.stroke();
       }
       ctx.fillStyle = 'rgba(' + teal[0] + ',' + teal[1] + ',' + teal[2] + ',0.07)';
       ctx.beginPath(); ctx.arc(tx, ty, 34, 0, Math.PI * 2); ctx.fill();

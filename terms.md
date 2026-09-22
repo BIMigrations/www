@@ -2,7 +2,7 @@
 title: Terms of use
 crumb: Terms
 heading: "Terms of <em>use.</em>"
-description: "The terms of use that apply when you visit and use the BITransition website, including content, trademarks, links and liability."
+description: "The terms of use that apply when you visit and use the BI Migrations website, including content, trademarks, links and liability."
 permalink: /terms/
 parent_title: Legal
 draft_notice: Draft — these terms are pending legal review and their wording may change.
@@ -10,15 +10,15 @@ draft_notice: Draft — these terms are pending legal review and their wording m
 
 ## About these *terms*
 
-These terms apply to your use of this website, which is operated by BITransition Ltd. By using the site, you agree to them. Services we provide to clients are covered by separate written agreements.
+These terms apply to your use of this website, which is operated by BI Migrations. By using the site, you agree to them. Services we provide to clients are covered by separate written agreements.
 
 ## Using the *site*
 
-You may use this site to learn about BITransition and to get in touch with us. Please don't misuse it — for example, by trying to gain unauthorised access, disrupting how it works, or submitting content that is unlawful or that you don't have the right to share.
+You may use this site to learn about BI Migrations and to get in touch with us. Please don't misuse it — for example, by trying to gain unauthorised access, disrupting how it works, or submitting content that is unlawful or that you don't have the right to share.
 
 ## Content and *intellectual property*
 
-The content on this site, including text, graphics and the BITransition name and mark, belongs to BITransition Ltd. or its licensors. Product names such as Domo, Power BI, Looker, Qlik, Tableau, MicroStrategy, Cognos, Sigma and Superset are trademarks of their respective owners. We use them only to identify the platforms we work with, and this doesn't imply endorsement.
+The content on this site, including text, graphics and the BI Migrations name and mark, belongs to BI Migrations or its licensors. Product names such as Domo, Power BI, Looker, Qlik, Tableau, MicroStrategy, Cognos, Sigma and Superset are trademarks of their respective owners. We use them only to identify the platforms we work with, and this doesn't imply endorsement.
 
 ## Information on this *site*
 

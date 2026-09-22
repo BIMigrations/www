@@ -1,6 +1,6 @@
 # www
 
-Public-facing website of BITransition — a Jekyll site.
+Public-facing website of BI Migrations — a Jekyll site.
 
 ## Develop
 

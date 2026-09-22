@@ -551,7 +551,7 @@ img { max-width: 100%; }
   .footer-sitemap { padding-top: 56px; gap: 36px 20px; }
   .footer-mark {
     display: block; padding: 28px 20px 26px; white-space: nowrap; overflow: hidden;
-    font-size: 15.4vw; font-weight: 800; letter-spacing: -0.06em; line-height: .82;
+    font-size: 14.5vw; font-weight: 800; letter-spacing: -0.06em; line-height: .82;
     color: transparent; -webkit-text-stroke: 1px var(--line2);
   }
   .footer-mark span { color: var(--teal); -webkit-text-stroke: 0; font-weight: 300; }

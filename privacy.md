@@ -10,7 +10,7 @@ draft_notice: Draft — this notice is pending legal review and its wording may 
 
 ## Who we *are*
 
-This website is operated by BITransition Ltd. ("BITransition", "we", "us"). If you have any question about this notice or your personal data, [contact us](/contact/).
+This website is operated by BI Migrations ("BI Migrations", "we", "us"). If you have any question about this notice or your personal data, [contact us](/contact/).
 
 ## What we *collect*
 

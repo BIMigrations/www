@@ -32,6 +32,6 @@ A mutual NDA is standard for every engagement, starting before the first metadat
 
 ## Reporting a *security issue*
 
-If you believe you've found a security issue affecting BITransition, please tell us through our [contact page](/contact/) and choose "Something else". We'll follow up directly.
+If you believe you've found a security issue affecting BI Migrations, please tell us through our [contact page](/contact/) and choose "Something else". We'll follow up directly.
 
 See also: [privacy](/privacy/) and [risk & governance](/risk-governance/).

@@ -2,7 +2,7 @@
 {%- assign base = site.url | append: site.baseurl -%}
 {%- if page.url == "/" %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","@id":"{{ base }}/#organization","name":"BITransition","legalName":"BITransition Ltd.","url":"{{ base }}/","logo":"{{ base }}/assets/img/logo.png","description":{{ site.description | strip_newlines | jsonify }},"knowsAbout":["BI migration","Domo to Power BI migration","Tableau to Power BI migration","Qlik to Power BI migration","Looker to Power BI migration","Power BI","DAX","Semantic models","Row-level security"]}
+{"@context":"https://schema.org","@type":"Organization","@id":"{{ base }}/#organization","name":"BI Migrations","url":"{{ base }}/","logo":"{{ base }}/assets/img/logo.png","description":{{ site.description | strip_newlines | jsonify }},"knowsAbout":["BI migration","Domo to Power BI migration","Tableau to Power BI migration","Qlik to Power BI migration","Looker to Power BI migration","Power BI","DAX","Semantic models","Row-level security"]}
 </script>
 {%- endif %}
 {%- if page.layout == "page" and page.url != "/404.html" %}
@@ -31,11 +31,11 @@
 {%- endif %}
 {%- if page.service %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","name":{{ page.service.name | jsonify }},"serviceType":{{ page.service.type | jsonify }},"description":{{ page.description | jsonify }},"url":"{{ base }}{{ page.url }}","provider":{"@type":"Organization","@id":"{{ base }}/#organization","name":"BITransition","url":"{{ base }}/"},"areaServed":"Worldwide"}
+{"@context":"https://schema.org","@type":"Service","name":{{ page.service.name | jsonify }},"serviceType":{{ page.service.type | jsonify }},"description":{{ page.description | jsonify }},"url":"{{ base }}{{ page.url }}","provider":{"@type":"Organization","@id":"{{ base }}/#organization","name":"BI Migrations","url":"{{ base }}/"},"areaServed":"Worldwide"}
 </script>
 {%- endif %}
 {%- if page.collection == "guides" %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"TechArticle","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"url":"{{ base }}{{ page.url }}","about":[{"@type":"SoftwareApplication","name":{{ page.from | jsonify }}},{"@type":"SoftwareApplication","name":{{ page.to | jsonify }}}],"publisher":{"@type":"Organization","@id":"{{ base }}/#organization","name":"BITransition"}}
+{"@context":"https://schema.org","@type":"TechArticle","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"url":"{{ base }}{{ page.url }}","about":[{"@type":"SoftwareApplication","name":{{ page.from | jsonify }}},{"@type":"SoftwareApplication","name":{{ page.to | jsonify }}}],"publisher":{"@type":"Organization","@id":"{{ base }}/#organization","name":"BI Migrations"}}
 </script>
 {%- endif %}

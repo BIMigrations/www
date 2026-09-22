@@ -1,4 +1,4 @@
-title: BITransition
+title: BI Migrations
 tagline: BI migration, automated.
 description: >-
   Your BI estate — models, transformations, calculations, dashboards —
@@ -9,7 +9,7 @@ baseurl: ""
 lang: en
 
 author:
-  name: BITransition
+  name: BI Migrations
   type: Organization
   url: https://bimigrations.com
 

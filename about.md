@@ -1,7 +1,7 @@
 ---
 title: About us
 heading: "Built so nobody has to <em>migrate twice.</em>"
-description: BITransition exists because BI migrations keep being run the same expensive way — analysts rebuilding dashboards by eye, one screen at a time.
+description: We started BI Migrations because migrations keep being run the same expensive way — analysts rebuilding dashboards by eye, one screen at a time.
 permalink: /about/
 beliefs:
   - title: Open, not opaque
@@ -20,7 +20,7 @@ BI estates usually outlive the platform they were built on. Prices change, strat
 
 The usual answer is a hand rebuild. Analysts open the old dashboard, work out what each number is meant to mean, and build it again somewhere else. It's slow and expensive. Worse, it produces a new estate that's locked into the new platform just as tightly as the old one was locked into the last.
 
-We think the analysis should be separated from the platform once, and then kept that way. That's what BITransition does.
+We think the analysis should be separated from the platform once, and then kept that way. That's what BI Migrations does.
 
 ## What we *believe*
 

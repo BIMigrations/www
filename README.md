@@ -49,7 +49,7 @@ Then open http://localhost:4000.
 - **Structured data** (`_includes/schema.html`): Organization (home), BreadcrumbList (sub-pages), FAQPage (any page with `faqs` front matter, and `/faqs/`), Service (pages with `service`), TechArticle (guides).
 - **Crawling:** `sitemap.xml` and `robots.txt` come from `jekyll-sitemap`; set `sitemap: false` or `noindex: true` in front matter to exclude a page.
 - **Share images:** `assets/img/og/` (1200×630). Set `image:` in front matter for a page-specific one.
-- **Search Console:** add the verification token under `webmaster_verifications` in `_config.yml`, then submit `https://bitransition.com/sitemap.xml`.
+- **Search Console:** add the verification token under `webmaster_verifications` in `_config.yml`, then submit `https://bimigrations.com/sitemap.xml`.
 
 GitHub Pages builds this site with its standard (legacy) Jekyll build, so only whitelisted plugins run.
 

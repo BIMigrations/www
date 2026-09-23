@@ -6,7 +6,7 @@
 id: "1FAIpQLSfWBPtGNLpHYe1xCy4R7n-Ps_wunS5UMOiHPc6BSz86mj-0Ow"
 
 fields:
-  email: emailAddress        # built-in "Collect email addresses: responder input"
+  email: entry.1972426914    # Email Address
   name: entry.843891434      # Full Name
   company: entry.1522574862  # Company
   platform: entry.1011809931 # Current BI Platform

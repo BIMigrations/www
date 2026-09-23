@@ -193,10 +193,12 @@ description: "Automated BI migration to Power BI and beyond. Domo, Tableau, Qlik
       <div class="wrap scan-inner">
         <h2 class="scan-title">Show us your <span class="serif c-teal">estate.</span></h2>
         <form class="scan-form" {% include form-attrs.html %}>
-          <input type="hidden" name="source" value="home-scan">
+          {% include gform-hidden.html %}
+          <input type="hidden" name="{{ site.data.gform.fields.interest }}" value="Free estate scan (home page)">
           <label class="sr-only" for="scan-email">Work email</label>
-          <input class="scan-input" id="scan-email" type="email" name="email" placeholder="work@company.com" autocomplete="email" inputmode="email">
+          <input class="scan-input" id="scan-email" type="email" name="{{ site.data.gform.fields.email }}" placeholder="work@company.com" autocomplete="email" inputmode="email" required>
           <button class="scan-submit" type="submit">Request free scan →</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
         <p class="scan-note">A read-only metadata export is enough to start. No platform access required, mutual NDA as standard.</p>
       </div>

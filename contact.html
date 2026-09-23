@@ -9,23 +9,23 @@ hide_cta: true
 ---
 <div class="wrap page-body contact-layout">
   <form class="contact-form" {% include form-attrs.html %}>
-    <input type="hidden" name="source" value="contact-page">
+    {% include gform-hidden.html %}
     <div class="form-grid">
       <label class="field">
         <span>Name</span>
-        <input type="text" name="name" autocomplete="name" required>
+        <input type="text" name="{{ site.data.gform.fields.name }}" autocomplete="name" required>
       </label>
       <label class="field">
         <span>Work email</span>
-        <input type="email" name="email" autocomplete="email" inputmode="email" required>
+        <input type="email" name="{{ site.data.gform.fields.email }}" autocomplete="email" inputmode="email" required>
       </label>
       <label class="field">
         <span>Company</span>
-        <input type="text" name="company" autocomplete="organization">
+        <input type="text" name="{{ site.data.gform.fields.company }}" autocomplete="organization">
       </label>
       <label class="field">
         <span>Current BI platform</span>
-        <select name="platform">
+        <select name="{{ site.data.gform.fields.platform }}">
           <option value="">Select…</option>
           <option>Domo</option>
           <option>Power BI</option>
@@ -40,24 +40,25 @@ hide_cta: true
       </label>
       <label class="field field-full">
         <span>What are you looking for?</span>
-        <select name="interest" id="contact-interest">
-          <option value="scan">A free estate scan</option>
-          <option value="assessment">An estate assessment</option>
-          <option value="migration">A full migration</option>
-          <option value="rationalisation">Rationalisation</option>
-          <option value="partnership">Partnering with BI Migrations</option>
-          <option value="careers">Careers</option>
-          <option value="other">Something else</option>
+        <select name="{{ site.data.gform.fields.interest }}" id="contact-interest">
+          <option data-key="scan" value="A free estate scan">A free estate scan</option>
+          <option data-key="assessment" value="An estate assessment">An estate assessment</option>
+          <option data-key="migration" value="A full migration">A full migration</option>
+          <option data-key="rationalisation" value="Rationalisation">Rationalisation</option>
+          <option data-key="partnership" value="Partnership">Partnering with BI Migrations</option>
+          <option data-key="careers" value="Careers">Careers</option>
+          <option data-key="other" value="Something else">Something else</option>
         </select>
       </label>
       <label class="field field-full">
         <span>Message</span>
-        <textarea name="message" rows="5" placeholder="A few lines about your estate, timeline or question."></textarea>
+        <textarea {% if site.data.gform.fields.message != "" %}name="{{ site.data.gform.fields.message }}"{% else %}data-merge-into="{{ site.data.gform.fields.interest }}"{% endif %} rows="5" placeholder="A few lines about your estate, timeline or question."></textarea>
       </label>
     </div>
     <div class="form-actions">
       <button class="btn btn-ink" type="submit">Send message <span aria-hidden="true">→</span></button>
       <p class="form-note">We'll only use these details to reply to you. See our <a href="{{ '/privacy/' | relative_url }}">privacy notice</a>.</p>
+      <p class="form-status" role="status" aria-live="polite"></p>
     </div>
   </form>
 

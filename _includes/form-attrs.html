@@ -1,1 +1,6 @@
-{% if site.form_endpoint and site.form_endpoint != "" %}action="{{ site.form_endpoint }}" method="post"{% else %}action="#" onsubmit="return false"{% endif %}
+{%- comment -%}
+  Attributes that turn a form into a Google Forms submission. JavaScript
+  intercepts the submit and posts in the background; without JavaScript the
+  browser posts natively and lands on Google's confirmation page.
+{%- endcomment -%}
+action="https://docs.google.com/forms/d/e/{{ site.data.gform.id }}/formResponse" method="post" data-gform

@@ -23,6 +23,7 @@ Then open http://localhost:4000.
 | `_data/platforms.yml` | Featured platforms (drives the dropdown, menu and `/platforms/`) |
 | `_data/routes.yml` | Migration routes (Domo → Power BI, Tableau → Power BI, …) — drives the nav, home section, footer and related links |
 | `_data/faqs.yml` | Questions on `/faqs/` |
+| `_data/gform.yml` | Google Form ID and field mapping for the contact and scan forms |
 | `platforms/` | `/platforms/` and one page per featured platform |
 | `services/` | Estate assessment, full migration, rationalisation, engagement models |
 | `_posts/` | Insights articles (`/insights/<slug>/`) |
@@ -55,7 +56,23 @@ GitHub Pages builds this site with its standard (legacy) Jekyll build, so only w
 
 ## Forms
 
-The home-page scan form and `/contact/` post to `form_endpoint` in `_config.yml` (for example, a Formspree URL). While it's empty, the forms don't submit.
+The home-page scan form and `/contact/` submit to the Google Form configured in
+`_data/gform.yml`, which is what triggers the notification email.
+
+- `assets/js/main.js` intercepts the submit and posts the fields to the form's
+  `formResponse` endpoint with `fetch(..., { mode: 'no-cors' })`, then swaps the
+  form for a thank-you panel. Without JavaScript the form posts natively and the
+  visitor lands on Google's own confirmation page.
+- Field names in the markup **are** the Google entry IDs, pulled from
+  `_data/gform.yml`, so a form change means editing that one file.
+- To find the IDs: open the form and read `FB_PUBLIC_LOAD_DATA_[1][1]` in the
+  console — each question's ID is `item[4][0][0]`. The built-in email question is
+  `emailAddress`, not an `entry.*` field.
+- Every form has a hidden honeypot field; submissions that fill it are dropped
+  silently.
+- The form has no Message question yet, so the message typed on `/contact/` is
+  appended to the interest answer. Add a paragraph question called "Message" and
+  put its entry ID in `_data/gform.yml` to give it its own column.
 
 ## Responsive behaviour
 

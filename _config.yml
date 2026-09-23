@@ -22,10 +22,6 @@ twitter:
 # webmaster_verifications:
 #   google: abc123
 
-# Where the scan and contact forms POST to (e.g. a Formspree endpoint).
-# Leave empty to keep the forms inert.
-form_endpoint: ""
-
 # Build settings
 markdown: kramdown
 kramdown:

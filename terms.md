@@ -10,7 +10,7 @@ draft_notice: Draft — these terms are pending legal review and their wording m
 
 ## About these *terms*
 
-These terms apply to your use of this website, which is operated by BI Migrations. By using the site, you agree to them. Services we provide to clients are covered by separate written agreements.
+These terms apply to your use of this website, which is operated by BI Migrations, LLC. By using the site, you agree to them. Services we provide to clients are covered by separate written agreements.
 
 ## Using the *site*
 
@@ -18,7 +18,7 @@ You may use this site to learn about BI Migrations and to get in touch with us. 
 
 ## Content and *intellectual property*
 
-The content on this site, including text, graphics and the BI Migrations name and mark, belongs to BI Migrations or its licensors. Product names such as Domo, Power BI, Looker, Qlik, Tableau, MicroStrategy, Cognos, Sigma and Superset are trademarks of their respective owners. We use them only to identify the platforms we work with, and this doesn't imply endorsement.
+The content on this site, including text, graphics and the BI Migrations name and mark, belongs to BI Migrations, LLC or its licensors. Product names such as Domo, Power BI, Looker, Qlik, Tableau, MicroStrategy, Cognos, Sigma and Superset are trademarks of their respective owners. We use them only to identify the platforms we work with, and this doesn't imply endorsement.
 
 ## Information on this *site*
 

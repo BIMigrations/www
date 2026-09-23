@@ -1,0 +1,18 @@
+# Google Form that receives website enquiries. Submissions are posted to it by
+# assets/js/main.js, which triggers Google's notification email.
+#
+# To find these IDs: open the form, and in the browser console read
+# FB_PUBLIC_LOAD_DATA_[1][1] — each question's entry ID is item[4][0][0].
+id: "1FAIpQLSfWBPtGNLpHYe1xCy4R7n-Ps_wunS5UMOiHPc6BSz86mj-0Ow"
+
+fields:
+  email: emailAddress        # built-in "Collect email addresses: responder input"
+  name: entry.843891434      # Full Name
+  company: entry.1522574862  # Company
+  platform: entry.1011809931 # Current BI Platform
+  interest: entry.5010428    # What are you looking for?
+  # No "Message" question exists on the form yet. While this is empty, the
+  # message typed on /contact/ is appended to the interest answer so it still
+  # reaches the notification email. Add a paragraph question called "Message"
+  # to the form, then paste its entry.NNN here to keep it in its own column.
+  message: ""

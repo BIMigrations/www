@@ -433,13 +433,84 @@
     var select = document.getElementById('contact-interest');
     if (!select || !window.URLSearchParams) return;
     var want = new URLSearchParams(window.location.search).get('interest');
-    if (want && select.querySelector('option[value="' + want.replace(/[^a-z]/gi, '') + '"]')) select.value = want;
+    if (!want) return;
+    var opt = select.querySelector('option[data-key="' + want.replace(/[^a-z]/gi, '') + '"]');
+    if (opt) select.value = opt.value;
+  }
+
+  /* ---------- Google Forms submission ----------
+     Posts the form to its Google Form in the background, which is what
+     triggers the notification email. The response is opaque (no-cors), so a
+     resolved request is treated as delivered; only a network failure errors.
+     Without JavaScript the form posts natively to Google instead. */
+  function wireForms() {
+    document.querySelectorAll('form[data-gform]').forEach(function (form) {
+      var status = form.querySelector('.form-status');
+      var button = form.querySelector('[type="submit"]');
+      var sending = false;
+
+      function say(msg, isError) {
+        if (!status) return;
+        status.textContent = msg;
+        status.classList.toggle('is-error', !!isError);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (sending) return;
+
+        var data = new FormData(form);
+
+        // Honeypot: bots fill it, people can't see it. Pretend all is well.
+        var hp = form.querySelector('[data-hp]');
+        if (hp) {
+          if (hp.value) { succeed(); return; }
+          data.delete(hp.name);
+        }
+
+        // Until the form has its own Message question, fold the message into
+        // the interest answer so it still reaches the email.
+        var merge = form.querySelector('[data-merge-into]');
+        if (merge && merge.value.trim()) {
+          var key = merge.getAttribute('data-merge-into');
+          var existing = data.get(key) || '';
+          data.set(key, (existing ? existing + ' — ' : '') + merge.value.trim());
+        }
+
+        var body = new URLSearchParams();
+        data.forEach(function (v, k) { if (v !== '') body.append(k, v); });
+
+        sending = true;
+        form.dataset.sending = 'true';
+        if (button) { button.disabled = true; button.dataset.label = button.textContent; button.textContent = 'Sending…'; }
+        say('');
+
+        fetch(form.action, { method: 'POST', mode: 'no-cors', body: body })
+          .then(succeed)
+          .catch(function () {
+            sending = false;
+            delete form.dataset.sending;
+            if (button) { button.disabled = false; button.textContent = button.dataset.label || 'Send'; }
+            say("That didn't send — check your connection and try again, or email us instead.", true);
+          });
+      });
+
+      function succeed() {
+        var panel = document.createElement('div');
+        panel.className = 'form-success';
+        panel.setAttribute('role', 'status');
+        panel.innerHTML = '<span class="dot dot-teal"></span><strong>Thanks — that\'s with us.</strong>' +
+          '<span>We\'ll come back to you by email. If it\'s urgent, say so in a reply and we\'ll prioritise it.</span>';
+        form.replaceChildren(panel);
+      }
+    });
   }
 
   /* ---------- Init ---------- */
   function init() {
     buildToc();
     prefillContact();
+    wireForms();
     syncThemeUI();
     wireThemeSwitch();
     wireMenu();

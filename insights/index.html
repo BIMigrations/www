@@ -7,16 +7,9 @@ parent_title: Resources
 full_width: true
 ---
 <div class="wrap page-body page-body-full">
-  <div class="post-list">
+  <div class="blog-grid blog-grid-index">
     {%- for post in site.posts %}
-    <a class="post-row" href="{{ post.url | relative_url }}">
-      <span class="post-date">{{ post.date | date: "%-d %b %Y" }}</span>
-      <span class="post-main">
-        <strong class="post-title">{{ post.title }}</strong>
-        <span class="post-excerpt">{{ post.description }}</span>
-      </span>
-      <span class="post-arrow" aria-hidden="true">→</span>
-    </a>
+    {% include post-card.html post=post featured=forloop.first %}
     {%- endfor %}
   </div>
   <p class="feed-note">Prefer a feed reader? <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a>.</p>

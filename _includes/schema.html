@@ -39,3 +39,12 @@
 {"@context":"https://schema.org","@type":"TechArticle","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"url":"{{ base }}{{ page.url }}","about":[{"@type":"SoftwareApplication","name":{{ page.from | jsonify }}},{"@type":"SoftwareApplication","name":{{ page.to | jsonify }}}],"publisher":{"@type":"Organization","@id":"{{ base }}/#organization","name":"BI Migrations"}}
 </script>
 {%- endif %}
+{%- if page.url == "/insights/" %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Blog","@id":"{{ base }}/insights/#blog","name":"BI Migrations Insights","description":{{ page.description | jsonify }},"url":"{{ base }}/insights/","publisher":{"@type":"Organization","@id":"{{ base }}/#organization","name":"BI Migrations"},"blogPost":[
+{%- for post in site.posts -%}
+{"@type":"BlogPosting","headline":{{ post.title | jsonify }},"description":{{ post.description | jsonify }},"url":"{{ base }}{{ post.url }}","datePublished":"{{ post.date | date_to_xmlschema }}"{% if post.image %},"image":"{{ base }}{{ post.image }}"{% endif %}{% assign a = site.data.authors[post.author] %}{% if a %},"author":{"@type":"Person","name":{{ a.name | jsonify }}}{% endif %}}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+]}
+</script>
+{%- endif %}

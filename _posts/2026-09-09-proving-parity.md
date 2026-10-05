@@ -2,6 +2,8 @@
 title: "Proving Parity After a BI Migration"
 heading: "Proving <em>parity.</em>"
 description: A migrated dashboard that looks right isn't finished. Here's how automated parity tests show the numbers really match before anyone cuts over.
+author: amy-loomis
+image: /assets/img/og/proving-parity.png
 ---
 
 The fastest way to lose trust in a new BI platform is for someone to spot a number that doesn't match the old one. After that, every figure is doubted, and people keep the old dashboards open "just to check". Parity testing exists to make sure that moment never happens.

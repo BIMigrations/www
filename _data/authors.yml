@@ -1,0 +1,9 @@
+# Blog bylines. `author` in a post's front matter matches a key here.
+amy-loomis:
+  name: Amy Loomis
+  role: BI implementations, BI Migrations
+  initials: AL
+  bio: >-
+    Amy Loomis is the byline for the BI Migrations research desk. Posts are
+    researched and drafted with AI, then reviewed by our engineers before
+    they go out.

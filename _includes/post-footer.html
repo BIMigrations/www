@@ -1,0 +1,29 @@
+{%- comment -%} Author note + previous/next links, shown at the end of a post. {%- endcomment -%}
+{%- assign author = site.data.authors[page.author] -%}
+{%- if author %}
+<div class="author-note">
+  <span class="plat-mono plat-ink author-avatar" aria-hidden="true">{{ author.initials }}</span>
+  <div>
+    <strong>{{ author.name }}</strong>
+    {%- if author.role %}<span class="author-role">{{ author.role }}</span>{% endif %}
+    <p>{{ author.bio }}</p>
+  </div>
+</div>
+{%- endif %}
+
+{%- if page.previous or page.next %}
+<nav class="post-nav" aria-label="More posts">
+  {%- if page.previous %}
+  <a class="post-nav-link" href="{{ page.previous.url | relative_url }}" rel="prev">
+    <span class="post-nav-label"><span aria-hidden="true">←</span> Previous</span>
+    <strong>{{ page.previous.title }}</strong>
+  </a>
+  {%- endif %}
+  {%- if page.next %}
+  <a class="post-nav-link post-nav-next" href="{{ page.next.url | relative_url }}" rel="next">
+    <span class="post-nav-label">Next <span aria-hidden="true">→</span></span>
+    <strong>{{ page.next.title }}</strong>
+  </a>
+  {%- endif %}
+</nav>
+{%- endif %}

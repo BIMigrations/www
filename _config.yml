@@ -57,6 +57,7 @@ defaults:
       layout: page
       parent_title: Insights
       parent_url: /insights/
+      author: amy-loomis
   - scope:
       path: ""
       type: case_studies
@@ -90,6 +91,8 @@ plugins:
   - jekyll-redirect-from
 
 exclude:
+  - tools
+  - docs
   - Gemfile
   - Gemfile.lock
   - README.md

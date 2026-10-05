@@ -187,6 +187,21 @@ description: "Automated BI migration to Power BI and beyond. Domo, Tableau, Qlik
       </div>
     </section>
 
+    <section id="insights" class="wrap blog">
+      <div class="blog-head">
+        <div>
+          <div class="eyebrow">§ 05 — Insights</div>
+          <h2 class="blog-title">Notes from the <span class="serif c-teal">migration floor.</span></h2>
+        </div>
+        <a class="blog-all" href="{{ '/insights/' | relative_url }}">All insights <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="blog-grid">
+        {%- for post in site.posts limit: 3 %}
+        {% include post-card.html post=post featured=forloop.first %}
+        {%- endfor %}
+      </div>
+    </section>
+
     <section id="scan" class="scan">
       <div class="abs scan-grid"></div>
       <div class="scan-ring"></div>

@@ -2,6 +2,8 @@
 title: Nobody should migrate twice
 heading: "Nobody should <em>migrate</em> twice."
 description: Hand-rebuilt migrations lock your analysis into the next platform just as tightly as the last. Open specifications break that cycle.
+author: amy-loomis
+image: /assets/img/og/nobody-should-migrate-twice.png
 ---
 
 Most BI migrations follow the same pattern. A team picks a new platform. Analysts open each old dashboard, work out what every number means, and build it again. Months later, the new estate is live and the old contract ends.

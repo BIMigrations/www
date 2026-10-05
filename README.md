@@ -24,6 +24,9 @@ Then open http://localhost:4000.
 | `_data/routes.yml` | Migration routes (Domo → Power BI, Tableau → Power BI, …) — drives the nav, home section, footer and related links |
 | `_data/faqs.yml` | Questions on `/faqs/` |
 | `_data/gform.yml` | Google Form ID and field mapping for the contact and scan forms |
+| `_data/authors.yml` | Blog bylines (Amy Loomis) |
+| `tools/` | `new-post.sh` scaffolds a post; `make-og-image.sh` renders social cards |
+| `docs/blogging-guide.md` | Voice, topics, cadence, SEO rules and checklist for the blog |
 | `platforms/` | `/platforms/` and one page per featured platform |
 | `services/` | Estate assessment, full migration, rationalization, engagement models |
 | `_posts/` | Insights articles (`/insights/<slug>/`) |
@@ -37,7 +40,7 @@ Then open http://localhost:4000.
 ## Adding content
 
 - **A page:** create a Markdown file with front matter (`title`, `heading` — HTML allowed, use `<em>` for the serif accent — `description`, `permalink`). The `page` layout is applied automatically. Use `{% include cards.html items=page.<list> %}` for card grids.
-- **An insight:** add `_posts/YYYY-MM-DD-slug.md` with `title`, `heading` and `description`.
+- **An insight (blog post):** run `tools/new-post.sh "Post title"`, then follow [docs/blogging-guide.md](docs/blogging-guide.md). Posts use the Amy Loomis byline from `_data/authors.yml`; the home page and `/insights/` pick them up automatically.
 - **A migration guide:** add `_guides/<slug>.md` with `from`, `to`, `crumb` and `order`.
 - **A case study:** copy `_case_studies/example-case-study.md`, fill it in, and set `published: true` once the client has approved it. Until then `/case-studies/` shows an explanatory empty state.
 - **Navigation:** edit `_data/nav.yml`. Keep the top nav short — new pages belong in the footer groups and `menu_more`.

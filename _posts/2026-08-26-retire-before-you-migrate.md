@@ -2,6 +2,8 @@
 title: Retire before you migrate
 heading: "Retire <em>before</em> you migrate."
 description: The cheapest dashboard to migrate is the one nobody opens. How to use evidence to shrink an estate before it moves.
+author: amy-loomis
+image: /assets/img/og/retire-before-you-migrate.png
 ---
 
 Every BI estate collects clutter. A dashboard built for a project that finished. A copy made "just to try something". A report the one person who used it left behind two reorganizations ago. On a single platform, this clutter mostly costs attention. In a migration — say, [Tableau to Power BI](/tableau-to-power-bi/) or [Domo to Power BI](/domo-to-power-bi/) — it costs real money, because every object moved is an object someone has to translate, test and support.

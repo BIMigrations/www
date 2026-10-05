@@ -944,3 +944,85 @@ img { max-width: 100%; }
 .form-success strong { font-size: clamp(20px, 2vw, 26px); font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
 .form-success span:not(.dot) { font-size: 16px; line-height: 1.55; color: var(--ink2); max-width: 46ch; }
 .scan-submit[disabled], .contact-form button[disabled] { opacity: .6; cursor: progress; }
+
+/* ==========================================================================
+   Blog — home section, cards, byline, author note, prev/next
+   ========================================================================== */
+.blog { padding-top: 0; padding-bottom: 140px; }
+.blog-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 44px; }
+.blog-head .eyebrow { margin-bottom: 24px; }
+.blog-title { font-size: clamp(40px, 5.4vw, 84px); line-height: .94; letter-spacing: -0.045em; font-weight: 700; margin: 0; }
+.blog-all { font-size: 15px; font-weight: 600; color: var(--teal); white-space: nowrap; padding-bottom: 8px; }
+@media (hover: hover) { .blog-all:hover span { display: inline-block; transform: translateX(4px); transition: transform .2s var(--ease); } }
+
+/* One featured card beside two compact ones */
+.blog-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 14px; align-items: stretch; }
+.blog-card {
+  position: relative; display: flex; flex-direction: column; gap: 12px; overflow: hidden;
+  padding: 30px 30px 32px; background: var(--bg2); border: 1px solid var(--line); border-radius: 26px; color: var(--ink);
+  transition: border-color .2s, transform .25s var(--ease), background .25s;
+}
+.blog-card.is-featured { grid-row: span 2; justify-content: flex-end; }
+/* the ring motif from the hero, tucked into the corner */
+.blog-card-rings {
+  position: absolute; right: -70px; top: -70px; width: 240px; height: 240px; border-radius: 999px; pointer-events: none;
+  background: repeating-radial-gradient(circle at 50% 50%, var(--line2) 0 1px, transparent 1px 24px);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 72%);
+  mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 72%);
+  transition: transform .5s var(--ease);
+}
+.blog-card-rings::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px;
+  border-radius: 999px; background: var(--teal);
+  box-shadow: 0 0 0 10px color-mix(in srgb, var(--teal) 14%, transparent), 0 0 0 22px color-mix(in srgb, var(--teal) 6%, transparent);
+}
+.blog-card.is-featured .blog-card-rings { width: 340px; height: 340px; right: -90px; top: -90px; }
+.blog-card-body { display: flex; flex-direction: column; gap: 12px; position: relative; }
+.blog-card-meta { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.blog-card-title { font-size: 23px; line-height: 1.14; letter-spacing: -0.035em; font-weight: 700; max-width: 22ch; }
+.blog-card.is-featured .blog-card-title { font-size: clamp(30px, 3.2vw, 46px); line-height: 1.02; letter-spacing: -0.045em; }
+.blog-card-text { font-size: 15.5px; line-height: 1.6; color: var(--ink2); max-width: 52ch; }
+.blog-card.is-featured .blog-card-text { font-size: 17px; }
+.blog-card .card-link { margin-top: 4px; }
+@media (hover: hover) {
+  .blog-card:hover { border-color: var(--line2); background: var(--bg); transform: translateY(-3px); color: var(--ink); }
+  .blog-card:hover .blog-card-rings { transform: scale(1.08) rotate(8deg); }
+}
+
+/* Index page: first post leads, the rest sit two-up */
+.blog-grid-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.blog-grid-index .blog-card.is-featured { grid-column: 1 / -1; grid-row: auto; min-height: 320px; }
+
+/* Byline, author note and prev/next */
+.byline-name { color: var(--ink2); font-weight: 600; }
+.author-note { display: flex; gap: 18px; align-items: flex-start; margin: 56px 0 0; padding: 24px; border: 1px solid var(--line2); border-radius: 20px; background: var(--bg2); max-width: 760px; }
+.author-avatar { width: 48px; height: 48px; border-radius: 14px; font-size: 15px; flex: none; }
+.author-note strong { display: block; font-size: 16px; font-weight: 600; color: var(--ink); }
+.author-role { display: block; font-size: 13px; color: var(--muted); margin-top: 2px; }
+.author-note p { margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: var(--ink2); }
+.post-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 24px 0 0; max-width: 760px; }
+.post-nav-link { display: flex; flex-direction: column; gap: 10px; padding: 22px 24px; border: 1px solid var(--line2); border-radius: 20px; color: var(--ink); transition: border-color .2s, transform .25s var(--ease); }
+.post-nav-next { text-align: right; grid-column: 2; }
+.post-nav-label { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.post-nav-link strong { font-size: 18px; line-height: 1.25; letter-spacing: -0.02em; font-weight: 600; }
+@media (hover: hover) { .post-nav-link:hover { border-color: var(--ink); transform: translateY(-2px); } }
+
+@media (max-width: 1000px) {
+  .blog-grid { grid-template-columns: minmax(0, 1fr); }
+  .blog-card.is-featured { grid-row: auto; }
+  .blog-grid-index { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .blog { padding-bottom: 88px; }
+  .blog-head { gap: 16px; margin-bottom: 28px; }
+  .blog-title { font-size: 13.5vw; }
+  .blog-grid { gap: 10px; }
+  .blog-card { border-radius: 22px; padding: 24px 22px 26px; }
+  .blog-card-title, .blog-card.is-featured .blog-card-title { font-size: 26px; line-height: 1.1; }
+  .blog-card.is-featured .blog-card-text { font-size: 15.5px; }
+  .blog-card-rings, .blog-card.is-featured .blog-card-rings { width: 190px; height: 190px; right: -60px; top: -60px; }
+  .blog-grid-index .blog-card.is-featured { min-height: 0; }
+  .author-note { flex-direction: column; gap: 14px; padding: 20px; margin-top: 40px; }
+  .post-nav { grid-template-columns: minmax(0, 1fr); }
+  .post-nav-next { grid-column: 1; text-align: left; }
+}

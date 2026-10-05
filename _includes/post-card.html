@@ -1,0 +1,14 @@
+{%- comment -%}
+  Post card. {% include post-card.html post=post featured=true %}
+{%- endcomment -%}
+{%- assign p = include.post -%}
+{%- assign words = p.content | strip_html | number_of_words -%}
+<a class="blog-card{% if include.featured %} is-featured{% endif %}" href="{{ p.url | relative_url }}">
+  <span class="blog-card-rings" aria-hidden="true"></span>
+  <span class="blog-card-body">
+    <span class="blog-card-meta">{{ p.date | date: "%-d %b %Y" }}<span aria-hidden="true">·</span>{{ words | divided_by: 220 | plus: 1 }} min read</span>
+    <strong class="blog-card-title">{{ p.title }}</strong>
+    <span class="blog-card-text">{{ p.description }}</span>
+    <span class="card-link">Read it <span aria-hidden="true">→</span></span>
+  </span>
+</a>

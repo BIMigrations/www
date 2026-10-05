@@ -33,7 +33,13 @@ layout: default
         {%- endif %}
         {%- if page.collection == "posts" %}
         {%- assign words = content | strip_html | number_of_words %}
-        <div class="subpage-meta"><span class="dot dot-teal"></span>{{ page.date | date: "%-d %B %Y" }}<span aria-hidden="true">·</span>{{ words | divided_by: 220 | plus: 1 }} min read</div>
+        {%- assign author = site.data.authors[page.author] %}
+        <div class="subpage-meta">
+          <span class="dot dot-teal"></span>
+          {%- if author %}<span class="byline-name">{{ author.name }}</span><span aria-hidden="true">·</span>{% endif %}
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+          <span aria-hidden="true">·</span>{{ words | divided_by: 220 | plus: 1 }} min read
+        </div>
         {%- endif %}
         {%- if page.draft_notice %}
         <div class="notice"><span class="dot dot-amber"></span>{{ page.draft_notice }}</div>
@@ -47,6 +53,7 @@ layout: default
     <div class="wrap page-body">
       <div class="prose">
 {{ content }}
+        {%- if page.collection == "posts" %}{% include post-footer.html %}{% endif %}
       </div>
       <aside class="page-aside">
         <div class="aside-sticky">

@@ -1,9 +1,11 @@
 ---
-title: Rationalisation
+title: Rationalization
 heading: "Retire first. <em>Migrate less.</em>"
-lead: "Most estates carry years of dormant, duplicated and conflicting content. Rationalisation removes it before migration, so you only pay to move what people actually use."
-description: "BI rationalisation: retire dormant, duplicated and conflicting dashboards before migration, so you only pay to move what people actually use."
-permalink: /services/rationalisation/
+lead: "Most estates carry years of dormant, duplicated and conflicting content. Rationalization removes it before migration, so you only pay to move what people actually use."
+description: "BI rationalization: retire dormant, duplicated and conflicting dashboards before migration, so you only pay to move what people actually use."
+permalink: /services/rationalization/
+redirect_from:
+  - /services/rationalisation/
 accent: amber
 finds:
   - title: Dormant content
@@ -16,7 +18,7 @@ finds:
     text: Datasets and pipelines that no longer feed anything anyone looks at.
 ---
 
-The cheapest dashboard to migrate is the one nobody opens — in a [Tableau to Power BI migration](/tableau-to-power-bi/) that's often stale workbooks; in a [Domo to Power BI migration](/domo-to-power-bi/), unused cards and duplicated Beast Modes. Rationalisation uses evidence from your own estate to decide what makes the trip.
+The cheapest dashboard to migrate is the one nobody opens — in a [Tableau to Power BI migration](/tableau-to-power-bi/) that's often stale workbooks; in a [Domo to Power BI migration](/domo-to-power-bi/), unused cards and duplicated Beast Modes. Rationalization uses evidence from your own estate to decide what makes the trip.
 
 ## What we *look for*
 
@@ -27,11 +29,11 @@ The cheapest dashboard to migrate is the one nobody opens — in a [Tableau to P
 We don't delete anything on a hunch. Each candidate comes with evidence: when it was last opened, who owns it, what depends on it, and whether a near-identical version exists. Owners review the list and decide.
 
 - **Retire** — no longer needed. It stays in the open specifications, so nothing is lost.
-- **Consolidate** — merge duplicates and agree one definition for each conflicting metric.
+- **Consolidate** — merge duplicates and agree on one definition for each conflicting metric.
 - **Migrate** — used and needed, so it goes into the migration backlog.
 
 ## Useful on its *own*
 
-Rationalisation doesn't have to be tied to a migration. A leaner estate is cheaper to run, easier to secure, and gives people fewer conflicting answers — whichever BI platform it sits on.
+Rationalization doesn't have to be tied to a migration. A leaner estate is cheaper to run, easier to secure, and gives people fewer conflicting answers — whichever BI platform it sits on.
 
 It's included in every [full migration](/services/full-migration/), and it's a core part of the [estate assessment](/services/estate-assessment/).

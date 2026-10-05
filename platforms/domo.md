@@ -51,8 +51,8 @@ Domo estates grow quickly: a connector here, a Magic ETL there, a Beast Mode cop
 Most of a Domo estate converts with no analyst in the loop. The work that needs an engineer tends to sit in a few places:
 
 - **Beast Modes that mix row-level and aggregate logic.** These are split into the right mix of calculated columns and measures, then parity-tested.
-- **Near-duplicate Beast Modes.** Copies that drifted apart are flagged, so owners can agree one definition instead of migrating five.
-- **Fiscal calendars and date grains.** These become an explicit date table rather than platform settings.
+- **Near-duplicate Beast Modes.** Copies that drifted apart are flagged, so owners can agree on one definition instead of migrating five.
+- **Fiscal calendars and date granularity.** These become an explicit date table rather than platform settings.
 - **Drill paths.** These are rebuilt as hierarchies or drill-through on the target.
 
 {% include cards.html items=page.related %}

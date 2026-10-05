@@ -105,7 +105,7 @@ Tableau estates often hold dozens of workbooks built on slightly different copie
 
 ## Why teams move from Tableau to *Power BI*
 
-Teams usually move to consolidate BI onto the Microsoft platform they already run, rationalise licensing, or standardise on shared semantic models. Whatever the reason, the migration shouldn't lock you in again. Because your estate also lands as [open specifications](/open-specifications/), your next platform decision starts from a documented estate, not from scratch.
+Teams usually move to consolidate BI onto the Microsoft platform they already run, rationalize licensing, or standardize on shared semantic models. Whatever the reason, the migration shouldn't lock you in again. Because your estate also lands as [open specifications](/open-specifications/), your next platform decision starts from a documented estate, not from scratch.
 
 ## Tableau to Power BI *FAQs*
 
@@ -117,4 +117,4 @@ Teams usually move to consolidate BI onto the Microsoft platform they already ru
 - [Power BI migration](/platforms/power-bi/) — what we generate in Power BI
 - [Tableau calculations to DAX](/migration-guides/tableau-to-power-bi/) — LOD expressions, table calculations and parameters
 - [Domo to Power BI migration](/domo-to-power-bi/) — the other route we're asked about most
-- [Estate assessment](/services/estate-assessment/) and [rationalisation](/services/rationalisation/) — size and shrink the estate first
+- [Estate assessment](/services/estate-assessment/) and [rationalization](/services/rationalization/) — size and shrink the estate first

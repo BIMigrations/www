@@ -9,7 +9,7 @@ types:
   - title: Consultancies and SIs
     text: Add automated scanning, translation and parity testing to your BI migration practice, and deliver with fewer people-hours per dashboard.
   - title: BI platform teams
-    text: Help customers arrive on your platform with a clean, native, well-modelled estate — not a lookalike rebuilt by hand.
+    text: Help customers arrive on your platform with a clean, native, well-modeled estate — not a lookalike rebuilt by hand.
   - title: Data platform partners
     text: Land migrated models and pipelines on the warehouse or lakehouse your customer has chosen, as open SQL and Python.
 ---

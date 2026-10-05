@@ -6,7 +6,7 @@ permalink: /services/engagement-models/
 models:
   - label: Model 01
     title: Assessment only
-    text: A standalone estate assessment with an inventory, rationalisation recommendation, plan and estimate. You decide what happens next.
+    text: A standalone estate assessment with an inventory, rationalization recommendation, plan and estimate. You decide what happens next.
   - label: Model 02
     title: Delivered migration
     text: We run the migration end to end, from scan to cutover, with your team reviewing and signing off each wave.
@@ -18,7 +18,7 @@ models:
     text: Your team or partner runs our automated migration tool, with our engineers on hand for the hard cases and parity reviews.
 ---
 
-Every organisation has a different mix of in-house skills, partner relationships and appetite for change. Pick the model that fits yours.
+Every organization has a different mix of in-house skills, partner relationships and appetite for change. Pick the model that fits yours.
 
 ## Four ways to *engage*
 

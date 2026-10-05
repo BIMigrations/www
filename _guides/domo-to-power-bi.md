@@ -8,7 +8,7 @@ to: Power BI
 order: 1
 ---
 
-This guide is the detailed companion to our [Domo to Power BI migration](/domo-to-power-bi/) service. Domo and Power BI organise analytics differently. Domo keeps data preparation, calculations and visuals close together around each DataSet. Power BI centres on the semantic model: tables, relationships and measures shared by many reports. A good migration doesn't copy one into the other. It reshapes the estate around the model.
+This guide is the detailed companion to our [Domo to Power BI migration](/domo-to-power-bi/) service. Domo and Power BI organize analytics differently. Domo keeps data preparation, calculations and visuals close together around each DataSet. Power BI centers on the semantic model: tables, relationships and measures shared by many reports. A good migration doesn't copy one into the other. It reshapes the estate around the model.
 
 ## Concept *mapping*
 
@@ -40,11 +40,11 @@ Large Domo instances often contain several copies of the same Beast Mode that ha
 
 ### Dates and fiscal calendars
 
-Domo's date grains and fiscal calendar settings should become an explicit date table in Power BI, marked as a date table and related to every fact table.
+Domo's fiscal calendar and date granularity settings should become an explicit date table in Power BI, marked as a date table and related to every fact table.
 
 ### DataSet grain
 
-Domo cards often read wide, denormalised DataSets. In Power BI, reshaping these into facts and dimensions gives smaller models and simpler DAX. Check the grain before building relationships.
+Domo cards often read wide, denormalized DataSets. In Power BI, reshaping these into facts and dimensions gives smaller models and simpler DAX. Check the grain before building relationships.
 
 ## A migration *checklist*
 

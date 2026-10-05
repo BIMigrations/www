@@ -319,7 +319,7 @@
         if (advance) respawn(p, SPEED);
         var t = Math.min(1, Math.max(0, p.t));
         var e = t * t * (3 - 2 * t);
-        var k = 1 - e; // spread, wobble and pointer push all vanish at the target, so every card lands dead centre
+        var k = 1 - e; // spread, wobble and pointer push all vanish at the target, so every card lands dead center
         var x = -40 + t * (tx + 40);
         var y = ty + (p.lane - 0.5) * 2 * spreadIn * k;
         y += Math.sin(now * 0.0012 + p.wob + x * 0.01) * 10 * k;
@@ -343,7 +343,7 @@
         var e = t * t * (3 - 2 * t);
         var k = 1 - e;
         var y = -40 + t * (ty + 40);
-        var cx = W * 0.5 + (tx - W * 0.5) * e; // enter centred, sweep diagonally into the target
+        var cx = W * 0.5 + (tx - W * 0.5) * e; // enter centered, sweep diagonally into the target
         var x = cx + (p.lane - 0.5) * 2 * spreadIn * k;
         x += Math.sin(now * 0.0012 + p.wob + y * 0.01) * 8 * k;
         var dx = x - mouse.x, dy = y - mouse.y, d2 = dx * dx + dy * dy;
@@ -500,7 +500,7 @@
         panel.className = 'form-success';
         panel.setAttribute('role', 'status');
         panel.innerHTML = '<span class="dot dot-teal"></span><strong>Thanks — that\'s with us.</strong>' +
-          '<span>We\'ll come back to you by email. If it\'s urgent, say so in a reply and we\'ll prioritise it.</span>';
+          '<span>We\'ll come back to you by email. If it\'s urgent, say so in a reply and we\'ll prioritize it.</span>';
         form.replaceChildren(panel);
       }
     });

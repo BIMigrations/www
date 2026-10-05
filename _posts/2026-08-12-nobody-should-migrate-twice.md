@@ -6,7 +6,7 @@ description: Hand-rebuilt migrations lock your analysis into the next platform j
 
 Most BI migrations follow the same pattern. A team picks a new platform. Analysts open each old dashboard, work out what every number means, and build it again. Months later, the new estate is live and the old contract ends.
 
-It feels like progress. But look at what the organisation actually has at the end: the same analysis, now bound to a different vendor's file format. The knowledge gained — what each calculation means, which dashboards matter, where every number comes from — lives in people's heads and in the new platform's proprietary objects.
+It feels like progress. But look at what the organization actually has at the end: the same analysis, now bound to a different vendor's file format. The knowledge gained — what each calculation means, which dashboards matter, where every number comes from — lives in people's heads and in the new platform's proprietary objects.
 
 ## The cost comes *back*
 

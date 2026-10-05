@@ -1,7 +1,7 @@
 ---
 title: Careers
 heading: "Help end the <em>hand rebuild.</em>"
-description: We're building the way BI migrations should work — automation for the bulk, and experienced people for the parts that need judgement.
+description: We're building the way BI migrations should work — automation for the bulk, and experienced people for the parts that need judgment.
 permalink: /careers/
 parent_title: Company
 people:

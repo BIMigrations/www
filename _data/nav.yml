@@ -26,7 +26,7 @@ footer:
     links:
       - { title: Estate assessment, url: /services/estate-assessment/ }
       - { title: Full migration, url: /services/full-migration/ }
-      - { title: Rationalisation, url: /services/rationalisation/ }
+      - { title: Rationalization, url: /services/rationalization/ }
       - { title: Engagement models, url: /services/engagement-models/ }
   - title: Resources
     links:
@@ -53,7 +53,7 @@ menu_more:
     links:
       - { title: Estate assessment, url: /services/estate-assessment/ }
       - { title: Full migration, url: /services/full-migration/ }
-      - { title: Rationalisation, url: /services/rationalisation/ }
+      - { title: Rationalization, url: /services/rationalization/ }
       - { title: Engagement models, url: /services/engagement-models/ }
   - title: Resources
     links:

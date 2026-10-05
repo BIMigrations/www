@@ -51,7 +51,7 @@ Both **Qlik Sense** apps and **QlikView** documents are supported.
 
 ## Where the *care* goes
 
-- **Associative behaviour.** Qlik's green, white and grey selection states have no direct equivalent elsewhere. We model the questions people actually ask with them.
+- **Associative behavior.** Qlik's green, white and gray selection states have no direct equivalent elsewhere. We model the questions people actually ask with them.
 - **Synthetic keys and link tables.** These are reshaped into a star schema with clear grain.
 - **Complex set analysis.** Modifiers such as `P()`, `E()` and nested sets are translated into explicit filter logic and parity-tested.
 - **Alternate states.** Comparison analyses are rebuilt with the target's own patterns.

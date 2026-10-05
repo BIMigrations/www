@@ -8,7 +8,7 @@ to: Power BI
 order: 4
 ---
 
-Looker and Power BI both put a semantic layer at the centre, which makes this one of the more natural migrations. LookML is already code. The work is in resolving what that code does at query time, and in modelling it correctly for Power BI's engine.
+Looker and Power BI both put a semantic layer at the center, which makes this one of the more natural migrations. LookML is already code. The work is in resolving what that code does at query time, and in modeling it correctly for Power BI's engine.
 
 ## Concept *mapping*
 
@@ -33,7 +33,7 @@ Looker and Power BI both put a semantic layer at the centre, which makes this on
 
 ### Symmetric aggregates
 
-Looker automatically protects measures from double-counting when joins fan out. Power BI doesn't. Relationships and grain must be modelled so that measures aggregate correctly, and parity tests confirm they do.
+Looker automatically protects measures from double-counting when joins fan out. Power BI doesn't. Relationships and grain must be modeled so that measures aggregate correctly, and parity tests confirm they do.
 
 ### Liquid templating
 

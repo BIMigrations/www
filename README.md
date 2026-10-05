@@ -25,7 +25,7 @@ Then open http://localhost:4000.
 | `_data/faqs.yml` | Questions on `/faqs/` |
 | `_data/gform.yml` | Google Form ID and field mapping for the contact and scan forms |
 | `platforms/` | `/platforms/` and one page per featured platform |
-| `services/` | Estate assessment, full migration, rationalisation, engagement models |
+| `services/` | Estate assessment, full migration, rationalization, engagement models |
 | `_posts/` | Insights articles (`/insights/<slug>/`) |
 | `_guides/` | Migration guides (`/migration-guides/<slug>/`) |
 | `_case_studies/` | Case studies (`/case-studies/<slug>/`) — see the template below |
@@ -81,7 +81,7 @@ to whoever submits the form. Paste it into the form's script editor (⋮ → Scr
 editor), edit the `CONFIG` block, and add an **On form submit** trigger. Setup
 notes are in the file's header comment.
 
-## Responsive behaviour
+## Responsive behavior
 
 - **≤ 1000px** — the pill nav collapses to a full-screen menu with the primary links, platform chips, grouped secondary links, theme switch and scan CTA. Sub-pages drop the sticky "On this page" sidebar.
 - **≤ 760px** — dedicated mobile layouts: vertical particle funnel in the hero, swipeable manifesto cards, touch-friendly before/after, stacking method cards, a floating scan dock, single-column cards and forms.

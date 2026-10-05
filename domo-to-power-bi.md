@@ -89,15 +89,15 @@ A Beast Mode is evaluated inside a single card. A DAX measure is evaluated in th
 
 ### Duplicated calculations
 
-Large Domo instances often hold many copies of the same Beast Mode that have drifted apart. We flag them, so your team can agree one definition rather than migrating several DAX measures with confusingly similar names.
+Large Domo instances often hold many copies of the same Beast Mode that have drifted apart. We flag them, so your team can agree on one definition rather than migrating several DAX measures with confusingly similar names.
 
 ### Wide DataSets
 
-Domo cards often read wide, denormalised DataSets. In Power BI, reshaping these into facts and dimensions gives smaller models and simpler DAX, so we check the grain before building relationships.
+Domo cards often read wide, denormalized DataSets. In Power BI, reshaping these into facts and dimensions gives smaller models and simpler DAX, so we check the grain before building relationships.
 
 ### Fiscal calendars
 
-Domo's date grains and fiscal calendar settings become an explicit, shared date table in Power BI.
+Domo's fiscal calendar and date granularity settings become an explicit, shared date table in Power BI.
 
 ## Why teams move from Domo to *Power BI*
 
@@ -113,4 +113,4 @@ Teams usually move to consolidate onto the Microsoft data platform they already 
 - [Power BI migration](/platforms/power-bi/) — what we generate in Power BI
 - [Domo to Power BI concept mapping](/migration-guides/domo-to-power-bi/) — the detailed guide
 - [Tableau to Power BI migration](/tableau-to-power-bi/) — the other route we're asked about most
-- [Estate assessment](/services/estate-assessment/) and [rationalisation](/services/rationalisation/) — size and shrink the estate first
+- [Estate assessment](/services/estate-assessment/) and [rationalization](/services/rationalization/) — size and shrink the estate first

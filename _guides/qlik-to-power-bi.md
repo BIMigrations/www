@@ -8,7 +8,7 @@ to: Power BI
 order: 3
 ---
 
-Qlik and Power BI both have powerful in-memory engines, but they're built on different ideas. Qlik's associative model links every table automatically and lets users explore through selections. Power BI relies on explicit relationships and measures evaluated in filter context. The migration is as much remodelling as translation.
+Qlik and Power BI both have powerful in-memory engines, but they're built on different ideas. Qlik's associative model links every table automatically and lets users explore through selections. Power BI relies on explicit relationships and measures evaluated in filter context. The migration is as much remodeling as translation.
 
 ## Concept *mapping*
 
@@ -36,7 +36,7 @@ Simple set expressions such as `Sum({<Year={2024}>} Sales)` translate directly t
 
 ### Associative selections
 
-Users may rely on seeing *excluded* (grey) values to answer questions like "which customers didn't buy this product?". Power BI doesn't show exclusions the same way, so identify these analyses early and build explicit measures or visuals for them.
+Users may rely on seeing *excluded* (gray) values to answer questions like "which customers didn't buy this product?". Power BI doesn't show exclusions the same way, so identify these analyses early and build explicit measures or visuals for them.
 
 ### Synthetic keys and link tables
 
@@ -56,4 +56,4 @@ Business rules often live in `IF` statements and mapping tables inside load scri
 6. Map Section Access to row-level security and test each role.
 7. Run both platforms in parallel, sign off each wave, then cut over.
 
-See also: [Qlik](/platforms/qlik/) · [Power BI](/platforms/power-bi/) · [Rationalisation](/services/rationalisation/)
+See also: [Qlik](/platforms/qlik/) · [Power BI](/platforms/power-bi/) · [Rationalization](/services/rationalization/)

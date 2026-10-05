@@ -16,9 +16,9 @@ related:
     text: How access filters and user attributes are carried across and tested.
     url: /risk-governance/
   - label: Service
-    title: Rationalisation
+    title: Rationalization
     text: Retire unused Looks and dashboards before they're migrated.
-    url: /services/rationalisation/
+    url: /services/rationalization/
 ---
 
 LookML is code, which makes Looker estates easier to read than most. The hard part is everything around the code: which explores are actually used, what the Liquid templating does at query time, and how access filters combine with user attributes.

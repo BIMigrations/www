@@ -40,7 +40,7 @@
 
 - q: What happens to dashboards nobody uses?
   a: |
-    We recommend retiring them rather than migrating them. Usage data from the scan shows what hasn't been opened in a long time, and your owners decide what goes. Retired items remain in the specifications, so nothing is lost. See [rationalisation](/services/rationalisation/).
+    We recommend retiring them rather than migrating them. Usage data from the scan shows what hasn't been opened in a long time, and your owners decide what goes. Retired items remain in the specifications, so nothing is lost. See [rationalization](/services/rationalization/).
 
 - q: Can we change BI platform again later?
   a: |

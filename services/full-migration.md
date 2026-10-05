@@ -7,7 +7,7 @@ permalink: /services/full-migration/
 phases:
   - title: Scan
     text: A read-only crawl inventories the estate and its usage.
-  - title: Rationalise
+  - title: Rationalize
     text: Owners retire dormant and duplicated content before anything moves.
   - title: Translate
     text: The estate becomes open specifications in your repository.

@@ -74,6 +74,13 @@ The home-page scan form and `/contact/` submit to the Google Form configured in
   appended to the interest answer. Add a paragraph question called "Message" and
   put its entry ID in `_data/gform.yml` to give it its own column.
 
+## Auto-reply to enquiries
+
+`docs/apps-script/thank-you.gs` is a Google Apps Script that emails a thank-you
+to whoever submits the form. Paste it into the form's script editor (⋮ → Script
+editor), edit the `CONFIG` block, and add an **On form submit** trigger. Setup
+notes are in the file's header comment.
+
 ## Responsive behaviour
 
 - **≤ 1000px** — the pill nav collapses to a full-screen menu with the primary links, platform chips, grouped secondary links, theme switch and scan CTA. Sub-pages drop the sticky "On this page" sidebar.

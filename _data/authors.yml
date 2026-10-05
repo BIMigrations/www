@@ -4,6 +4,6 @@ amy-loomis:
   role: BI implementations, BI Migrations
   initials: AL
   bio: >-
-    Amy Loomis is the byline for the BI Migrations research desk. Posts are
-    researched and drafted with AI, then reviewed by our engineers before
-    they go out.
+    Amy Loomis writes about BI implementations for BI Migrations — migrations,
+    semantic layers, warehouse modeling, and the gap between a vendor demo and
+    an estate with 800 dashboards in it.

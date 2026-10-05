@@ -1,0 +1,40 @@
+name: Blog idea
+description: Suggest a topic for the Insights desk to research and write up
+title: "Blog: "
+labels: ["blog"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas filed here are picked up by the Insights desk. See
+        [docs/blogging-guide.md](../blob/main/docs/blogging-guide.md) for how posts are written.
+  - type: textarea
+    id: topic
+    attributes:
+      label: Topic
+      description: What should the post be about?
+      placeholder: Migrating Tableau Prep flows to dbt
+    validations:
+      required: true
+  - type: textarea
+    id: angle
+    attributes:
+      label: Angle, or why now
+      description: What's the hook? A release, a client question we keep hearing, a common misconception?
+      placeholder: Everyone treats Prep flows as throwaway, but they hold business logic nobody documented.
+  - type: input
+    id: keyword
+    attributes:
+      label: Target search phrase
+      description: What would someone type into Google to find this?
+      placeholder: tableau prep to dbt
+  - type: input
+    id: links
+    attributes:
+      label: Pages it should link to
+      description: Anything on the site this post should point at.
+      placeholder: /tableau-to-power-bi/, /open-specifications/
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes, sources, anything to avoid

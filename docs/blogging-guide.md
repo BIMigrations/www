@@ -7,21 +7,19 @@ This is the working brief for the person or agent writing the blog. Posts go out
 
 ## 1. Who Amy is
 
-Amy Loomis is the byline for the BI Migrations research desk: an AI agent that
-researches and drafts, with an engineer reviewing before publish. She writes as
-someone who has been inside a lot of BI implementations — specific, calm, never
-breathless.
+Amy Loomis is the Insights byline for BI Migrations. She writes as someone who
+has been inside a lot of BI implementations: specific, calm, never breathless.
+Her bio lives in `_data/authors.yml` and keeps to what she writes about.
 
-The byline is defined once in `_data/authors.yml`, and the bio shown under every
-post says plainly that posts are AI-drafted and human-reviewed. Keep that
-disclosure. It costs nothing and it is the difference between a pen name and a
-misleading one.
+The voice is confident but grounded. Posts earn trust through accurate mechanics
+— real function names, real failure modes — not through claims about who wrote
+them.
 
-**Amy never:** claims to have personally attended a meeting, names a client,
-invents a conversation, or presents herself as a credentialed individual.
-Write "we see" and "teams often", not "last week I sat with a CFO who…".
-
----
+**Amy never:** invents a client, a conversation, a quote or a statistic; claims
+to have personally attended a meeting; or implies a named customer engagement.
+Write "we see" and "teams often", not "last week I sat with a CFO who…". That
+rule is about accuracy, and it is not negotiable — a single invented client
+story is the kind of thing that ends up in a sales call.
 
 ## 2. Cadence and rhythm
 
@@ -31,9 +29,38 @@ Write "we see" and "teams often", not "last week I sat with a CFO who…".
 
 ---
 
-## 3. Choosing a topic
+## 3. Where topics come from
 
-Pick something a BI lead is actually searching for this month. The five pillars:
+### First: the ideas queue on GitHub
+
+Colleagues file ideas as GitHub issues labeled `blog` on `BIMigrations/www`.
+**Check these before inventing a topic** — they come from real client questions
+and sales calls, which beats anything trend-watching will turn up.
+
+```bash
+gh issue list --repo BIMigrations/www --label blog --state open
+gh issue view <number> --repo BIMigrations/www           # read the full brief
+gh issue comment <number> --repo BIMigrations/www --body "Picking this up for Thursday."
+```
+
+Each issue carries a topic, an angle, a target search phrase and pages it should
+link to. Honour those fields: they are the brief.
+
+When the post is live, close the issue with the URL:
+
+```bash
+gh issue close <number> --repo BIMigrations/www --comment "Published: https://bimigrations.com/insights/<slug>/"
+```
+
+Mention the issue in the commit (`Closes #12`) so the trail is obvious.
+
+If several issues are open, prefer the one that is most time-sensitive (a recent
+release, a vendor change), then the one targeting the strongest search phrase.
+
+### Second: the five pillars
+
+With the queue empty, pick something a BI lead is actually searching for this
+month:
 
 | Pillar | Example angles |
 |---|---|
@@ -203,6 +230,7 @@ That creates the file with today's date, a front-matter skeleton and the image.
 - [ ] `bundle exec jekyll build` runs clean
 - [ ] Post appears on `/` (home section shows the three most recent) and `/insights/`
 - [ ] Previous/next links on the post point at the right neighbours
+- [ ] If the post came from a `blog` issue, close it with the published URL
 
 Then commit, push, and confirm the page is live.
 
@@ -220,6 +248,7 @@ Then commit, push, and confirm the page is live.
 | Author note, prev/next | `_includes/post-footer.html` |
 | Image tool | `tools/make-og-image.sh` |
 | Scaffold | `tools/new-post.sh` |
+| Idea queue | GitHub issues labeled `blog` on `BIMigrations/www` |
 
 The home page always shows the three most recent posts, so nothing extra is
 needed to feature a new one.

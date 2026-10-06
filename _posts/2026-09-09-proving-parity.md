@@ -1,5 +1,5 @@
 ---
-title: "Proving Parity After a BI Migration"
+title: "Proving parity after a BI migration"
 heading: "Proving <em>parity.</em>"
 description: A migrated dashboard that looks right isn't finished. Here's how automated parity tests show the numbers really match before anyone cuts over.
 author: amy-loomis
@@ -12,7 +12,7 @@ The fastest way to lose trust in a new BI platform is for someone to spot a numb
 
 A rebuilt dashboard can look identical and still be wrong. Common causes:
 
-- A calculation evaluated in a different context — per row instead of per group, or across a join that fans out. Tableau LOD expressions rewritten in DAX are a classic case (see [Tableau to Power BI migration](/tableau-to-power-bi/)), as are Domo Beast Modes (see [FIXED functions in Beast Modes](/insights/beast-mode-fixed-to-dax/) and [Domo to Power BI migration](/domo-to-power-bi/)).
+- A calculation evaluated in a different context: per row instead of per group, or across a join that fans out. Tableau LOD expressions rewritten in DAX are a classic case (see [Tableau to Power BI migration](/tableau-to-power-bi/)), as are Domo Beast Modes (see [FIXED functions in Beast Modes](/insights/beast-mode-fixed-to-dax/) and [Domo to Power BI migration](/domo-to-power-bi/)).
 - A filter applied at a different stage.
 - Nulls, rounding or time zones handled differently.
 - Row-level security that's slightly more or less permissive than before.
@@ -23,7 +23,7 @@ None of these show up in a visual check of one screen with one set of filters.
 
 For each migrated metric, a parity test asks the source and the target the same question, across the same slices, and compares the answers:
 
-1. **Choose the slices** the dashboards actually use — by period, region, product and so on.
+1. **Choose the slices** the dashboards actually use, by period, region, product and so on.
 2. **Query both platforms** for the metric at each slice.
 3. **Compare** the results within an agreed tolerance: exact for counts and currency, explicit for anything else.
 4. **Report** every result, and block cutover for anything that fails.
@@ -36,6 +36,6 @@ Parity isn't only about values. For each security role, check that a user in tha
 
 ## Make it part of *sign-off*
 
-Parity reports work best as the basis for business sign-off. Instead of "does this look right to you?", owners are asked to approve a report showing every metric that was tested, at which slices, and with what result. That's a much easier conversation — and a much more defensible one.
+Parity reports work best as the basis for business sign-off. Instead of "does this look right to you?", owners are asked to approve a report showing every metric that was tested, at which slices, and with what result. That's a much easier conversation, and a much more defensible one.
 
 Parity testing is built into every [full migration](/services/full-migration/). Read more about [risk and governance](/risk-governance/).

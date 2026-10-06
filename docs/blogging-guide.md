@@ -167,7 +167,7 @@ Links are root-relative (`/faqs/`), never absolute to the domain.
 - **Our tool is "our automated migration tool"** — never "the generator".
 - **BI platform names**: Power BI, Domo, Tableau, Qlik Sense, QlikView, Looker,
   MicroStrategy, Cognos, Sigma, Superset. Capitalize as the vendor does.
-- Em dashes — like this — are part of the voice. Don't overdo them.
+- No em dashes. Use a period, comma, colon or parentheses, or restructure the sentence.
 - Prefer plain words: "estate", "dashboards", "numbers". Avoid "leverage",
   "robust", "seamless", "unlock", "in today's landscape".
 - Sentence case for headings and titles. No Title Case Everywhere.

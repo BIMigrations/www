@@ -6,7 +6,7 @@ author: amy-loomis
 image: /assets/img/og/retire-before-you-migrate.png
 ---
 
-Every BI estate collects clutter. A dashboard built for a project that finished. A copy made "just to try something". A report the one person who used it left behind two reorganizations ago. On a single platform, this clutter mostly costs attention. In a migration — say, [Tableau to Power BI](/tableau-to-power-bi/) or [Domo to Power BI](/domo-to-power-bi/) — it costs real money, because every object moved is an object someone has to translate, test and support.
+Every BI estate collects clutter. A dashboard built for a project that finished. A copy made "just to try something". A report the one person who used it left behind two reorganizations ago. On a single platform, this clutter mostly costs attention. In a migration (say, [Tableau to Power BI](/tableau-to-power-bi/) or [Domo to Power BI](/domo-to-power-bi/)) it costs real money, because every object moved is an object someone has to translate, test and support.
 
 ## Start with *evidence*
 
@@ -21,23 +21,23 @@ A read-only scan of platform metadata and usage answers most of these questions 
 
 ## Four kinds of *clutter*
 
-1. **Dormant content** — not opened in a long time.
-2. **Duplicates** — copies that have drifted apart in small, unexplained ways.
-3. **Conflicting metrics** — several definitions of the same business term, giving different answers.
-4. **Orphaned data** — datasets and pipelines that no longer feed anything anyone looks at.
+1. **Dormant content**: not opened in a long time.
+2. **Duplicates**: copies that have drifted apart in small, unexplained ways.
+3. **Conflicting metrics**: several definitions of the same business term, giving different answers.
+4. **Orphaned data**: datasets and pipelines that no longer feed anything anyone looks at.
 
 ## Retire, consolidate, migrate
 
 Each candidate gets one of three outcomes:
 
-- **Retire** — no longer needed. It stays in the open specifications, so nothing is truly lost and it can be brought back.
-- **Consolidate** — merge duplicates and agree on one definition for each metric.
-- **Migrate** — used and needed, so it goes into the migration backlog.
+- **Retire**: no longer needed. It stays in the open specifications, so nothing is truly lost and it can be brought back.
+- **Consolidate**: merge duplicates and agree on one definition for each metric.
+- **Migrate**: used and needed, so it goes into the migration backlog.
 
 Because retired items remain as specifications, owners are more willing to let things go. The decision can be reversed without an archaeology project.
 
 ## Why it *matters*
 
-A smaller estate is quicker to migrate, cheaper to run and easier to secure. It also gives people fewer conflicting answers — which is often the benefit they notice most.
+A smaller estate is quicker to migrate, cheaper to run and easier to secure. It also gives people fewer conflicting answers, which is often the benefit they notice most.
 
 Rationalization is part of every [estate assessment](/services/estate-assessment/) and [full migration](/services/full-migration/), and it's worth doing even if you're staying put. [More on rationalization](/services/rationalization/).

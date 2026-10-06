@@ -12,7 +12,7 @@ The fastest way to lose trust in a new BI platform is for someone to spot a numb
 
 A rebuilt dashboard can look identical and still be wrong. Common causes:
 
-- A calculation evaluated in a different context — per row instead of per group, or across a join that fans out. Tableau LOD expressions rewritten in DAX are a classic case (see [Tableau to Power BI migration](/tableau-to-power-bi/)), as are Domo Beast Modes (see [Domo to Power BI migration](/domo-to-power-bi/)).
+- A calculation evaluated in a different context — per row instead of per group, or across a join that fans out. Tableau LOD expressions rewritten in DAX are a classic case (see [Tableau to Power BI migration](/tableau-to-power-bi/)), as are Domo Beast Modes (see [FIXED functions in Beast Modes](/insights/beast-mode-fixed-to-dax/) and [Domo to Power BI migration](/domo-to-power-bi/)).
 - A filter applied at a different stage.
 - Nulls, rounding or time zones handled differently.
 - Row-level security that's slightly more or less permissive than before.

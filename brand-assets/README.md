@@ -2,10 +2,19 @@
 
 | File | Use |
 |---|---|
-| `bimigrations-logo.svg` | Full lockup (cube + wordmark) on light backgrounds |
-| `bimigrations-logo-dark.svg` | Full lockup on dark backgrounds |
+| `bimigrations-logo.svg` | **Full lockup, light backgrounds — use this one by default** |
+| `bimigrations-logo-dark.svg` | Full lockup, dark backgrounds |
 | `bimigrations-mark.svg` | Cube only, light backgrounds — favicons, avatars, app icons |
 | `bimigrations-mark-dark.svg` | Cube only, dark backgrounds |
+| `bimigrations-logo-text.svg` | Lockup with live (editable) text, light backgrounds |
+| `bimigrations-logo-dark-text.svg` | Lockup with live text, dark backgrounds |
+
+The two lockups marked **outlined** (`bimigrations-logo.svg` and its dark twin)
+have the wordmark converted to paths, so they render identically everywhere with
+no font installed. Send those to printers, partners and press.
+
+The `-text` versions keep the wordmark as real text: handy if you need to edit
+the words or restyle them, but they need Archivo installed to render correctly.
 
 ## Colors
 
@@ -29,10 +38,9 @@
 
 ## The wordmark typeface
 
-The lockup sets the wordmark in **Archivo Bold** (Google Fonts), uppercase, with
-0.1em letter-spacing. The SVG keeps the text live, so it renders correctly
-wherever Archivo is installed and falls back to Helvetica/Arial elsewhere.
+The wordmark is **Archivo Bold** (Google Fonts), uppercase, 0.1em letter-spacing,
+with the slash in Archivo Regular. In the default lockups the letters are already
+outlined, so nothing needs installing.
 
-For print, press kits or anywhere the font can't be guaranteed, ask for an
-outlined version of the lockup, where the letters are converted to paths and no
-font is needed.
+If you rebuild the lockup from the `-text` versions, keep those settings, and
+outline the text again before sending the file out.

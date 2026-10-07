@@ -6,8 +6,9 @@
 | `signature-template.html` | Same layout with `{{PLACEHOLDERS}}` for everyone else |
 | `signature.txt` | Plain-text version, for clients set to plain text |
 
-The logo loads from `https://bimigrations.com/brand-assets/png/bimigrations-mark-128.png`,
+The logo loads from `https://bimigrations.com/brand-assets/png/bimigrations-logo-1200.png`,
 so it appears for recipients without being an attachment. Keep that file in place.
+The card is a fixed 430px wide, which keeps it compact on phones.
 
 ## Installing it
 

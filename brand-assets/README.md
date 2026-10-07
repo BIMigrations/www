@@ -16,6 +16,25 @@ no font installed. Send those to printers, partners and press.
 The `-text` versions keep the wordmark as real text: handy if you need to edit
 the words or restyle them, but they need Archivo installed to render correctly.
 
+## PNG versions
+
+`png/` holds transparent-background PNGs rendered from the same SVGs:
+
+| Pattern | Sizes |
+|---|---|
+| `png/bimigrations-logo[-dark]-<width>.png` | 2400, 1200, 600 px wide |
+| `png/bimigrations-mark[-dark]-<size>.png` | 1024, 512, 256, 128, 64 px square |
+
+Use the SVGs wherever they're accepted — they stay sharp at any size. Reach for
+a PNG when a tool won't take SVG (some slide decks, email signatures, social
+profiles, app stores). Pick a size at least as large as it will be displayed.
+
+To render more sizes:
+
+```bash
+tools/svg-to-png.sh brand-assets/bimigrations-logo.svg brand-assets/png/bimigrations-logo-900.png 900
+```
+
 ## Colors
 
 | Role | Light backgrounds | Dark backgrounds |

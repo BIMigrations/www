@@ -8,7 +8,8 @@
 
 The logo loads from `https://bimigrations.com/brand-assets/png/bimigrations-logo-1200.png`,
 so it appears for recipients without being an attachment. Keep that file in place.
-The card is a fixed 430px wide, which keeps it compact on phones.
+Layout: lockup and strapline on the left, a hairline divider, then the person's
+details on the right.
 
 ## Installing it
 

@@ -1,0 +1,45 @@
+---
+layout: null
+sitemap: false
+permalink: /llms.txt
+---
+# BI Migrations
+
+> BI Migrations LLC migrates BI estates to Power BI with an automated migration tool. It reads the source estate (models, transformations, calculations, dashboards, permissions), writes it out as open specifications the client owns, regenerates it natively in the target platform, and parity-tests every metric before cutover. Domo to Power BI is the most developed route. Tableau to Power BI is offered as a service.
+
+Figures published on this site: around 78% of a typical estate is converted by the tool with no analyst in the loop, with engineers handling the rest, and the median time from kickoff to cutover is 11 weeks across engagements. The free estate scan works from a read-only metadata export under a mutual NDA.
+
+## Migration routes
+
+- [Domo to Power BI migration]({{ '/domo-to-power-bi/' | absolute_url }}): DataSets, Magic ETL and SQL DataFlows, Beast Modes, cards and PDP policies into semantic models, DAX, reports and row-level security.
+- [Tableau to Power BI migration]({{ '/tableau-to-power-bi/' | absolute_url }}): workbooks, data sources, calculated fields, LOD expressions and user filters into native Power BI.
+
+## Guides
+
+- [Domo to Power BI concept mapping]({{ '/migration-guides/domo-to-power-bi/' | absolute_url }})
+- [Tableau to Power BI concept mapping]({{ '/migration-guides/tableau-to-power-bi/' | absolute_url }})
+- [Qlik to Power BI concept mapping]({{ '/migration-guides/qlik-to-power-bi/' | absolute_url }})
+- [Looker to Power BI concept mapping]({{ '/migration-guides/looker-to-power-bi/' | absolute_url }})
+
+## Services
+
+- [Estate assessment]({{ '/services/estate-assessment/' | absolute_url }})
+- [Full migration]({{ '/services/full-migration/' | absolute_url }})
+- [Rationalization]({{ '/services/rationalization/' | absolute_url }})
+- [Engagement models]({{ '/services/engagement-models/' | absolute_url }})
+
+## How it works and how it is checked
+
+- [Open specifications]({{ '/open-specifications/' | absolute_url }}): the SQL, Python, JSON and YAML the client keeps.
+- [Risk and governance]({{ '/risk-governance/' | absolute_url }}): parity testing, security and change control.
+- [Security]({{ '/security/' | absolute_url }})
+- [FAQs]({{ '/faqs/' | absolute_url }})
+
+## Insights
+
+{% for post in site.posts -%}
+- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.description }}
+{% endfor %}
+## Contact
+
+- [Contact BI Migrations]({{ '/contact/' | absolute_url }})

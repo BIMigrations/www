@@ -77,7 +77,7 @@ The home-page scan form and `/contact/` submit to the Google Form configured in
   appended to the interest answer. Add a paragraph question called "Message" and
   put its entry ID in `_data/gform.yml` to give it its own column.
 
-## Auto-reply to enquiries
+## Auto-reply to inquiries
 
 `docs/apps-script/thank-you.gs` is a Google Apps Script that emails a thank-you
 to whoever submits the form. Paste it into the form's script editor (⋮ → Script

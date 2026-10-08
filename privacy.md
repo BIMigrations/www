@@ -26,7 +26,7 @@ We use the information you send us to reply to you, to arrange and carry out the
 
 ## How long we *keep* it
 
-We keep enquiry details for as long as we need them for the purpose you gave them to us, and then delete them.
+We keep inquiry details for as long as we need them for the purpose you gave them to us, and then delete them.
 
 ## Your *rights*
 

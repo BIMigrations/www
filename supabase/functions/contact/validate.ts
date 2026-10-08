@@ -46,7 +46,7 @@ export interface ValidationResult {
   data?: Normalized;
 }
 
-/** Free/consumer mailbox providers. Enquiries must come from a work domain. */
+/** Free/consumer mailbox providers. Inquiries must come from a work domain. */
 export const PUBLIC_EMAIL_DOMAINS = new Set([
   "gmail.com", "googlemail.com", "yahoo.com", "yahoo.co.uk", "yahoo.co.in", "yahoo.fr",
   "yahoo.de", "ymail.com", "rocketmail.com", "hotmail.com", "hotmail.co.uk", "hotmail.fr",

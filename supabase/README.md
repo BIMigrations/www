@@ -45,7 +45,7 @@ supabase secrets set \
   SMTP_PASS="<password>"
 ```
 
-Enquiries go to **abi@bimigrations.com and les@bimigrations.com** by default.
+Inquiries go to **abi@bimigrations.com and les@bimigrations.com** by default.
 Set the `MAIL_TO` secret (comma-separated) only to change that list.
 
 Optional settings:
@@ -57,7 +57,7 @@ Optional settings:
 | `MIN_FILL_SECONDS` | `3` | time trap threshold |
 | `ALLOW_PUBLIC_DOMAINS` | `false` | accept Gmail etc. — testing only |
 | `MAIL_FROM` | `BI Migrations <abi@bimigrations.com>` | sender; must be SES-verified |
-| `MAIL_TO` | `abi@`, `les@bimigrations.com` | where enquiries land, comma-separated |
+| `MAIL_TO` | `abi@`, `les@bimigrations.com` | where inquiries land, comma-separated |
 
 `MAIL_FROM` defaults to `BI Migrations <abi@bimigrations.com>`, which is the
 address verified in SES. Only set the secret if that changes — and whatever you

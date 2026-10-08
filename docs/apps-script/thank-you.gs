@@ -17,8 +17,9 @@ var CONFIG = {
   fromName: 'BI Migrations',
   fromAlias: '',                  // e.g. 'hello@bimigrations.com' (must be a verified Gmail alias)
   replyTo: '',                    // where replies should land; blank = the script owner's address
-  subject: 'Thanks — we’ve got your enquiry',
+  subject: 'Thanks — we’ve got your inquiry',
   siteUrl: 'https://bimigrations.com',
+  logoUrl: 'https://bimigrations.com/brand-assets/email-signature/logo-email.png',
   internalCopy: '',               // optional: also BCC this address on every auto-reply
 
   // Question titles on the form. Update these if you rename a question.
@@ -44,7 +45,8 @@ function onFormSubmit(e) {
     var firstName = (answers[CONFIG.questions.name] || '').trim().split(/\s+/)[0];
     var options = {
       name: CONFIG.fromName,
-      htmlBody: htmlBody(firstName, answers)
+      htmlBody: htmlBody(firstName, answers),
+      inlineImages: logoImage()
     };
     if (CONFIG.fromAlias) options.from = CONFIG.fromAlias;
     if (CONFIG.replyTo) options.replyTo = CONFIG.replyTo;
@@ -89,7 +91,7 @@ function textBody(firstName, answers) {
   var lines = [
     greeting(firstName),
     '',
-    'Thanks for getting in touch with BI Migrations. Your enquiry has reached us and a real person will reply — usually within one working day.',
+    'Thanks for getting in touch with BI Migrations. Your inquiry has reached us, and a real person will reply, usually within one working day.',
     '',
     'If it helps in the meantime:',
     '· How a migration works: ' + CONFIG.siteUrl + '/#method',
@@ -109,32 +111,61 @@ function textBody(firstName, answers) {
   return lines.join('\n');
 }
 
+/** The lockup, fetched once per run and attached inline so nothing is downloaded. */
+function logoImage() {
+  try {
+    return { logo: UrlFetchApp.fetch(CONFIG.logoUrl).getBlob().setName('bimigrations.png') };
+  } catch (err) {
+    console.warn('Could not fetch the logo, sending without it: ' + err);
+    return {};
+  }
+}
+
 function htmlBody(firstName, answers) {
-  var ink = '#0A0C10', ink2 = '#3A3D44', teal = '#0B7F6B', line = '#E3DFD5', cream = '#F1EEE6';
   var rows = summaryRows(answers).map(function (row) {
     return '<tr>' +
-      '<td style="padding:6px 16px 6px 0;color:' + ink2 + ';font-size:14px;white-space:nowrap">' + escapeHtml(row[0]) + '</td>' +
-      '<td style="padding:6px 0;color:' + ink + ';font-size:14px;font-weight:600">' + escapeHtml(row[1]) + '</td>' +
+      '<td style="padding:4px 16px 4px 0;color:#5F6570;font-size:13px;white-space:nowrap;vertical-align:top">' + escapeHtml(row[0]) + '</td>' +
+      '<td style="padding:4px 0;color:#0A0C10;font-size:14px;font-weight:600">' + escapeHtml(row[1]) + '</td>' +
       '</tr>';
   }).join('');
 
+  var step = function (n, text) {
+    return '<tr>' +
+      '<td style="padding:0 14px 14px 0;vertical-align:top;width:26px"><div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#0B7F6B;line-height:1.5">' + n + '</div></td>' +
+      '<td style="padding:0 0 14px 0;vertical-align:top;font-size:14px;line-height:1.6;color:#3A3D44">' + text + '</td>' +
+      '</tr>';
+  };
+
   return '' +
-  '<div style="background:' + cream + ';padding:32px 0;font-family:Helvetica,Arial,sans-serif">' +
-    '<div style="max-width:560px;margin:0 auto;background:#fff;border:1px solid ' + line + ';border-radius:16px;padding:32px">' +
-      '<p style="margin:0 0 24px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:' + ink + '">' +
-        'BI <span style="color:#9A9A9A;font-weight:400">/</span> Migrations</p>' +
-      '<p style="margin:0 0 16px;font-size:22px;font-weight:700;letter-spacing:-0.02em;color:' + ink + '">' + escapeHtml(greeting(firstName)) + '</p>' +
-      '<p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:' + ink2 + '">Thanks for getting in touch. Your enquiry has reached us, and a real person will reply — usually within one working day.</p>' +
-      (rows ? '<table style="margin:0 0 20px;border-collapse:collapse">' + rows + '</table>' : '') +
-      '<p style="margin:0 0 8px;font-size:15px;line-height:1.6;color:' + ink2 + '">In the meantime:</p>' +
-      '<p style="margin:0 0 20px;font-size:15px;line-height:1.9;color:' + ink2 + '">' +
-        '<a href="' + CONFIG.siteUrl + '/#method" style="color:' + teal + '">How a migration works</a><br>' +
-        '<a href="' + CONFIG.siteUrl + '/services/estate-assessment/" style="color:' + teal + '">What a free estate scan involves</a><br>' +
-        '<a href="' + CONFIG.siteUrl + '/faqs/" style="color:' + teal + '">Common questions</a></p>' +
-      '<p style="margin:0;font-size:15px;line-height:1.6;color:' + ink2 + '">Just reply to this email if you want to add anything.</p>' +
-      '<p style="margin:24px 0 0;padding-top:16px;border-top:1px solid ' + line + ';font-size:13px;color:#6F7278">' +
-        'BI Migrations, LLC · <a href="' + CONFIG.siteUrl + '" style="color:' + teal + '">bimigrations.com</a></p>' +
-    '</div>' +
+  '<div style="margin:0;padding:32px 16px;background-color:#F1EEE6;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif">' +
+    '<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" width="560" style="border-collapse:collapse;width:560px;max-width:100%;margin:0 auto"><tr>' +
+    '<td style="background-color:#FFFFFF;border:1px solid #E9E5DB;border-radius:16px;padding:34px 36px">' +
+      '<img src="cid:logo" width="180" height="36" alt="BI Migrations" style="display:block;width:180px;height:36px;border:0;outline:none;text-decoration:none">' +
+      '<div style="height:1px;background-color:#E9E5DB;margin:24px 0 26px;font-size:0;line-height:0">&nbsp;</div>' +
+      '<h1 style="margin:0 0 14px;font-size:26px;line-height:1.2;font-weight:700;letter-spacing:-0.5px;color:#0A0C10">' + escapeHtml(greeting(firstName)) + '</h1>' +
+      '<p style="margin:0 0 22px;font-size:15px;line-height:1.65;color:#3A3D44">Thanks for getting in touch. Your inquiry has reached us, and a real person will reply &mdash; usually within one working day.</p>' +
+      (rows ? '<table style="margin:0 0 22px;border-collapse:collapse">' + rows + '</table>' : '') +
+      '<div style="background-color:#F7F5F0;border-radius:12px;padding:20px 22px 8px;margin:0 0 22px">' +
+        '<div style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#5F6570;padding-bottom:14px">What happens next</div>' +
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;width:100%">' +
+          step('01', '<strong style="color:#0A0C10">We reply</strong> to set up a short call about your estate and goals.') +
+          step('02', '<strong style="color:#0A0C10">You send a read-only metadata export.</strong> We\'ll send instructions for your platform.') +
+          step('03', '<strong style="color:#0A0C10">We return the scan</strong>: your inventory, what\'s still used, and what we\'d retire.') +
+        '</table>' +
+        '<div style="font-size:12px;line-height:1.6;color:#6F7278;padding:4px 0 14px">No platform access required. Mutual NDA as standard.</div>' +
+      '</div>' +
+      '<p style="margin:0 0 10px;font-size:15px;line-height:1.65;color:#3A3D44">While you wait:</p>' +
+      '<p style="margin:0 0 24px;font-size:15px;line-height:2;color:#3A3D44">' +
+        '<a href="' + CONFIG.siteUrl + '/#method" style="color:#0B7F6B;text-decoration:none">How a migration works &rarr;</a><br>' +
+        '<a href="' + CONFIG.siteUrl + '/services/estate-assessment/" style="color:#0B7F6B;text-decoration:none">What a free estate scan involves &rarr;</a><br>' +
+        '<a href="' + CONFIG.siteUrl + '/faqs/" style="color:#0B7F6B;text-decoration:none">Common questions &rarr;</a>' +
+      '</p>' +
+      '<p style="margin:0;font-size:15px;line-height:1.65;color:#3A3D44">Just reply to this email if you want to add anything.</p>' +
+      '<div style="margin-top:26px;padding-top:18px;border-top:1px solid #E9E5DB;font-size:12px;line-height:1.7;color:#8A8A8A">' +
+        'BI Migrations, LLC &nbsp;·&nbsp; <a href="' + CONFIG.siteUrl + '" style="color:#0B7F6B;text-decoration:none">bimigrations.com</a><br>' +
+        'Automating migrations from BI platforms and data warehouses' +
+      '</div>' +
+    '</td></tr></table>' +
   '</div>';
 }
 

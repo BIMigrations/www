@@ -8,8 +8,10 @@
  * Secrets come from the function's environment — never commit them:
  *   supabase secrets set SMTP_HOST=... SMTP_PORT=587 SMTP_USER=... SMTP_PASS=... MAIL_TO=...
  */
-import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
 import { validate, type Submission } from "./validate.ts";
+import { LOGO_BASE64, LOGO_CID, LOGO_FILENAME } from "./logo.ts";
+import { sendMail } from "./smtp.ts";
+import { logSubmission, recentCount } from "./store.ts";
 import {
   autoReplyHtml,
   autoReplySubject,
@@ -28,12 +30,13 @@ const SMTP_USER = env("SMTP_USER");
 const SMTP_PASS = env("SMTP_PASS");
 // Must be an address verified in SES. abi@bimigrations.com is the verified one.
 const MAIL_FROM = env("MAIL_FROM", "BI Migrations <abi@bimigrations.com>");
-// Where enquiries land. Comma-separated; override with the MAIL_TO secret.
+// Where inquiries land. Comma-separated; override with the MAIL_TO secret.
 const MAIL_TO = env("MAIL_TO", "abi@bimigrations.com,les@bimigrations.com")
   .split(",").map((s) => s.trim()).filter(Boolean);
 const AUTO_REPLY = env("AUTO_REPLY", "true") === "true";
 const ALLOW_PUBLIC_DOMAINS = env("ALLOW_PUBLIC_DOMAINS", "false") === "true";
 const MIN_FILL_SECONDS = Number(env("MIN_FILL_SECONDS", "3"));
+const DEBUG_ERRORS = env("DEBUG_ERRORS", "false") === "true";
 const ALLOWED_ORIGINS = env(
   "ALLOWED_ORIGINS",
   "https://bimigrations.com,https://www.bimigrations.com,http://localhost:4321",
@@ -60,7 +63,14 @@ const json = (body: unknown, status: number, origin: string) =>
     headers: { "content-type": "application/json", ...corsHeaders(origin) },
   });
 
-function rateLimited(ip: string): boolean {
+/** Database-backed where possible; the in-memory map is a per-isolate fallback. */
+async function overLimit(ip: string): Promise<boolean> {
+  const counted = await recentCount(ip, RATE_LIMIT.windowMs);
+  if (counted !== null) return counted >= RATE_LIMIT.max;
+  return rateLimitedInMemory(ip);
+}
+
+function rateLimitedInMemory(ip: string): boolean {
   const now = Date.now();
   const recent = (hits.get(ip) ?? []).filter((t) => now - t < RATE_LIMIT.windowMs);
   recent.push(now);
@@ -88,23 +98,43 @@ async function parseBody(req: Request): Promise<Submission | null> {
   }
 }
 
+/** The lockup, attached inline so it renders without downloading anything. */
+const inlineLogo = {
+  cid: LOGO_CID,
+  filename: LOGO_FILENAME,
+  contentType: "image/png",
+  base64: LOGO_BASE64,
+};
+
+const smtpConfig = () => ({
+  hostname: SMTP_HOST,
+  port: SMTP_PORT,
+  username: SMTP_USER,
+  password: SMTP_PASS,
+});
+
 async function send(
-  client: SMTPClient,
   to: string[],
   subject: string,
   text: string,
   html: string,
-  replyTo?: string,
+  opts: { replyTo?: string; withLogo?: boolean } = {},
 ) {
-  await client.send({
+  await sendMail(smtpConfig(), {
     from: MAIL_FROM,
     to,
     subject,
-    content: text,
+    text,
     html,
-    ...(replyTo ? { replyTo } : {}),
+    replyTo: opts.replyTo,
+    inlineImage: opts.withLogo ? inlineLogo : undefined,
   });
 }
+
+globalThis.addEventListener("unhandledrejection", (e) => {
+  console.error(JSON.stringify({ event: "unhandled_rejection", error: String((e as PromiseRejectionEvent).reason) }));
+  (e as PromiseRejectionEvent).preventDefault();
+});
 
 Deno.serve(async (req: Request) => {
   const origin = req.headers.get("origin") ?? "";
@@ -125,7 +155,7 @@ Deno.serve(async (req: Request) => {
   }
 
   const ip = (req.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
-  if (rateLimited(ip)) {
+  if (await overLimit(ip)) {
     console.warn(JSON.stringify({ event: "rate_limited", ip }));
     return json(
       { ok: false, errors: ["Too many submissions. Please try again shortly."] },
@@ -149,6 +179,18 @@ Deno.serve(async (req: Request) => {
       reasons: result.reasons,
       email: String(body.email ?? "").slice(0, 80),
     }));
+    await logSubmission({
+      ip,
+      status: "rejected",
+      reasons: result.reasons,
+      form: String(body.form ?? ""),
+      name: String(body.name ?? "").slice(0, 200),
+      email: String(body.email ?? "").slice(0, 200),
+      company: String(body.company ?? "").slice(0, 200),
+      message: String(body.message ?? "").slice(0, 5000),
+      page: String(body.page ?? "").slice(0, 200),
+      user_agent: req.headers.get("user-agent") ?? "",
+    });
     return json({ ok: false, errors: result.errors }, 422, origin);
   }
 
@@ -160,40 +202,45 @@ Deno.serve(async (req: Request) => {
     receivedAt: new Date().toISOString(),
   };
 
-  const client = new SMTPClient({
-    connection: {
-      hostname: SMTP_HOST,
-      port: SMTP_PORT,
-      tls: SMTP_PORT === 465, // 587 upgrades with STARTTLS
-      auth: { username: SMTP_USER, password: SMTP_PASS },
-    },
-  });
-
   try {
     await send(
-      client,
       MAIL_TO,
       notificationSubject(data),
       notificationText(data, meta),
       notificationHtml(data, meta),
-      data.email,
+      { replyTo: data.email },
     );
 
     if (AUTO_REPLY) {
       try {
         await send(
-          client,
           [data.email],
           autoReplySubject(),
           autoReplyText(data),
           autoReplyHtml(data),
+          { withLogo: true },
         );
       } catch (err) {
-        // the enquiry is already with us; a failed auto-reply must not fail the request
+        // the inquiry is already with us; a failed auto-reply must not fail the request
         console.error(JSON.stringify({ event: "autoreply_failed", error: String(err) }));
       }
     }
 
+    await logSubmission({
+      ip,
+      status: "accepted",
+      reasons: result.reasons,
+      form: data.form,
+      name: data.name,
+      email: data.email,
+      domain: data.domain,
+      company: data.company,
+      platform: data.platform,
+      interest: data.interest,
+      message: data.message,
+      page: data.page,
+      user_agent: meta.userAgent,
+    });
     console.log(JSON.stringify({
       event: "accepted",
       form: data.form,
@@ -203,15 +250,16 @@ Deno.serve(async (req: Request) => {
     }));
     return json({ ok: true }, 200, origin);
   } catch (err) {
-    console.error(JSON.stringify({ event: "send_failed", error: String(err) }));
+    const detail = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error(JSON.stringify({ event: "send_failed", error: detail }));
     return json(
-      { ok: false, errors: ["We couldn't send that just now. Please email us directly."] },
+      {
+        ok: false,
+        errors: ["We couldn't send that just now. Please email us directly."],
+        ...(DEBUG_ERRORS ? { debug: detail } : {}),
+      },
       502,
       origin,
     );
-  } finally {
-    try {
-      await client.close();
-    } catch { /* already closed */ }
   }
 });

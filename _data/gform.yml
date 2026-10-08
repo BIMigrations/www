@@ -1,4 +1,4 @@
-# Google Form that receives website enquiries. Submissions are posted to it by
+# Google Form that receives website inquiries. Submissions are posted to it by
 # assets/js/main.js, which triggers Google's notification email.
 #
 # To find these IDs: open the form, and in the browser console read

@@ -14,7 +14,7 @@ const good: Submission = {
 
 const reasonsOf = (s: Submission) => validate(s).reasons.join(",");
 
-Deno.test("accepts a well-formed enquiry", () => {
+Deno.test("accepts a well-formed inquiry", () => {
   const r = validate(good);
   assertEquals(r.ok, true);
   assertEquals(r.data?.firstName, "Jane");

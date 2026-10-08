@@ -211,33 +211,42 @@ class Session {
   }
 }
 
-export async function sendMail(config: SmtpConfig, msg: MailMessage): Promise<void> {
+export interface SendResult {
+  /** one line per step, e.g. "mail-from 250 Ok" — handy when mail vanishes */
+  transcript: string[];
+}
+
+export async function sendMail(config: SmtpConfig, msg: MailMessage): Promise<SendResult> {
   const { hostname, port, username, password, timeoutMs = 20_000 } = config;
   const conn = await Deno.connect({ hostname, port });
   const session = new Session(conn, timeoutMs);
+  const transcript: string[] = [];
+  const note = (stage: string, reply: string) =>
+    transcript.push(`${stage}: ${reply.replace(/\s+/g, " ").slice(0, 160)}`);
 
   try {
-    await session.expect("greeting", 220);
+    note("greeting", await session.expect("greeting", 220));
     await session.command(`EHLO bimigrations.com`, "ehlo", 250);
     await session.startTls(hostname);
     await session.command(`EHLO bimigrations.com`, "ehlo-tls", 250);
 
     await session.command("AUTH LOGIN", "auth", 334);
     await session.command(btoa(username), "auth-user", 334);
-    await session.command(btoa(password), "auth-pass", 235);
+    note("auth", await session.command(btoa(password), "auth-pass", 235));
 
-    await session.command(`MAIL FROM:<${addressOf(msg.from)}>`, "mail-from", 250);
+    note("mail-from", await session.command(`MAIL FROM:<${addressOf(msg.from)}>`, "mail-from", 250));
     for (const rcpt of msg.to) {
-      await session.command(`RCPT TO:<${addressOf(rcpt)}>`, "rcpt-to", 250, 251);
+      note(`rcpt<${addressOf(rcpt)}>`, await session.command(`RCPT TO:<${addressOf(rcpt)}>`, "rcpt-to", 250, 251));
     }
 
     await session.command("DATA", "data", 354);
     await session.write(dotStuff(buildMessage(msg)) + CRLF + ".", "data-body");
-    await session.expect("data-end", 250);
+    note("accepted", await session.expect("data-end", 250));
 
     try {
       await session.command("QUIT", "quit", 221);
     } catch { /* some servers just drop the connection */ }
+    return { transcript };
   } finally {
     session.close();
   }

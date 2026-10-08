@@ -28,8 +28,12 @@ const SMTP_HOST = env("SMTP_HOST");
 const SMTP_PORT = Number(env("SMTP_PORT", "587"));
 const SMTP_USER = env("SMTP_USER");
 const SMTP_PASS = env("SMTP_PASS");
-// Must be an address verified in SES. abi@bimigrations.com is the verified one.
-const MAIL_FROM = env("MAIL_FROM", "BI Migrations <abi@bimigrations.com>");
+// Two senders, both verified in SES:
+//  - the team notification comes from gritsa.com, whose DMARC is p=none, so it
+//    is not quarantined on the way to our own mailboxes;
+//  - the auto-reply to the submitter comes from our own brand address.
+const MAIL_FROM_NOTIFY = env("MAIL_FROM_NOTIFY", "BI Migrations <abhishek@gritsa.com>");
+const MAIL_FROM_REPLY = env("MAIL_FROM_REPLY", "BI Migrations <abi@bimigrations.com>");
 // Where inquiries land. Comma-separated; override with the MAIL_TO secret.
 const MAIL_TO = env("MAIL_TO", "abi@bimigrations.com,les@bimigrations.com")
   .split(",").map((s) => s.trim()).filter(Boolean);
@@ -114,14 +118,15 @@ const smtpConfig = () => ({
 });
 
 async function send(
+  from: string,
   to: string[],
   subject: string,
   text: string,
   html: string,
   opts: { replyTo?: string; withLogo?: boolean } = {},
 ) {
-  await sendMail(smtpConfig(), {
-    from: MAIL_FROM,
+  return await sendMail(smtpConfig(), {
+    from,
     to,
     subject,
     text,
@@ -203,7 +208,8 @@ Deno.serve(async (req: Request) => {
   };
 
   try {
-    await send(
+    const sent = await send(
+      MAIL_FROM_NOTIFY,
       MAIL_TO,
       notificationSubject(data),
       notificationText(data, meta),
@@ -214,6 +220,7 @@ Deno.serve(async (req: Request) => {
     if (AUTO_REPLY) {
       try {
         await send(
+          MAIL_FROM_REPLY,
           [data.email],
           autoReplySubject(),
           autoReplyText(data),
@@ -248,7 +255,7 @@ Deno.serve(async (req: Request) => {
       ip,
       notes: result.reasons,
     }));
-    return json({ ok: true }, 200, origin);
+    return json({ ok: true, ...(DEBUG_ERRORS ? { debug: sent.transcript } : {}) }, 200, origin);
   } catch (err) {
     const detail = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
     console.error(JSON.stringify({ event: "send_failed", error: detail }));

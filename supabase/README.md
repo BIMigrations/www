@@ -56,12 +56,29 @@ Optional settings:
 | `ALLOWED_ORIGINS` | the live site plus `localhost:4321` | CORS allowlist |
 | `MIN_FILL_SECONDS` | `3` | time trap threshold |
 | `ALLOW_PUBLIC_DOMAINS` | `false` | accept Gmail etc. — testing only |
-| `MAIL_FROM` | `BI Migrations <abi@bimigrations.com>` | sender; must be SES-verified |
 | `MAIL_TO` | `abi@`, `les@bimigrations.com` | where inquiries land, comma-separated |
 
-`MAIL_FROM` defaults to `BI Migrations <abi@bimigrations.com>`, which is the
-address verified in SES. Only set the secret if that changes — and whatever you
-set must be verified in SES, or every send fails.
+Two senders, both verified in SES:
+
+| Variable | Default | Used for |
+|---|---|---|
+| `MAIL_FROM_NOTIFY` | `BI Migrations <abhishek@gritsa.com>` | the inquiry notification to the team |
+| `MAIL_FROM_REPLY` | `BI Migrations <abi@bimigrations.com>` | the thank-you to the person who wrote in |
+
+The notification is sent from gritsa.com because bimigrations.com publishes
+DMARC `p=quarantine` while its SPF doesn't list Amazon SES, so mail sent as
+`@bimigrations.com` through SES is quarantined on arrival. gritsa.com publishes
+`p=none`, so it gets through. Fixing bimigrations.com's SPF and DKIM is the
+proper remedy — see the deliverability note below.
+
+## Deliverability
+
+Until `bimigrations.com` authorizes SES, anything sent as `@bimigrations.com`
+(including the auto-reply) can be quarantined by the recipient:
+
+1. Add SES to SPF: `v=spf1 include:_spf-usg2.ppe-hosted.com include:secureserver.net include:amazonses.com ~all`
+2. Verify the **domain** `bimigrations.com` in SES (us-east-1) and add the three
+   DKIM CNAMEs it issues. Today only the address is verified, with DKIM off.
 
 ### Testing it
 

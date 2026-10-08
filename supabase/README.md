@@ -42,11 +42,13 @@ supabase secrets set \
   SMTP_HOST="<endpoint from the credentials file>" \
   SMTP_PORT="587" \
   SMTP_USER="<username>" \
-  SMTP_PASS="<password>" \
-  MAIL_TO="abi@bimigrations.com"
+  SMTP_PASS="<password>"
 ```
 
-`MAIL_TO` takes a comma-separated list. Optional settings:
+Enquiries go to **abi@bimigrations.com and les@bimigrations.com** by default.
+Set the `MAIL_TO` secret (comma-separated) only to change that list.
+
+Optional settings:
 
 | Variable | Default | Purpose |
 |---|---|---|
@@ -55,6 +57,7 @@ supabase secrets set \
 | `MIN_FILL_SECONDS` | `3` | time trap threshold |
 | `ALLOW_PUBLIC_DOMAINS` | `false` | accept Gmail etc. — testing only |
 | `MAIL_FROM` | `BI Migrations <abi@bimigrations.com>` | sender; must be SES-verified |
+| `MAIL_TO` | `abi@`, `les@bimigrations.com` | where enquiries land, comma-separated |
 
 `MAIL_FROM` defaults to `BI Migrations <abi@bimigrations.com>`, which is the
 address verified in SES. Only set the secret if that changes — and whatever you

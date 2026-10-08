@@ -28,7 +28,9 @@ const SMTP_USER = env("SMTP_USER");
 const SMTP_PASS = env("SMTP_PASS");
 // Must be an address verified in SES. abi@bimigrations.com is the verified one.
 const MAIL_FROM = env("MAIL_FROM", "BI Migrations <abi@bimigrations.com>");
-const MAIL_TO = env("MAIL_TO").split(",").map((s) => s.trim()).filter(Boolean);
+// Where enquiries land. Comma-separated; override with the MAIL_TO secret.
+const MAIL_TO = env("MAIL_TO", "abi@bimigrations.com,les@bimigrations.com")
+  .split(",").map((s) => s.trim()).filter(Boolean);
 const AUTO_REPLY = env("AUTO_REPLY", "true") === "true";
 const ALLOW_PUBLIC_DOMAINS = env("ALLOW_PUBLIC_DOMAINS", "false") === "true";
 const MIN_FILL_SECONDS = Number(env("MIN_FILL_SECONDS", "3"));

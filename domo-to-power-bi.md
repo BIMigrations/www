@@ -85,7 +85,7 @@ Every part of a Domo instance has a native home in Power BI. The [concept mappin
 
 ### Beast Modes to DAX
 
-A Beast Mode is evaluated inside a single card. A DAX measure is evaluated in the semantic model's filter context, across related tables. The same formula can give a different answer, which is why every translated Beast Mode is parity-tested, not just converted.
+A Beast Mode is evaluated inside a single card. A DAX measure is evaluated in the semantic model's filter context, across related tables. The same formula can give a different answer, which is why every translated Beast Mode is parity-tested, not just converted. Evaluating vendors? Here is [how to test an automated Domo migration](/insights/test-an-automated-domo-migration/) before you buy one.
 
 ### Duplicated calculations
 

@@ -1,6 +1,6 @@
 {%- comment -%}
-  Attributes that turn a form into a Google Forms submission. JavaScript
-  intercepts the submit and posts in the background; without JavaScript the
-  browser posts natively and lands on Google's confirmation page.
+  Attributes that point a form at the contact function. JavaScript intercepts
+  the submit and posts JSON; without JavaScript the browser posts the form
+  natively to the same endpoint, which accepts form-encoded bodies too.
 {%- endcomment -%}
-action="https://docs.google.com/forms/d/e/{{ site.data.gform.id }}/formResponse" method="post" data-gform
+action="{{ site.contact_endpoint }}" method="post" data-contact-form

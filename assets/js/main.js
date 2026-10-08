@@ -438,16 +438,19 @@
     if (opt) select.value = opt.value;
   }
 
-  /* ---------- Google Forms submission ----------
-     Posts the form to its Google Form in the background, which is what
-     triggers the notification email. The response is opaque (no-cors), so a
-     resolved request is treated as delivered; only a network failure errors.
-     Without JavaScript the form posts natively to Google instead. */
+  /* ---------- Contact + estate scan forms ----------
+     Posts JSON to the contact function, which validates, filters spam and
+     emails us. Rejections come back as 422 with messages to show the person.
+     Without JavaScript the form posts to the same endpoint natively. */
   function wireForms() {
-    document.querySelectorAll('form[data-gform]').forEach(function (form) {
+    document.querySelectorAll('form[data-contact-form]').forEach(function (form) {
       var status = form.querySelector('.form-status');
       var button = form.querySelector('[type="submit"]');
+      var stamp = form.querySelector('[data-rendered-at]');
       var sending = false;
+
+      // the function rejects anything submitted within a few seconds of render
+      if (stamp) stamp.value = String(Date.now());
 
       function say(msg, isError) {
         if (!status) return;
@@ -455,56 +458,108 @@
         status.classList.toggle('is-error', !!isError);
       }
 
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (sending) return;
-
-        var data = new FormData(form);
-
-        // Honeypot: bots fill it, people can't see it. Pretend all is well.
-        var hp = form.querySelector('[data-hp]');
-        if (hp) {
-          if (hp.value) { succeed(); return; }
-          data.delete(hp.name);
-        }
-
-        // Until the form has its own Message question, fold the message into
-        // the interest answer so it still reaches the email.
-        var merge = form.querySelector('[data-merge-into]');
-        if (merge && merge.value.trim()) {
-          var key = merge.getAttribute('data-merge-into');
-          var existing = data.get(key) || '';
-          data.set(key, (existing ? existing + ' — ' : '') + merge.value.trim());
-        }
-
-        var body = new URLSearchParams();
-        data.forEach(function (v, k) { if (v !== '') body.append(k, v); });
-
-        sending = true;
-        form.dataset.sending = 'true';
-        if (button) { button.disabled = true; button.dataset.label = button.textContent; button.textContent = 'Sending…'; }
-        say('');
-
-        fetch(form.action, { method: 'POST', mode: 'no-cors', body: body })
-          .then(succeed)
-          .catch(function () {
-            sending = false;
-            delete form.dataset.sending;
-            if (button) { button.disabled = false; button.textContent = button.dataset.label || 'Send'; }
-            say("That didn't send — check your connection and try again, or email us instead.", true);
-          });
-      });
-
       function succeed() {
         var panel = document.createElement('div');
         panel.className = 'form-success';
         panel.setAttribute('role', 'status');
-        panel.innerHTML = '<span class="dot dot-teal"></span><strong>Thanks — that\'s with us.</strong>' +
-          '<span>We\'ll come back to you by email. If it\'s urgent, say so in a reply and we\'ll prioritize it.</span>';
+        panel.innerHTML = '<span class="dot dot-teal"></span><strong>Thanks \u2014 that\'s with us.</strong>' +
+          '<span>We\'ve sent you a confirmation, and a real person will reply by email.</span>';
         form.replaceChildren(panel);
       }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (sending) return;
+
+        var payload = {};
+        new FormData(form).forEach(function (v, k) { payload[k] = v; });
+
+        // bots fill the honeypot; let them think it worked
+        if (payload.website) { succeed(); return; }
+
+        sending = true;
+        if (button) {
+          button.disabled = true;
+          button.dataset.label = button.textContent;
+          button.textContent = 'Sending\u2026';
+        }
+        say('');
+
+        fetch(form.action, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (body) {
+            return { status: res.status, body: body };
+          });
+        }).then(function (r) {
+          if (r.status === 200 && r.body.ok) { succeed(); return; }
+          var messages = (r.body.errors || []).join(' ');
+          if (r.status === 429) {
+            messages = messages || 'Too many submissions just now. Please try again shortly.';
+          }
+          say(messages || 'We couldn\'t send that. Please try again, or email us directly.', true);
+          reset();
+        }).catch(function () {
+          say('That didn\'t send \u2014 check your connection and try again.', true);
+          reset();
+        });
+
+        function reset() {
+          sending = false;
+          if (button) {
+            button.disabled = false;
+            button.textContent = button.dataset.label || 'Send';
+          }
+        }
+      });
     });
   }
+
+  /* ---------- Sub-page "On this page" list ---------- */
+  function buildToc() {
+    var toc = document.querySelector('.toc');
+    var list = toc && toc.querySelector('.toc-list');
+    if (!list) return;
+    var heads = Array.prototype.slice.call(document.querySelectorAll('.prose > h2[id]'));
+    if (heads.length < 2) return;
+    var links = heads.map(function (h) {
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      li.appendChild(a);
+      list.appendChild(li);
+      return a;
+    });
+    toc.hidden = false;
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var i = heads.indexOf(en.target);
+        links.forEach(function (l, j) { l.classList.toggle('is-active', j === i); });
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    heads.forEach(function (h) { io.observe(h); });
+  }
+
+  /* ---------- Contact form: preselect topic from ?interest= ---------- */
+  function prefillContact() {
+    var select = document.getElementById('contact-interest');
+    if (!select || !window.URLSearchParams) return;
+    var want = new URLSearchParams(window.location.search).get('interest');
+    if (!want) return;
+    var opt = select.querySelector('option[data-key="' + want.replace(/[^a-z]/gi, '') + '"]');
+    if (opt) select.value = opt.value;
+  }
+
+  /* ---------- Google Forms submission ----------
+     Posts the form to its Google Form in the background, which is what
+     triggers the notification email. The response is opaque (no-cors), so a
+     resolved request is treated as delivered; only a network failure errors.
+     Without JavaScript the form posts natively to Google instead. */
 
   /* ---------- Init ---------- */
   function init() {

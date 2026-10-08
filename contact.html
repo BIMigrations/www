@@ -9,23 +9,23 @@ hide_cta: true
 ---
 <div class="wrap page-body contact-layout">
   <form class="contact-form" {% include form-attrs.html %}>
-    {% include gform-hidden.html %}
+    {% include form-hidden.html form='contact' %}
     <div class="form-grid">
       <label class="field">
         <span>Name</span>
-        <input type="text" name="{{ site.data.gform.fields.name }}" autocomplete="name" required>
+        <input type="text" name="name" autocomplete="name" required placeholder="First and last name">
       </label>
       <label class="field">
         <span>Work email</span>
-        <input type="email" name="{{ site.data.gform.fields.email }}" autocomplete="email" inputmode="email" required>
+        <input type="email" name="email" autocomplete="email" inputmode="email" required placeholder="you@company.com">
       </label>
       <label class="field">
         <span>Company</span>
-        <input type="text" name="{{ site.data.gform.fields.company }}" autocomplete="organization">
+        <input type="text" name="company" autocomplete="organization">
       </label>
       <label class="field">
         <span>Current BI platform</span>
-        <select name="{{ site.data.gform.fields.platform }}">
+        <select name="platform">
           <option value="">Select…</option>
           <option>Domo</option>
           <option>Power BI</option>
@@ -40,7 +40,7 @@ hide_cta: true
       </label>
       <label class="field field-full">
         <span>What are you looking for?</span>
-        <select name="{{ site.data.gform.fields.interest }}" id="contact-interest">
+        <select name="interest" id="contact-interest">
           <option data-key="scan" value="A free estate scan">A free estate scan</option>
           <option data-key="assessment" value="An estate assessment">An estate assessment</option>
           <option data-key="migration" value="A full migration">A full migration</option>
@@ -52,7 +52,7 @@ hide_cta: true
       </label>
       <label class="field field-full">
         <span>Message</span>
-        <textarea {% if site.data.gform.fields.message != "" %}name="{{ site.data.gform.fields.message }}"{% else %}data-merge-into="{{ site.data.gform.fields.interest }}"{% endif %} rows="5" placeholder="A few lines about your estate, timeline or question."></textarea>
+        <textarea name="message" rows="5" required minlength="20" placeholder="A few lines about your estate, timeline or question."></textarea>
       </label>
     </div>
     <div class="form-actions">

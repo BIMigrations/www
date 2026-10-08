@@ -22,6 +22,10 @@ twitter:
 # webmaster_verifications:
 #   google: abc123
 
+# Contact + estate scan forms post here (Supabase edge function).
+# Validation, spam filtering and email live in supabase/functions/contact.
+contact_endpoint: "https://iiznemotvcrukeajsist.supabase.co/functions/v1/contact"
+
 # Build settings
 markdown: kramdown
 kramdown:

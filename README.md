@@ -23,7 +23,6 @@ Then open http://localhost:4000.
 | `_data/platforms.yml` | Featured platforms (drives the dropdown, menu and `/platforms/`) |
 | `_data/routes.yml` | Migration routes (Domo → Power BI, Tableau → Power BI, …) — drives the nav, home section, footer and related links |
 | `_data/faqs.yml` | Questions on `/faqs/` |
-| `_data/gform.yml` | Google Form ID and field mapping for the contact and scan forms |
 | `_data/authors.yml` | Blog bylines (Amy Loomis) |
 | `tools/` | `new-post.sh` scaffolds a post; `make-og-image.sh` renders social cards |
 | `docs/blogging-guide.md` | Voice, topics, cadence, SEO rules and checklist for the blog |
@@ -35,7 +34,8 @@ Then open http://localhost:4000.
 | `*.md` at the root | About, open specifications, risk & governance, FAQs, careers, partners, security, privacy, terms |
 | `contact.html`, `404.html` | Contact form and not-found page |
 | `assets/css/main.css` | Theme tokens and all styles (breakpoints at 1000px and 760px) |
-| `assets/js/main.js` | Theme, menu, hero field, marquee, compare slider, carousel, dock, table of contents |
+| `assets/js/main.js` | Theme, menu, hero field, marquee, compare slider, carousel, dock, table of contents, forms |
+| `supabase/` | Contact edge function: validation, spam filtering, email |
 
 ## Adding content
 
@@ -59,30 +59,20 @@ GitHub Pages builds this site with its standard (legacy) Jekyll build, so only w
 
 ## Forms
 
-The home-page scan form and `/contact/` submit to the Google Form configured in
-`_data/gform.yml`, which is what triggers the notification email.
+The contact form and the home page's estate-scan form post to a Supabase edge
+function (`supabase/functions/contact`), configured as `contact_endpoint` in
+`_config.yml`. It validates the submission, filters spam, emails the team and
+sends the person an auto-reply. See [supabase/README.md](supabase/README.md).
 
-- `assets/js/main.js` intercepts the submit and posts the fields to the form's
-  `formResponse` endpoint with `fetch(..., { mode: 'no-cors' })`, then swaps the
-  form for a thank-you panel. Without JavaScript the form posts natively and the
-  visitor lands on Google's own confirmation page.
-- Field names in the markup **are** the Google entry IDs, pulled from
-  `_data/gform.yml`, so a form change means editing that one file.
-- To find the IDs: open the form and read `FB_PUBLIC_LOAD_DATA_[1][1]` in the
-  console — each question's ID is `item[4][0][0]`. The built-in email question is
-  `emailAddress`, not an `entry.*` field.
-- Every form has a hidden honeypot field; submissions that fill it are dropped
-  silently.
-- The form has no Message question yet, so the message typed on `/contact/` is
-  appended to the interest answer. Add a paragraph question called "Message" and
-  put its entry ID in `_data/gform.yml` to give it its own column.
+- `assets/js/main.js` posts the fields as JSON and shows whatever the function
+  says: a thank-you panel on success, the validation messages on a 422, a
+  "try again shortly" note on a 429.
+- Without JavaScript the form posts to the same endpoint natively, and the
+  person sees the function's JSON response rather than a styled page.
+- `_includes/form-hidden.html` adds the honeypot and the render timestamp the
+  function checks, plus which form it was and which page it came from.
+- The Google Form this replaced, and its Apps Script auto-reply, are retired.
 
-## Auto-reply to inquiries
-
-`docs/apps-script/thank-you.gs` is a Google Apps Script that emails a thank-you
-to whoever submits the form. Paste it into the form's script editor (⋮ → Script
-editor), edit the `CONFIG` block, and add an **On form submit** trigger. Setup
-notes are in the file's header comment.
 
 ## Responsive behavior
 

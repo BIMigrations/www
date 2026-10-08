@@ -1,0 +1,5 @@
+{%- comment -%} Honeypot plus the render time, both checked by the function. {%- endcomment -%}
+<input type="hidden" name="form" value="{{ include.form | default: 'contact' }}">
+<input type="hidden" name="page" value="{{ page.url }}">
+<input type="hidden" name="renderedAt" value="" data-rendered-at>
+<div class="hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" data-hp tabindex="-1" autocomplete="off"></label></div>

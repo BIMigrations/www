@@ -43,7 +43,6 @@ supabase secrets set \
   SMTP_PORT="587" \
   SMTP_USER="<username>" \
   SMTP_PASS="<password>" \
-  MAIL_FROM="BI Migrations <no-reply@bimigrations.com>" \
   MAIL_TO="abi@bimigrations.com"
 ```
 
@@ -55,8 +54,11 @@ supabase secrets set \
 | `ALLOWED_ORIGINS` | the live site plus `localhost:4321` | CORS allowlist |
 | `MIN_FILL_SECONDS` | `3` | time trap threshold |
 | `ALLOW_PUBLIC_DOMAINS` | `false` | accept Gmail etc. — testing only |
+| `MAIL_FROM` | `BI Migrations <abi@bimigrations.com>` | sender; must be SES-verified |
 
-`MAIL_FROM` must be an address SES has verified, or sending fails.
+`MAIL_FROM` defaults to `BI Migrations <abi@bimigrations.com>`, which is the
+address verified in SES. Only set the secret if that changes — and whatever you
+set must be verified in SES, or every send fails.
 
 ### Testing it
 

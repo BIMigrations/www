@@ -6,8 +6,7 @@
  * emails it to the team over SMTP. Optionally sends the sender an auto-reply.
  *
  * Secrets come from the function's environment — never commit them:
- *   supabase secrets set SMTP_HOST=... SMTP_PORT=587 SMTP_USER=... SMTP_PASS=... \
- *                        MAIL_FROM=... MAIL_TO=...
+ *   supabase secrets set SMTP_HOST=... SMTP_PORT=587 SMTP_USER=... SMTP_PASS=... MAIL_TO=...
  */
 import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
 import { validate, type Submission } from "./validate.ts";
@@ -27,7 +26,8 @@ const SMTP_HOST = env("SMTP_HOST");
 const SMTP_PORT = Number(env("SMTP_PORT", "587"));
 const SMTP_USER = env("SMTP_USER");
 const SMTP_PASS = env("SMTP_PASS");
-const MAIL_FROM = env("MAIL_FROM", "BI Migrations <no-reply@bimigrations.com>");
+// Must be an address verified in SES. abi@bimigrations.com is the verified one.
+const MAIL_FROM = env("MAIL_FROM", "BI Migrations <abi@bimigrations.com>");
 const MAIL_TO = env("MAIL_TO").split(",").map((s) => s.trim()).filter(Boolean);
 const AUTO_REPLY = env("AUTO_REPLY", "true") === "true";
 const ALLOW_PUBLIC_DOMAINS = env("ALLOW_PUBLIC_DOMAINS", "false") === "true";

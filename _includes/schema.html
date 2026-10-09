@@ -48,3 +48,9 @@
 ]}
 </script>
 {%- endif %}
+{%- if page.collection == "posts" %}
+{%- assign pa = site.data.authors[page.author] %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","@id":"{{ base }}{{ page.url }}#article","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"url":"{{ base }}{{ page.url }}","mainEntityOfPage":{"@type":"WebPage","@id":"{{ base }}{{ page.url }}"},"datePublished":"{{ page.date | date_to_xmlschema }}","dateModified":"{{ page.last_modified_at | default: page.date | date_to_xmlschema }}","inLanguage":"en"{% if page.image %},"image":"{{ base }}{{ page.image }}"{% endif %}{% if pa %},"author":{"@type":"Person","name":{{ pa.name | jsonify }},"url":"{{ base }}/about/"}{% endif %},"publisher":{"@type":"Organization","@id":"{{ base }}/#organization","name":"BI Migrations","logo":{"@type":"ImageObject","url":"{{ base }}/assets/img/logo.png"}},"isPartOf":{"@id":"{{ base }}/insights/#blog"}}
+</script>
+{%- endif %}

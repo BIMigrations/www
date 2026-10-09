@@ -62,6 +62,8 @@ defaults:
       parent_title: Insights
       parent_url: /insights/
       author: amy-loomis
+      seo:
+        type: WebPage
   - scope:
       path: ""
       type: case_studies

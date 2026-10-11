@@ -17,7 +17,7 @@ into the signature box.
 **Outlook (Windows desktop)** — paste into File → Options → Mail → Signatures.
 Outlook saves the image into its own signature folder and attaches it to each
 message, so recipients never see the "click to download pictures" prompt. This
-is the behaviour we want, and it is why pasting matters.
+is the behavior we want, and it is why pasting matters.
 
 **Outlook (web / new Outlook)** — Settings → Mail → Compose and reply → paste.
 
@@ -32,7 +32,7 @@ my default message font".
 The logo is a base64 `data:` URI, so the HTML carries the image itself. Worth
 knowing how clients treat that:
 
-| Client | Behaviour |
+| Client | Behavior |
 |---|---|
 | Apple Mail, iOS Mail | Renders `data:` URIs directly |
 | Outlook desktop | Does **not** render `data:` URIs in HTML it imports. Pasting the rendered signature sidesteps this: Outlook embeds the image as an attachment instead |

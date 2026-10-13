@@ -36,7 +36,7 @@ In Tableau, `FIXED` expressions are computed before dimension filters but after 
 
 ### Table calculation addressing
 
-A Tableau table calculation's result depends on its addressing and partitioning — "compute using" — which can differ from sheet to sheet for the same formula. Before translating, record the addressing for each use. It often means one Tableau calculation becomes several DAX measures.
+A Tableau table calculation's result depends on its addressing and partitioning — "compute using" — which can differ from sheet to sheet for the same formula. Before translating, record the addressing for each use. It often means one Tableau calculation becomes several DAX measures. The longer explanation is in [Tableau table calculations live in the view](/insights/tableau-table-calculations-live-in-the-view/).
 
 ### Aggregations of aggregations
 

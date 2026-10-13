@@ -2,7 +2,7 @@
 title: "Tableau to DAX: LOD Expressions & Table Calcs"
 crumb: Tableau calculations to DAX
 heading: "Tableau calculations to <em>DAX.</em>"
-description: "How Tableau calculated fields, LOD expressions, table calculations, parameters and user filters translate into DAX and Power BI — and where to take care."
+description: "How Tableau calculated fields, LOD expressions, table calculations, parameters and user filters translate into DAX and Power BI, and where to take care."
 from: Tableau
 to: Power BI
 order: 2
@@ -36,7 +36,7 @@ In Tableau, `FIXED` expressions are computed before dimension filters but after 
 
 ### Table calculation addressing
 
-A Tableau table calculation's result depends on its addressing and partitioning — "compute using" — which can differ from sheet to sheet for the same formula. Before translating, record the addressing for each use. It often means one Tableau calculation becomes several DAX measures. The longer explanation is in [Tableau table calculations live in the view](/insights/tableau-table-calculations-live-in-the-view/).
+A Tableau table calculation's result depends on its addressing and partitioning ("compute using"), which can differ from sheet to sheet for the same formula. Before translating, record the addressing for each use. It often means one Tableau calculation becomes several DAX measures. The longer explanation is in [Tableau table calculations live in the view](/insights/tableau-table-calculations-live-in-the-view/).
 
 ### Aggregations of aggregations
 

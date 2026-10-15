@@ -1,7 +1,7 @@
 ---
 title: "About us (variant 1: with history)"
 heading: "Built so nobody has to <em>migrate twice.</em>"
-description: We started BI Migrations because migrations keep being run the same expensive way: analysts rebuilding dashboards by eye, one screen at a time.
+description: "We started BI Migrations because migrations keep being run the same expensive way: analysts rebuilding dashboards by eye, one screen at a time."
 permalink: /about-v1/
 noindex: true
 sitemap: false

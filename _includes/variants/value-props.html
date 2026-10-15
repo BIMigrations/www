@@ -1,0 +1,38 @@
+{%- comment -%}
+  VARIANT BLOCK (not production). Value propositions, moved up the home page.
+  Every claim here already appears elsewhere on bimigrations.com:
+  78% / no analyst in the loop (home proof band, /domo-to-power-bi/), open specs (home, /open-specifications/),
+  parity testing (/risk-governance/), retire first (/about/, /services/rationalization/), read-only start (home scan note).
+{%- endcomment -%}
+<section id="values" class="wrap values">
+  <div class="values-head">
+    <div>
+      <div class="eyebrow">{{ include.eyebrow | default: "What you get" }}</div>
+      <h2 class="values-title">{{ include.title | default: 'Four things that <span class="serif c-teal">change</span> a migration.' }}</h2>
+    </div>
+    <p class="values-copy">Automation does the heavy lifting. Engineers handle the edge cases. You end up owning the result.</p>
+  </div>
+  <div class="cards values-cards">
+    <div class="card">
+      <div class="card-label">Automated</div>
+      <h3 class="card-title">Around 78% converted by the tool</h3>
+      <p class="card-text">In a typical estate, our automated migration tool converts most of the work with no analyst in the loop. Engineers handle the rest.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Yours</div>
+      <h3 class="card-title">Open specifications you own</h3>
+      <p class="card-text">SQL, Python, JSON and YAML in your repository. Change your mind about your BI platform later and you re-run the tool, not a new project.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Proven</div>
+      <h3 class="card-title">Every metric parity-tested</h3>
+      <p class="card-text">Each migrated metric is compared with the source before cutover. A metric that has not passed does not go live.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Lean</div>
+      <h3 class="card-title">Retire before you move</h3>
+      <p class="card-text">Usage data flags dormant and duplicated dashboards, so you do not pay to migrate what nobody opens.</p>
+    </div>
+  </div>
+  <p class="values-foot">Start read-only: a metadata export is enough, with a mutual NDA as standard. <a href="#scan">Request a free estate scan <span aria-hidden="true">→</span></a></p>
+</section>

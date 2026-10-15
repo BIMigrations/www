@@ -1,0 +1,47 @@
+{%- comment -%}
+  VARIANT BLOCK (not production). Comparative clarity: rebuilding by hand versus BI Migrations.
+  The left column restates what the About page and home page already say about hand rebuilds.
+  It describes the approach in general, not any named vendor or consultancy.
+{%- endcomment -%}
+<section id="versus" class="wrap versus">
+  <div class="versus-head">
+    <div>
+      <div class="eyebrow">{{ include.eyebrow | default: "How it compares" }}</div>
+      <h2 class="versus-title">{{ include.title | default: 'Rebuild by hand, or <span class="serif c-teal">translate once.</span>' }}</h2>
+    </div>
+    <p class="versus-copy">The usual way to move a BI estate is to rebuild it dashboard by dashboard. Here is how that differs from what we do.</p>
+  </div>
+  <div class="versus-table" role="table" aria-label="Rebuilding by hand compared with BI Migrations">
+    <div class="versus-row versus-row-head" role="row">
+      <div class="versus-cell versus-q" role="columnheader"><span class="sr-only">Question</span></div>
+      <div class="versus-cell" role="columnheader"><span class="dot dot-amber"></span>Rebuild by hand</div>
+      <div class="versus-cell versus-us" role="columnheader"><span class="dot dot-teal"></span>BI Migrations</div>
+    </div>
+    <div class="versus-row" role="row">
+      <div class="versus-cell versus-q" role="rowheader">Who works out what each number means</div>
+      <div class="versus-cell" role="cell" data-label="Rebuild by hand">Analysts open each dashboard and infer the intent behind every calculation.</div>
+      <div class="versus-cell versus-us" role="cell" data-label="BI Migrations">The tool reads the calculations. Engineers settle the business logic nobody wrote down.</div>
+    </div>
+    <div class="versus-row" role="row">
+      <div class="versus-cell versus-q" role="rowheader">What you end up with</div>
+      <div class="versus-cell" role="cell" data-label="Rebuild by hand">A new estate, locked into the new platform as tightly as the old one was locked into the last.</div>
+      <div class="versus-cell versus-us" role="cell" data-label="BI Migrations">Open specifications in your repository, plus native artifacts on the platform you chose.</div>
+    </div>
+    <div class="versus-row" role="row">
+      <div class="versus-cell versus-q" role="rowheader">How correctness is checked</div>
+      <div class="versus-cell" role="cell" data-label="Rebuild by hand">By eye, one screen at a time.</div>
+      <div class="versus-cell versus-us" role="cell" data-label="BI Migrations">Automated parity tests on every metric before cutover, with a full report for each wave.</div>
+    </div>
+    <div class="versus-row" role="row">
+      <div class="versus-cell versus-q" role="rowheader">If you change platform later</div>
+      <div class="versus-cell" role="cell" data-label="Rebuild by hand">The estate is interpreted from scratch again, by different people.</div>
+      <div class="versus-cell versus-us" role="cell" data-label="BI Migrations">You re-run the tool against the same specifications.</div>
+    </div>
+    <div class="versus-row" role="row">
+      <div class="versus-cell versus-q" role="rowheader">Time and cost</div>
+      <div class="versus-cell" role="cell" data-label="Rebuild by hand">Slow and expensive.</div>
+      <div class="versus-cell versus-us" role="cell" data-label="BI Migrations">Median kickoff to cutover of 11 weeks across engagements.</div>
+    </div>
+  </div>
+  <p class="versus-foot">Not sure which fits your estate? <a href="#scan">A free estate scan</a> sizes it from a read-only export.</p>
+</section>

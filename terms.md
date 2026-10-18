@@ -5,7 +5,7 @@ heading: "Terms of <em>use.</em>"
 description: "The terms of use that apply when you visit and use the BI Migrations website, including content, trademarks, links and liability."
 permalink: /terms/
 parent_title: Legal
-draft_notice: Draft — these terms are pending legal review and their wording may change.
+draft_notice: "Draft: these terms are pending legal review and their wording may change."
 ---
 
 ## About these *terms*
@@ -14,7 +14,7 @@ These terms apply to your use of this website, which is operated by BI Migration
 
 ## Using the *site*
 
-You may use this site to learn about BI Migrations and to get in touch with us. Please don't misuse it — for example, by trying to gain unauthorised access, disrupting how it works, or submitting content that is unlawful or that you don't have the right to share.
+You may use this site to learn about BI Migrations and to get in touch with us. Please don't misuse it, for example by trying to gain unauthorised access, disrupting how it works, or submitting content that is unlawful or that you don't have the right to share.
 
 ## Content and *intellectual property*
 

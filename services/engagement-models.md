@@ -1,7 +1,7 @@
 ---
 title: Engagement models
 heading: "Work with us the way <em>your team</em> works."
-description: From a standalone assessment to a fully delivered migration, or your own team running our automated migration tool — choose the level of involvement that fits.
+description: From a standalone assessment to a fully delivered migration, or your own team running our automated migration tool. Choose the level of involvement that fits.
 permalink: /services/engagement-models/
 models:
   - label: Model 01
@@ -12,7 +12,7 @@ models:
     text: We run the migration end to end, from scan to cutover, with your team reviewing and signing off each wave.
   - label: Model 03
     title: Co-delivery
-    text: Our engineers and your team — or your consultancy — deliver together, and knowledge transfers as the work happens.
+    text: Our engineers and your team, or your consultancy, deliver together, and knowledge transfers as the work happens.
   - label: Model 04
     title: Tool-assisted
     text: Your team or partner runs our automated migration tool, with our engineers on hand for the hard cases and parity reviews.

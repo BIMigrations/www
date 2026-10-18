@@ -2,7 +2,7 @@
 title: Domo migration
 crumb: Domo
 heading: "Leave Domo. <em>Keep</em> every answer."
-description: DataSets, DataFlows, Beast Modes, cards and PDP policies — read, translated into open specifications, and regenerated natively on the BI platform you choose.
+description: "DataSets, DataFlows, Beast Modes, cards and PDP policies: read, translated into open specifications, and regenerated natively on the BI platform you choose."
 permalink: /platforms/domo/
 accent: amber
 related:
@@ -18,7 +18,7 @@ related:
     link: Read the guide
   - label: Service
     title: Estate assessment
-    text: Find out what's in your Domo instance — and what's still used — before you plan the move.
+    text: Find out what's in your Domo instance, and what's still used, before you plan the move.
     url: /services/estate-assessment/
 ---
 
@@ -28,12 +28,12 @@ Domo estates grow quickly: a connector here, a Magic ETL there, a Beast Mode cop
 
 ## What we *read*
 
-- **DataSets** — schemas, connector configuration and refresh schedules.
-- **DataFlows** — Magic ETL and SQL DataFlows, including the order they depend on each other.
-- **Beast Modes** — every calculated field, and every card that uses it.
-- **Cards and pages** — chart types, filters, drill paths and layout.
-- **PDP policies** — who is allowed to see which rows.
-- **Usage** — card and page views, so dormant content can be retired rather than migrated.
+- **DataSets**: schemas, connector configuration and refresh schedules.
+- **DataFlows**: Magic ETL and SQL DataFlows, including the order they depend on each other.
+- **Beast Modes**: every calculated field, and every card that uses it.
+- **Cards and pages**: chart types, filters, drill paths and layout.
+- **PDP policies**: who is allowed to see which rows.
+- **Usage**: card and page views, so dormant content can be retired rather than migrated.
 
 ## How it *translates*
 

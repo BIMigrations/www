@@ -5,7 +5,7 @@ heading: "Privacy, <em>plainly.</em>"
 description: What we collect through this website, why, and what you can ask us to do with it.
 permalink: /privacy/
 parent_title: Legal
-draft_notice: Draft — this notice is pending legal review and its wording may change.
+draft_notice: "Draft: this notice is pending legal review and its wording may change."
 ---
 
 ## Who we *are*

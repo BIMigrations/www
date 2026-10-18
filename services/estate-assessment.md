@@ -1,7 +1,7 @@
 ---
 title: Estate assessment
 heading: "Know your estate <em>before</em> you move it."
-description: An evidence-based picture of your BI estate — what's there, what's used, what's worth moving — and a migration plan you can put a budget against.
+description: An evidence-based picture of your BI estate (what's there, what's used, what's worth moving) and a migration plan you can put a budget against.
 permalink: /services/estate-assessment/
 covers:
   - title: Inventory
@@ -18,11 +18,11 @@ covers:
     text: A wave-by-wave migration plan with timeline and effort, based on your actual inventory.
 ---
 
-Most migration estimates are guesses: a count of dashboards, multiplied by a number of days. An estate assessment replaces the guess with a measured inventory of your whole estate — whether you're planning a [Domo to Power BI migration](/domo-to-power-bi/), a [Tableau to Power BI migration](/tableau-to-power-bi/) or something else.
+Most migration estimates are guesses: a count of dashboards, multiplied by a number of days. An estate assessment replaces the guess with a measured inventory of your whole estate, whether you're planning a [Domo to Power BI migration](/domo-to-power-bi/), a [Tableau to Power BI migration](/tableau-to-power-bi/) or something else.
 
 ## Start with the free *scan*
 
-Every assessment starts with the **free estate scan**. It works from a read-only metadata export: no platform access is required, and a mutual NDA is standard. The scan gives you a headline inventory — how many datasets, calculations and dashboards you have, and how many of them anyone still opens.
+Every assessment starts with the **free estate scan**. It works from a read-only metadata export: no platform access is required, and a mutual NDA is standard. The scan gives you a headline inventory: how many datasets, calculations and dashboards you have, and how many of them anyone still opens.
 
 [Request a free scan →](/#scan)
 
@@ -33,7 +33,7 @@ Every assessment starts with the **free estate scan**. It works from a read-only
 ## What you *get*
 
 1. **An estate inventory**, with the field-level lineage graph behind it.
-2. **A rationalization recommendation** — what to retire, what to consolidate and what to move.
+2. **A rationalization recommendation**: what to retire, what to consolidate and what to move.
 3. **A migration roadmap**, scored for complexity and grouped into waves.
 4. **Target considerations** for the BI platforms on your shortlist.
 5. **A plan and estimate** you can take to a budget holder.

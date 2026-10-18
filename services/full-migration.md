@@ -1,7 +1,7 @@
 ---
 title: Full migration
 heading: "The whole estate. <em>Rebuilt natively.</em>"
-lead: "From first scan to final cutover — your BI estate translated into open specifications and regenerated natively on the BI platform you choose, with parity proved along the way."
+lead: "From first scan to final cutover: your BI estate translated into open specifications and regenerated natively on the BI platform you choose, with parity proved along the way."
 description: "End-to-end BI migration: your estate translated into open specifications and regenerated natively on your chosen BI platform, with parity proved."
 permalink: /services/full-migration/
 phases:
@@ -37,7 +37,7 @@ In a typical estate, around 78% is converted by our automated migration tool wit
 
 ## What you *keep*
 
-- **Open specifications** in your repository — the platform-neutral record of your estate.
+- **Open specifications** in your repository: the platform-neutral record of your estate.
 - **Native artifacts** on your chosen BI platform, built the way your own team would build them.
 - **A parity report** for every migrated metric.
 - **A lineage graph** from every dashboard back to its source columns.

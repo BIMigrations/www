@@ -1,5 +1,5 @@
 ---
-# TEMPLATE — copy this file, fill it in, and set published: true once the
+# TEMPLATE: copy this file, fill it in, and set published: true once the
 # client has approved the write-up. Unpublished files are not built.
 published: false
 title: "[Client or sector] moves from [Source] to [Target]"

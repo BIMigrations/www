@@ -2,7 +2,7 @@
 title: Qlik to Power BI migration guide
 crumb: Qlik to Power BI
 heading: "Qlik to Power BI, <em>mapped.</em>"
-description: From load scripts, QVDs and set analysis to star schemas, pipelines and DAX — for both Qlik Sense and QlikView.
+description: From load scripts, QVDs and set analysis to star schemas, pipelines and DAX, for both Qlik Sense and QlikView.
 from: Qlik
 to: Power BI
 order: 3
@@ -44,7 +44,7 @@ Qlik tolerates models Power BI can't use as-is. Reshape them into facts and dime
 
 ### Logic hidden in scripts
 
-Business rules often live in `IF` statements and mapping tables inside load scripts. Translating scripts into SQL models makes those rules visible and reviewable — often for the first time.
+Business rules often live in `IF` statements and mapping tables inside load scripts. Translating scripts into SQL models makes those rules visible and reviewable, often for the first time.
 
 ## A migration *checklist*
 

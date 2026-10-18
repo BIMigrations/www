@@ -1,6 +1,6 @@
 - q: What do you need from us to start?
   a: |
-    A read-only metadata export from your current BI platform. It describes your datasets, calculations and dashboards — not the data inside them. No platform access is required for the free estate scan, and we sign a mutual NDA as standard. We'll send platform-specific instructions for producing the export.
+    A read-only metadata export from your current BI platform. It describes your datasets, calculations and dashboards, not the data inside them. No platform access is required for the free estate scan, and we sign a mutual NDA as standard. We'll send platform-specific instructions for producing the export.
 
 - q: Which BI platforms do you support?
   a: |
@@ -8,7 +8,7 @@
 
 - q: Do you migrate Domo to Power BI?
   a: |
-    Yes — it's one of the routes we run most. DataSets, Magic ETL and SQL DataFlows, Beast Modes, cards and PDP policies are converted into native Power BI semantic models, DAX measures, reports and row-level security, with every metric parity-tested. See [Domo to Power BI migration](/domo-to-power-bi/).
+    Yes, it's one of the routes we run most. DataSets, Magic ETL and SQL DataFlows, Beast Modes, cards and PDP policies are converted into native Power BI semantic models, DAX measures, reports and row-level security, with every metric parity-tested. See [Domo to Power BI migration](/domo-to-power-bi/).
 
 - q: Do you migrate Tableau to Power BI?
   a: |
@@ -20,11 +20,11 @@
 
 - q: Is this just a SQL translator?
   a: |
-    No. SQL translation is one part of it. Our automated migration tool reads the whole estate — models, transformations, calculated fields, dashboards and permissions — translates it into open specifications, and then produces native artifacts on the target BI platform, with calculations rewritten in that platform's own language.
+    No. SQL translation is one part of it. Our automated migration tool reads the whole estate (models, transformations, calculated fields, dashboards and permissions), translates it into open specifications, and then produces native artifacts on the target BI platform, with calculations rewritten in that platform's own language.
 
 - q: How much of the migration is automated?
   a: |
-    In a typical estate, around 78% is converted by our automated migration tool with no analyst in the loop. The rest — unusual calculations, undocumented business logic, platform-specific features — is handled by our engineers, and every item is tracked in the same backlog.
+    In a typical estate, around 78% is converted by our automated migration tool with no analyst in the loop. The rest (unusual calculations, undocumented business logic, platform-specific features) is handled by our engineers, and every item is tracked in the same backlog.
 
 - q: How do you prove the numbers still match?
   a: |
@@ -44,7 +44,7 @@
 
 - q: Can we change BI platform again later?
   a: |
-    Yes — that's the point. Because the estate is held as open specifications, moving to a different BI platform means re-running our automated migration tool against the specs, not starting a complete migration project from scratch.
+    Yes, that's the point. Because the estate is held as open specifications, moving to a different BI platform means re-running our automated migration tool against the specs, not starting a complete migration project from scratch.
 
 - q: Do you work with our consultancy or systems integrator?
   a: |

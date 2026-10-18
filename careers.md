@@ -1,12 +1,12 @@
 ---
 title: Careers
 heading: "Help end the <em>hand rebuild.</em>"
-description: We're building the way BI migrations should work — automation for the bulk, and experienced people for the parts that need judgment.
+description: "We're building the way BI migrations should work: automation for the bulk, and experienced people for the parts that need judgment."
 permalink: /careers/
 parent_title: Company
 people:
   - title: BI engineers
-    text: People who know one or more BI platforms deeply — and enjoy working out what a calculation was really meant to do.
+    text: People who know one or more BI platforms deeply, and enjoy working out what a calculation was really meant to do.
   - title: Data engineers
     text: SQL, Airflow and Python people who like clean models, reliable pipelines and tests that prove things.
   - title: Migration leads

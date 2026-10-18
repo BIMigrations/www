@@ -3,7 +3,7 @@ title: Tableau to Power BI Migration, Automated
 crumb: Tableau to Power BI
 heading: "Tableau to Power BI migration, <em>automated.</em>"
 description: "Migrate Tableau to Power BI without rebuilding by hand. LOD expressions, table calcs and user filters become native Power BI and DAX, all parity-tested."
-lead: "Move Tableau workbooks, data sources and calculations to Power BI without rebuilding them one sheet at a time. Our automated migration tool converts calculated fields, LOD expressions, table calculations and user filters into native semantic models, DAX, reports and row-level security — and proves every number matches before you cut over."
+lead: "Move Tableau workbooks, data sources and calculations to Power BI without rebuilding them one sheet at a time. Our automated migration tool converts calculated fields, LOD expressions, table calculations and user filters into native semantic models, DAX, reports and row-level security, and proves every number matches before you cut over."
 permalink: /tableau-to-power-bi/
 parent_title: Platforms
 parent_url: /platforms/
@@ -24,10 +24,10 @@ glance:
     text: User filters and USERNAME() or ISMEMBEROF() logic are rebuilt as Power BI row-level security roles.
   - label: Yours
     title: Open specifications
-    text: The whole estate also lands in your repository as SQL, Python, JSON and YAML — so you never have to migrate twice.
+    text: The whole estate also lands in your repository as SQL, Python, JSON and YAML, so you never have to migrate twice.
 steps:
   - title: Scan Tableau Server or Cloud
-    text: A read-only metadata export inventories workbooks, data sources, extracts, calculations, dashboards and permissions — with view counts.
+    text: A read-only metadata export inventories workbooks, data sources, extracts, calculations, dashboards and permissions, with view counts.
   - title: Retire what nobody views
     text: Stale workbooks and duplicated data sources are flagged for owners to retire before they're migrated.
   - title: Translate to open specifications
@@ -113,8 +113,8 @@ Teams usually move to consolidate BI onto the Microsoft platform they already ru
 
 ## Related
 
-- [Tableau migration](/platforms/tableau/) — everything we read from a Tableau site
-- [Power BI migration](/platforms/power-bi/) — what we generate in Power BI
-- [Tableau calculations to DAX](/migration-guides/tableau-to-power-bi/) — LOD expressions, table calculations and parameters
-- [Domo to Power BI migration](/domo-to-power-bi/) — the other route we're asked about most
-- [Estate assessment](/services/estate-assessment/) and [rationalization](/services/rationalization/) — size and shrink the estate first
+- [Tableau migration](/platforms/tableau/): everything we read from a Tableau site
+- [Power BI migration](/platforms/power-bi/): what we generate in Power BI
+- [Tableau calculations to DAX](/migration-guides/tableau-to-power-bi/): LOD expressions, table calculations and parameters
+- [Domo to Power BI migration](/domo-to-power-bi/): the other route we're asked about most
+- [Estate assessment](/services/estate-assessment/) and [rationalization](/services/rationalization/): size and shrink the estate first

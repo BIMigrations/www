@@ -21,20 +21,20 @@ controls:
 
 For every migrated metric, the same question is asked of the source and the target, across the same slices: by period, by region, by whatever dimensions the dashboards use. The results are compared automatically.
 
-- Tolerances are agreed up front — exact for counts and currency, and explicit for anything else.
+- Tolerances are agreed up front: exact for counts and currency, and explicit for anything else.
 - Anything outside tolerance is investigated, fixed and re-tested.
 - A metric that hasn't passed doesn't go live.
 - You receive the full parity report for every wave.
 
 ## Access and *row-level security*
 
-Permissions are part of the estate, so they're migrated the same way as everything else. We read the source platform's controls — Domo PDP policies, Tableau user filters, Qlik Section Access, Looker access filters, Power BI row-level security — into platform-neutral **access policies**, then create the equivalent on the target.
+Permissions are part of the estate, so they're migrated the same way as everything else. We read the source platform's controls (Domo PDP policies, Tableau user filters, Qlik Section Access, Looker access filters, Power BI row-level security) into platform-neutral **access policies**, then create the equivalent on the target.
 
-Each role is tested by checking what a user in that role can see on the source and on the target — for example, PDP policies in a [Domo to Power BI migration](/domo-to-power-bi/), or user filters in a [Tableau to Power BI migration](/tableau-to-power-bi/).
+Each role is tested by checking what a user in that role can see on the source and on the target: for example, PDP policies in a [Domo to Power BI migration](/domo-to-power-bi/), or user filters in a [Tableau to Power BI migration](/tableau-to-power-bi/).
 
 ## Lineage you can *audit*
 
-The field-level lineage graph connects every dashboard field, through every transformation, to the source columns it depends on. It answers the questions auditors and data owners ask — *where does this number come from?* and *what breaks if this column changes?* — without anyone having to read old code.
+The field-level lineage graph connects every dashboard field, through every transformation, to the source columns it depends on. It answers the questions auditors and data owners ask: *where does this number come from?* and *what breaks if this column changes?* No one has to read anyone having to read old code.
 
 ## Controlled *cutover*
 

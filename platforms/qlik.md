@@ -2,7 +2,7 @@
 title: Qlik migration
 crumb: Qlik
 heading: "Unpack Qlik. <em>Line by line.</em>"
-lead: "Qlik Sense and QlikView load scripts, QVDs, set analysis and Section Access — translated into open specifications and regenerated natively on your next BI platform."
+lead: "Qlik Sense and QlikView load scripts, QVDs, set analysis and Section Access: translated into open specifications and regenerated natively on your next BI platform."
 description: "Qlik Sense and QlikView migration: load scripts, QVDs, set analysis and Section Access translated and regenerated natively on your next BI platform."
 permalink: /platforms/qlik/
 accent: amber
@@ -26,14 +26,14 @@ A lot of the business logic in a Qlik estate lives in load scripts, so it's hidd
 
 ## What we *read*
 
-- **Load scripts** — `LOAD` and `SQL SELECT` statements, joins, mapping tables, `ApplyMap` and incremental-load logic.
-- **QVDs** — what each file contains, what produces it and what consumes it.
-- **Data models** — associations, synthetic keys and link tables.
-- **Master items** — dimensions and measures, including set analysis and `Aggr()`.
-- **Variables** — including expressions expanded with `$(...)`.
-- **Sheets and objects** — charts, filter panes and bookmarks.
-- **Section Access** — who can see which rows.
-- **Usage** — which apps and documents are still opened.
+- **Load scripts**: `LOAD` and `SQL SELECT` statements, joins, mapping tables, `ApplyMap` and incremental-load logic.
+- **QVDs**: what each file contains, what produces it and what consumes it.
+- **Data models**: associations, synthetic keys and link tables.
+- **Master items**: dimensions and measures, including set analysis and `Aggr()`.
+- **Variables**: including expressions expanded with `$(...)`.
+- **Sheets and objects**: charts, filter panes and bookmarks.
+- **Section Access**: who can see which rows.
+- **Usage**: which apps and documents are still opened.
 
 Both **Qlik Sense** apps and **QlikView** documents are supported.
 

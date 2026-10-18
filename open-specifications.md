@@ -7,7 +7,7 @@ parent_title: Platform
 kinds:
   - label: Models
     title: SQL
-    text: Every dataset and derived table as a SQL model — the tables your dashboards actually query.
+    text: "Every dataset and derived table as a SQL model: the tables your dashboards actually query."
   - label: Transformations
     title: Airflow and Python
     text: ETL and data preparation as scheduled, dependency-ordered pipelines.
@@ -19,7 +19,7 @@ kinds:
     text: Every dashboard field traced back through each transformation to its source columns.
 ---
 
-A migration has two halves. The first — working out what the estate is and what every number means — is the expensive half. Open specifications capture that work in a form you own, so it only has to be done once.
+A migration has two halves. The first, working out what the estate is and what every number means, is the expensive half. Open specifications capture that work in a form you own, so it only has to be done once.
 
 ## Four kinds of *specification*
 
@@ -44,7 +44,7 @@ source:
   object: "Beast Mode: Net Rev (v2)"
 ```
 
-That metric came from a Domo Beast Mode — exactly what happens in a [Domo to Power BI migration](/domo-to-power-bi/). A **model** is the SQL behind it:
+That metric came from a Domo Beast Mode, which is exactly what happens in a [Domo to Power BI migration](/domo-to-power-bi/). A **model** is the SQL behind it:
 
 ```sql
 -- models/finance/orders.sql

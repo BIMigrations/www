@@ -2,7 +2,7 @@
 title: Tableau migration
 crumb: Tableau
 heading: "Tableau, <em>unbundled.</em>"
-lead: "Tableau workbooks, data sources, extracts, calculations and user filters — read, translated into open specifications and regenerated natively on your chosen BI platform."
+lead: "Tableau workbooks, data sources, extracts, calculations and user filters: read, translated into open specifications and regenerated natively on your chosen BI platform."
 description: "Tableau migration: workbooks, data sources, extracts, LOD expressions and user filters translated into open specs and regenerated natively on any BI platform."
 permalink: /platforms/tableau/
 related:
@@ -28,15 +28,15 @@ Tableau estates spread fast: a workbook per question, an extract per workbook, a
 
 ## What we *read*
 
-- **Workbooks** — worksheets, dashboards, stories and their layout.
-- **Data sources** — published and embedded, including joins, relationships and blends.
-- **Extracts** — what each extract contains and how often it refreshes.
-- **Calculated fields** — row-level and aggregate calculations, LOD expressions and table calculations.
+- **Workbooks**: worksheets, dashboards, stories and their layout.
+- **Data sources**: published and embedded, including joins, relationships and blends.
+- **Extracts**: what each extract contains and how often it refreshes.
+- **Calculated fields**: row-level and aggregate calculations, LOD expressions and table calculations.
 - **Parameters, sets and groups**, and the calculations that depend on them.
-- **Actions** — filter, highlight and URL actions between sheets.
-- **User filters and permissions** — including `USERNAME()` and `ISMEMBEROF()` logic.
-- **Tableau Prep flows** — the preparation steps before the data source.
-- **Usage** — view counts, so stale workbooks can be retired first.
+- **Actions**: filter, highlight and URL actions between sheets.
+- **User filters and permissions**: including `USERNAME()` and `ISMEMBEROF()` logic.
+- **Tableau Prep flows**: the preparation steps before the data source.
+- **Usage**: view counts, so stale workbooks can be retired first.
 
 ## How it *translates*
 
@@ -53,10 +53,10 @@ Tableau estates spread fast: a workbook per question, an extract per workbook, a
 
 ## Where the *care* goes
 
-- **LOD expressions** — `FIXED`, `INCLUDE` and `EXCLUDE` become explicit filter-context logic, and each one is parity-tested.
-- **Table calculations** — addressing and partitioning set on each sheet are made explicit in the target.
-- **Duplicated data sources** — near-identical extracts are consolidated into shared models.
-- **Blends** — secondary data sources become real relationships.
+- **LOD expressions**: `FIXED`, `INCLUDE` and `EXCLUDE` become explicit filter-context logic, and each one is parity-tested.
+- **Table calculations**: addressing and partitioning set on each sheet are made explicit in the target.
+- **Duplicated data sources**: near-identical extracts are consolidated into shared models.
+- **Blends**: secondary data sources become real relationships.
 
 ## Moving *to* Tableau
 

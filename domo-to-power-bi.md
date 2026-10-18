@@ -3,7 +3,7 @@ title: Domo to Power BI Migration, Automated
 crumb: Domo to Power BI
 heading: "Domo to Power BI migration, <em>automated.</em>"
 description: Migrate Domo to Power BI without rebuilding by hand. DataSets, Beast Modes, cards and PDP policies become native Power BI, with every metric parity-tested.
-lead: "Move your whole Domo instance to Power BI without rebuilding cards by eye. Our automated migration tool converts DataSets, Magic ETL, Beast Modes, cards and PDP policies into native semantic models, DAX measures, reports and row-level security — and proves every number matches before you cut over."
+lead: "Move your whole Domo instance to Power BI without rebuilding cards by eye. Our automated migration tool converts DataSets, Magic ETL, Beast Modes, cards and PDP policies into native semantic models, DAX measures, reports and row-level security, and proves every number matches before you cut over."
 permalink: /domo-to-power-bi/
 parent_title: Platforms
 parent_url: /platforms/
@@ -25,10 +25,10 @@ glance:
     text: Personalized Data Permissions are rebuilt as Power BI row-level security roles and tested role by role.
   - label: Yours
     title: Open specifications
-    text: The whole estate also lands in your repository as SQL, Python, JSON and YAML — so you never have to migrate twice.
+    text: The whole estate also lands in your repository as SQL, Python, JSON and YAML, so you never have to migrate twice.
 steps:
   - title: Scan your Domo instance
-    text: A read-only metadata export inventories every DataSet, DataFlow, Beast Mode, card, page and PDP policy — with usage.
+    text: A read-only metadata export inventories every DataSet, DataFlow, Beast Mode, card, page and PDP policy, with usage.
   - title: Retire what nobody uses
     text: Dormant cards and duplicated Beast Modes are flagged, so owners can retire them before they're migrated.
   - title: Translate to open specifications
@@ -47,7 +47,7 @@ faqs:
   - q: What happens to Domo PDP policies?
     a: Personalized Data Permissions are read into access policies and rebuilt as Power BI row-level security roles. Each role is tested by checking that a user sees the same rows in Domo and in Power BI.
   - q: How are Magic ETL and SQL DataFlows migrated?
-    a: They're translated into SQL models and scheduled pipelines — usually in your data warehouse — or into Power Query where that's a better fit. The dependency order between DataFlows is preserved.
+    a: They're translated into SQL models and scheduled pipelines, usually in your data warehouse, or into Power Query where that's a better fit. The dependency order between DataFlows is preserved.
   - q: Do you need access to our Domo instance?
     a: Not to start. The free estate scan works from a read-only metadata export, with a mutual NDA as standard. Scoped, read-only access is only needed later in the migration, and it's agreed in writing.
   - q: Will our dashboards look the same in Power BI?
@@ -109,8 +109,8 @@ Teams usually move to consolidate onto the Microsoft data platform they already 
 
 ## Related
 
-- [Domo migration](/platforms/domo/) — everything we read from a Domo instance
-- [Power BI migration](/platforms/power-bi/) — what we generate in Power BI
-- [Domo to Power BI concept mapping](/migration-guides/domo-to-power-bi/) — the detailed guide
-- [Tableau to Power BI migration](/tableau-to-power-bi/) — the other route we're asked about most
-- [Estate assessment](/services/estate-assessment/) and [rationalization](/services/rationalization/) — size and shrink the estate first
+- [Domo migration](/platforms/domo/): everything we read from a Domo instance
+- [Power BI migration](/platforms/power-bi/): what we generate in Power BI
+- [Domo to Power BI concept mapping](/migration-guides/domo-to-power-bi/): the detailed guide
+- [Tableau to Power BI migration](/tableau-to-power-bi/): the other route we're asked about most
+- [Estate assessment](/services/estate-assessment/) and [rationalization](/services/rationalization/): size and shrink the estate first

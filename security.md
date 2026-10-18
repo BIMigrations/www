@@ -1,15 +1,15 @@
 ---
 title: Security
 heading: "Read-only by <em>default.</em>"
-description: How we handle access, metadata and data during an engagement — starting with the least we need, and nothing more.
+description: "How we handle access, metadata and data during an engagement: starting with the least we need, and nothing more."
 permalink: /security/
 parent_title: Legal
-draft_notice: Draft — this page is pending review and its wording may change.
+draft_notice: "Draft: this page is pending review and its wording may change."
 ---
 
 ## Starting with *metadata*
 
-The free estate scan and most of an estate assessment work from a **read-only metadata export**. It describes your datasets, calculations, dashboards and permissions — not the business data inside them. No access to your BI platforms is needed at this stage.
+The free estate scan and most of an estate assessment work from a **read-only metadata export**. It describes your datasets, calculations, dashboards and permissions, not the business data inside them. No access to your BI platforms is needed at this stage.
 
 ## Access during a *migration*
 

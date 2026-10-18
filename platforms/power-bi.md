@@ -2,7 +2,7 @@
 title: Power BI migration
 crumb: Power BI
 heading: "Native Power BI. <em>Not</em> a lookalike."
-description: Semantic models, DAX measures, Power Query and reports generated from open specifications — with row-level security mapped and every metric parity-tested.
+description: Semantic models, DAX measures, Power Query and reports generated from open specifications, with row-level security mapped and every metric parity-tested.
 permalink: /platforms/power-bi/
 related:
   - label: Migration service
@@ -26,12 +26,12 @@ Power BI is the most common destination we see, and the routes we're asked about
 
 ## What we *generate*
 
-- **Semantic models** — tables, relationships and a proper date table.
-- **DAX measures** — calculations rewritten in DAX from the metric definitions, not transliterated line by line.
-- **Data preparation** — warehouse SQL and pipelines, or Power Query where that's the better fit.
-- **Reports** — pages and visuals built from the dashboard definitions, with filters and drill-through.
-- **Row-level security** — roles built from the access policies read from the source platform.
-- **Parity tests** — every measure compared with the source for the same slices before cutover.
+- **Semantic models**: tables, relationships and a proper date table.
+- **DAX measures**: calculations rewritten in DAX from the metric definitions, not transliterated line by line.
+- **Data preparation**: warehouse SQL and pipelines, or Power Query where that's the better fit.
+- **Reports**: pages and visuals built from the dashboard definitions, with filters and drill-through.
+- **Row-level security**: roles built from the access policies read from the source platform.
+- **Parity tests**: every measure compared with the source for the same slices before cutover.
 
 ## From specification to *Power BI*
 

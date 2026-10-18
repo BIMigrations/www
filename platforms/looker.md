@@ -2,7 +2,7 @@
 title: Looker migration
 crumb: Looker
 heading: "LookML in. <em>Anything</em> out."
-lead: "Looker is already half-way to open specifications. We read LookML models, explores and derived tables, and carry them to your next BI platform — or bring other estates into Looker."
+lead: "Looker is already half-way to open specifications. We read LookML models, explores and derived tables, and carry them to your next BI platform, or bring other estates into Looker."
 description: "Looker migration: LookML models, explores, derived tables and access filters translated into open specifications and regenerated natively on any BI platform."
 permalink: /platforms/looker/
 related:
@@ -25,12 +25,12 @@ LookML is code, which makes Looker estates easier to read than most. The hard pa
 
 ## What we *read*
 
-- **Models and explores** — joins, relationships and the fields each explore exposes.
-- **Views** — dimensions, measures and dimension groups, including their SQL.
-- **Derived tables** — SQL-based, native and persistent derived tables, and how they're rebuilt.
-- **Dashboards and Looks** — LookML dashboards and user-defined dashboards, tiles and filters.
-- **Access controls** — access filters, `sql_always_where` and user attributes.
-- **Usage** — which Looks, dashboards and explores people actually query.
+- **Models and explores**: joins, relationships and the fields each explore exposes.
+- **Views**: dimensions, measures and dimension groups, including their SQL.
+- **Derived tables**: SQL-based, native and persistent derived tables, and how they're rebuilt.
+- **Dashboards and Looks**: LookML dashboards and user-defined dashboards, tiles and filters.
+- **Access controls**: access filters, `sql_always_where` and user attributes.
+- **Usage**: which Looks, dashboards and explores people actually query.
 
 ## How it *translates*
 

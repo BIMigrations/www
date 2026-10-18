@@ -243,7 +243,7 @@ Then commit, push, and confirm the page is live.
 | Posts | `_posts/` |
 | Byline and bio | `_data/authors.yml` |
 | Index page | `insights/index.html` |
-| Home page section | `index.html`, section `§ 05 — Insights` |
+| Home page section | `index.html`, section `§ 05 · Insights` |
 | Card markup | `_includes/post-card.html` |
 | Author note, prev/next | `_includes/post-footer.html` |
 | Image tool | `tools/make-og-image.sh` |

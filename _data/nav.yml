@@ -1,4 +1,4 @@
-# Top navigation — keep this short. Everything else lives in the footer
+# Top navigation: keep this short. Everything else lives in the footer
 # (and the grouped "more" list in the mobile menu).
 primary:
   - title: Why

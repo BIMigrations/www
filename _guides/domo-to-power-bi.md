@@ -2,7 +2,7 @@
 title: "Domo to Power BI Mapping: Beast Modes to DAX"
 crumb: Domo to Power BI mapping
 heading: "Domo to Power BI, <em>mapped.</em>"
-description: How Domo DataSets, DataFlows, Beast Modes, cards and PDP policies map onto Power BI concepts — and the places a migration needs the most care.
+description: How Domo DataSets, DataFlows, Beast Modes, cards and PDP policies map onto Power BI concepts, and the places a migration needs the most care.
 from: Domo
 to: Power BI
 order: 1

@@ -1,11 +1,11 @@
 ---
 title: About us
 heading: "Built so nobody has to <em>migrate twice.</em>"
-description: We started BI Migrations because migrations keep being run the same expensive way — analysts rebuilding dashboards by eye, one screen at a time.
+description: "We started BI Migrations because migrations keep being run the same expensive way: analysts rebuilding dashboards by eye, one screen at a time."
 permalink: /about/
 beliefs:
   - title: Open, not opaque
-    text: Your estate should end up as plain SQL, Python, JSON and YAML that you own — not locked inside our tool or the next vendor's.
+    text: Your estate should end up as plain SQL, Python, JSON and YAML that you own, not locked inside our tool or the next vendor's.
   - title: Retire before you move
     text: The cheapest dashboard to migrate is the one nobody opens. Usage data decides what makes the trip.
   - title: Prove, don't promise
@@ -16,7 +16,7 @@ beliefs:
 
 ## Why we *exist*
 
-BI estates usually outlive the platform they were built on. Prices change, strategies change, companies merge — and the analysis inside the old platform is stuck in a proprietary format.
+BI estates usually outlive the platform they were built on. Prices change, strategies change, companies merge, and the analysis inside the old platform is stuck in a proprietary format.
 
 The usual answer is a hand rebuild. Analysts open the old dashboard, work out what each number is meant to mean, and build it again somewhere else. It's slow and expensive. Worse, it produces a new estate that's locked into the new platform just as tightly as the old one was locked into the last.
 

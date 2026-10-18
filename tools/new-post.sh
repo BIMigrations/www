@@ -20,7 +20,7 @@ description: ""
 image: /$IMG
 ---
 
-TODO: opening — the real situation, tension stated by the end of paragraph two.
+TODO: opening: the real situation, tension stated by the end of paragraph two.
 
 ## First heading with one *accent*
 
@@ -32,7 +32,7 @@ TODO
 
 ## What this means for your *estate*
 
-TODO — tie back to how we work, then one link out, e.g.
+TODO: tie back to how we work, then one link out, e.g.
 [open specifications](/open-specifications/) or
 [Domo to Power BI migration](/domo-to-power-bi/).
 POST

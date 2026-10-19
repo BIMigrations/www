@@ -33,7 +33,7 @@ Looker and Power BI both put a semantic layer at the center, which makes this on
 
 ### Symmetric aggregates
 
-Looker automatically protects measures from double-counting when joins fan out. Power BI doesn't. Relationships and grain must be modeled so that measures aggregate correctly, and parity tests confirm they do.
+Looker automatically protects measures from double-counting when joins fan out. Power BI doesn't. Relationships and grain must be modeled so that measures aggregate correctly, and parity tests confirm they do. The long version, with where the protection goes in the model, is in [what symmetric aggregates did](/insights/looker-symmetric-aggregates/).
 
 ### Liquid templating
 

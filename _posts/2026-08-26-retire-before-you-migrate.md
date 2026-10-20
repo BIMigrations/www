@@ -43,3 +43,5 @@ A smaller estate is quicker to migrate, cheaper to run and easier to secure. It 
 Rationalization is part of every [estate assessment](/services/estate-assessment/) and [full migration](/services/full-migration/), and it's worth doing even if you're staying put. [More on rationalization](/services/rationalization/).
 
 If you are pricing a migration, [a dashboard count is the wrong basis for the estimate](/insights/dashboard-count-is-the-wrong-estimate/).
+
+If a Domo renewal is coming up, [price the exit before you sign](/insights/domo-renewal-exit-price/).

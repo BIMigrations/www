@@ -47,6 +47,10 @@ collections:
 
 defaults:
   - scope:
+      path: "brand-assets"
+    values:
+      sitemap: false
+  - scope:
       path: ""
     values:
       image: /assets/img/og/default.png
@@ -103,6 +107,9 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - brand-assets/README.md
+  - brand-assets/email-signature/README.md
+  - supabase
   - vendor
   - .bundle
   - _case_studies/example-case-study.md

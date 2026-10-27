@@ -32,7 +32,7 @@ Qlik and Power BI both have powerful in-memory engines, but they're built on dif
 
 ### Set analysis
 
-Simple set expressions such as `Sum({<Year={2024}>} Sales)` translate directly to `CALCULATE`. Expressions that use `P()`, `E()`, set operators or nested sets need explicit filter logic, often with `TREATAS` or `EXCEPT`. These are the calculations that most need parity tests.
+Simple set expressions such as `Sum({<Year={2024}>} Sales)` translate directly to `CALCULATE`. Expressions that use `P()`, `E()`, set operators or nested sets need explicit filter logic, often with `TREATAS` or `EXCEPT`. These are the calculations that most need parity tests. Even the simple ones can change meaning once a chart axis is involved; [this post explains where and how to test it](/insights/qlik-set-analysis-identifier/).
 
 ### Associative selections
 

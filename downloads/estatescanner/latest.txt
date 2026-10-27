@@ -1,4 +1,9 @@
-version=0.1.0+20261013.g2cf7814
-wheel=estate_scanner-0.1.0+20261013.g2cf7814-py3-none-any.whl
-sha256=5e421ed823a63b54d42aae8f0558fb91ddacbc382296f1950a776cb038350341
-built=2026-10-13T06:38:13Z
+version=0.1.0+20261027.g1d9992f
+wheel=estate_scanner-0.1.0+20261027.g1d9992f-py3-none-any.whl
+sha256=cb3701664df883a42cd98fc8c6d679be0248e8848d59280b102d68c6c59234eb
+built=2026-10-27T08:26:26Z
+platform=domo|Domo|domo|available|chrome
+platform=powerbi|Power BI|powerbi|available|system
+platform=tableau|Tableau||coming_soon|
+platform=qlik|Qlik Sense||coming_soon|
+platform=looker|Looker||coming_soon|

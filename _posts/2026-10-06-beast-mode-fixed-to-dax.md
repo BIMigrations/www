@@ -35,7 +35,9 @@ DIVIDE(
 )
 ```
 
-`ALL(Sales)` removes every filter on the Sales table, including the ones a report reader sets in a slicer. Whether the Domo card did the same depends on where its filters were applied, and that is the question to answer per card, not per formula. If the old card's page filters narrowed the DataSet before FIXED ran, the denominator was the filtered total. With `ALL`, the denominator is the unfiltered total, and every share in the report is now too small. Nothing errors. The percentages simply stop adding up to 100.
+`ALL(Sales)` removes every filter on the Sales table, including the ones a report reader sets in a slicer. Whether the Domo card did the same is written in the Beast Mode itself, if you know where to look. Domo's FIXED functions take an optional filter argument: `FILTER NONE` ignores every filter on the card, `FILTER ALLOW` ignores all but the fields you list, and `FILTER DENY` applies all but the fields you list. Domo's documentation says that when you do not set the filter logic, all filters are applied.
+
+So the check is per card. A FIXED expression with no filter argument computed its denominator from the filtered data, and `ALL` will make the new denominator the unfiltered total. Every share in the report is now too small. Nothing errors. The percentages simply stop adding up to 100. A FIXED expression with `FILTER NONE` is the opposite case: `ALL` is the faithful translation there, and `ALLSELECTED` would be the mistake.
 
 The fix is usually `ALLSELECTED` or `ALLEXCEPT`, and the choice is a decision about intent, not syntax. That is why I'd argue this pattern should never be converted without a person looking at the card's filters first.
 
@@ -50,3 +52,5 @@ The fix is usually `ALLSELECTED` or `ALLEXCEPT`, and the choice is a decision ab
 Don't review these by eye. Pick the slices the card is actually used with: the default view, each page filter combination, and one slice that returns almost nothing. Run the old card and the new measure against each and compare. For a share of total, include a check that the shares sum to 1 at every slice. That single assertion catches the `ALL` problem on the first run.
 
 This is the same approach behind [proving parity](/insights/proving-parity/) after any migration, and it is where a [Domo to Power BI migration](/domo-to-power-bi/) spends more of its time than the formula count suggests. Our automated migration tool converts the bulk of an estate. The cards that need a human decision, like these, are worth writing down in [open specifications](/open-specifications/) so the intent survives the next platform change.
+
+*Updated 2026-10-28: added the FILTER NONE, FILTER ALLOW and FILTER DENY arguments, which are where a FIXED expression records how it treats card filters.*

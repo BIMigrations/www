@@ -36,7 +36,7 @@ Here is what I'd argue: a migration should not preserve every metric. It should 
 
 My bet is that a small set of metrics carries most of the weight, and that those are the ones defined several times. Start there. Retire the cards nobody opens first ([we've written about how](/insights/retire-before-you-migrate/)), so you aren't deciding where to house a metric that no one reads.
 
-The hard cases are the ones where the translation changes the meaning, not just the syntax. [Domo's FIXED functions against DAX filter context](/insights/beast-mode-fixed-to-dax/) are a good example. Those are the definitions worth writing down before they move, not after.
+The hard cases are the ones where the translation changes the meaning, not just the syntax. [Domo's FIXED functions against DAX filter context](/insights/beast-mode-fixed-to-dax/) are a good example. Those are the definitions worth writing down before they move, not after. Where the data preparation behind them lands is the same kind of choice, and [storage mode](/insights/power-bi-storage-mode-before-migrating/) is where it gets made.
 
 ## What we do with *this*
 

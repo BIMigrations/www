@@ -32,7 +32,7 @@ Because the tests are automated, they can be run after every change, not just on
 
 ## Test the *permissions* too
 
-Parity isn't only about values. For each security role, check that a user in that role sees the same rows on both platforms. A migration that shows the right numbers to the wrong people isn't a success.
+Parity isn't only about values. For each security role, check that a user in that role sees the same rows on both platforms. A migration that shows the right numbers to the wrong people isn't a success. The storage mode you pick changes how that security behaves, which is why [it is worth settling before the build](/insights/power-bi-storage-mode-before-migrating/).
 
 ## Make it part of *sign-off*
 

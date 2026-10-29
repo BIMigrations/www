@@ -14,7 +14,7 @@ It feels like progress. But look at what the organization actually has at the en
 
 Platforms don't last forever. Pricing changes, strategies shift, companies are acquired. When the next move comes, the estate has to be interpreted again from scratch, often by different people, with no guarantee they'll reach the same answers.
 
-That's the real cost of a hand rebuild. It isn't just the first migration. It's that the expensive part, understanding the estate, has to be paid for again every time.
+That's the real cost of a hand rebuild. The expensive part, understanding the estate, has to be paid for again every time, not only on the first migration.
 
 ## Split the migration in *two*
 
@@ -35,6 +35,6 @@ When the estate lives in open specifications in your own repository:
 
 > The expensive half is done once, and it never expires.
 
-Part of that half is deciding where each metric lives. We wrote about [why metric definitions belong below the dashboard](/insights/metric-definitions-live-in-the-model/).
+Part of that half is deciding where each metric lives. We wrote about [why metric definitions belong below the dashboard](/insights/metric-definitions-live-in-the-model/). Another part is checking that the rebuilt numbers match the old ones, which we cover in [proving parity after a migration](/insights/proving-parity/).
 
 Whether you're planning a [Domo to Power BI migration](/domo-to-power-bi/), a [Tableau to Power BI migration](/tableau-to-power-bi/) or something else, the principle is the same. If a migration is on your roadmap, [start with a free estate scan](/#scan) and find out what's actually in your estate.

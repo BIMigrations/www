@@ -540,7 +540,8 @@ function Install-EstateScanner {
         else { Note ('Next time, run  ' + (Tilde (Join-Path $bin 'estate-scanner.cmd'))) }
         Note 'Run this installer again to update, or to add another platform.'
         Note ('Your scans are kept in ' + (Tilde $homeDir) + ', on this computer.')
-        Note 'Nothing is sent anywhere except to your own BI platform.'
+        Note 'Installing downloaded Python packages from PyPI (and Python from astral.sh if you had none).'
+        Note 'Running Estate Scanner contacts only your BI platform.'
 
         $global:LASTEXITCODE = 0
         if ($env:ESTATE_SCANNER_NO_LAUNCH -eq '1') { return }

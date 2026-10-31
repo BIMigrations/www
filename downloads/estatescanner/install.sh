@@ -466,7 +466,8 @@ LAUNCHER
   fi
   note "Run this installer again to update, or to add another platform."
   note "Your scans are kept in $(tilde "$HOME_DIR"), on this computer."
-  note "Nothing is sent anywhere except to your own BI platform."
+  note "Installing downloaded Python packages from PyPI (and Python from astral.sh if you had none)."
+  note "Running Estate Scanner contacts only your BI platform."
 
   [ "${ESTATE_SCANNER_NO_LAUNCH:-}" = "1" ] && exit 0
   if [ "${ESTATE_SCANNER_CHECK:-}" = "1" ]; then

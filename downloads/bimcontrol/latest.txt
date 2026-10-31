@@ -1,0 +1,4 @@
+version=0.1.0+20261031.g4f71727
+wheel=bimcontrol-0.1.0+20261031.g4f71727-py3-none-any.whl
+sha256=6b510cb88897385e7bfc0505294bcfaeb3cd93dde64ce1b2b2fdba1d85f8f8b0
+built=2026-10-31T04:07:07Z

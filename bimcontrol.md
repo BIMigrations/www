@@ -1,7 +1,7 @@
 ---
 title: Install BIMControl
 heading: "Install <em>BIMControl.</em>"
-description: One line to install and start BIMControl on macOS, Windows or Linux. It runs on your machine and sends nothing anywhere except to your own BI platforms.
+description: One line to install and start BIMControl on macOS, Windows or Linux. It runs on your machine and, once installed, contacts only your BI platforms, your warehouse and the converter service.
 permalink: /bimcontrol/
 noindex: true
 sitemap: false
@@ -21,6 +21,10 @@ BIMControl reads the estate scan Estate Scanner made, migrates dashboards, data 
 <button type="button" class="copy" data-target="cmd-win">Copy</button>
 </div>
 
+## What we have and have not run
+
+We have run the macOS install end to end, with Python already present. We have **not** run the Windows installer on Windows PowerShell 5.1, and we have not run the path that installs Python for you. If one of those fails for you, the terminal says why and the full output is in `.bimcontrol/install.log`; send it to us.
+
 ## What the line does
 
 - Checks for Python 3.11 or newer. If it is missing, it installs Python 3.12 for you, inside your own home folder. No administrator rights are needed.
@@ -39,7 +43,7 @@ Start on the Connections screen. Sign in to your source platform (your Chrome or
 
 ## What stays where
 
-Everything BIMControl keeps is in the `.bimcontrol` folder in your home folder. It only ever reads the scan; it never changes it. The only network requests are to your own BI platforms, and to this site when you install or update.
+Everything BIMControl keeps is in the `.bimcontrol` folder in your home folder. It only ever reads the scan; it never changes it. Installing or updating downloads BIMControl from this site and Python packages from PyPI (and Python from astral.sh if you have none). Running BIMControl contacts only your BI platforms, your warehouse and the converter service.
 
 ## If something goes wrong
 

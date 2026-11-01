@@ -1,7 +1,7 @@
 ---
 title: "Why counting dashboards gives you the wrong migration estimate"
 heading: "Dashboards are the <em>cheap</em> part of a migration."
-description: "A dashboard count looks like a measure of migration effort. It is mostly a measure of how many times the same logic was copied. Estimate from calculations, security and sources instead."
+description: "A dashboard count mostly measures how often the same logic was copied. Estimate migration effort from calculations, security and sources instead."
 author: amy-loomis
 image: /assets/img/og/dashboard-count-is-the-wrong-estimate.png
 ---

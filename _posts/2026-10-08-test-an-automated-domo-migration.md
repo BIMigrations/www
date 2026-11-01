@@ -1,7 +1,7 @@
 ---
 title: "How to test an automated Domo to Power BI migration before you buy one"
 heading: "Test the migration on your <em>hardest</em> dashboards."
-description: "Every vendor can convert a simple chart. A proof of concept should hit Beast Modes, Magic ETL, row-level security and reconciliation. Here is the checklist to hold any vendor to."
+description: "Any vendor can convert a simple chart. A proof of concept should hit Beast Modes, Magic ETL, row-level security and reconciliation. Use this checklist."
 author: amy-loomis
 image: /assets/img/og/test-an-automated-domo-migration.png
 ---

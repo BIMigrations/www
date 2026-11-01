@@ -1,7 +1,7 @@
 ---
 title: "Tableau table calculations live in the view. DAX measures live in the model."
 heading: "A Tableau table calculation has no <em>address</em> of its own."
-description: "Tableau table calculations take their meaning from the sheet they sit on. Moving one to DAX means deciding the partition and the order the old view supplied for free."
+description: "A Tableau table calculation takes its meaning from the sheet it sits on. Moving it to DAX means choosing the partition and order the view gave you free."
 author: amy-loomis
 image: /assets/img/og/tableau-table-calcs-live-in-the-view.png
 ---

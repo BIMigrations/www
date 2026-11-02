@@ -34,7 +34,7 @@ footer:
       - { title: Insights, url: /insights/ }
       - { title: Migration guides, url: /migration-guides/ }
       - { title: FAQs, url: /faqs/ }
-      - { title: "Free estate scan →", url: "/#scan", cta: true }
+      - { title: "Free estate scan →", url: "/dashboard/", cta: true }
   - title: Company
     links:
       - { title: About us, url: /about/ }

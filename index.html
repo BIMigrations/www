@@ -29,7 +29,7 @@ description: "Automated BI migration to Power BI and beyond. Domo, Tableau, Qlik
         <div class="hero-foot">
           <p class="hero-lead">Your BI estate (models, transformations, calculations, dashboards) decompiled into open specifications you own, then regenerated natively on whichever BI platform you choose.</p>
           <div class="hero-ctas">
-            <a class="btn btn-teal" href="#scan">Free estate scan <span aria-hidden="true">→</span></a>
+            <a class="btn btn-teal" href="{{ '/dashboard/' | relative_url }}">Free estate scan <span aria-hidden="true">→</span></a>
             <a class="btn btn-ghost" href="#reveal">See the reveal</a>
           </div>
         </div>
@@ -222,7 +222,7 @@ description: "Automated BI migration to Power BI and beyond. Domo, Tableau, Qlik
 
   {% include footer.html %}
 
-  <a class="dock" id="dock" href="#scan" aria-hidden="true" tabindex="-1">
+  <a class="dock" id="dock" href="{{ '/dashboard/' | relative_url }}" aria-hidden="true" tabindex="-1">
     <span><strong>Free estate scan</strong><small>Read-only export · mutual NDA</small></span>
     <span class="dock-arrow" aria-hidden="true">→</span>
   </a>

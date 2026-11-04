@@ -52,6 +52,7 @@ Most of a Domo estate converts with no analyst in the loop. The work that needs 
 
 - **Beast Modes that mix row-level and aggregate logic.** These are split into the right mix of calculated columns and measures, then parity-tested.
 - **Near-duplicate Beast Modes.** Copies that drifted apart are flagged, so owners can agree on one definition instead of migrating five.
+- **Dedupe steps in Magic ETL.** Domo's docs don't say how ties resolve, so a SQL rebuild has to choose a rule. [The tiebreaker explained](/insights/magic-etl-dedupe-tiebreaker/).
 - **Fiscal calendars and date granularity.** These become an explicit date table rather than platform settings.
 - **Drill paths.** These are rebuilt as hierarchies or drill-through on the target.
 

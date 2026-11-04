@@ -84,4 +84,4 @@ A **dashboard** describes pages and visuals in terms of metrics, not platform wi
 
 ## After *cutover*
 
-The specifications don't expire when the migration ends. They remain the documented, platform-neutral record of your estate: a reference for new team members, the starting point for impact analysis, and the source for whichever BI platform comes next.
+The specifications don't expire when the migration ends. They remain the documented, platform-neutral record of your estate: a reference for new team members, the starting point for impact analysis, and the source for whichever BI platform comes next. The longer argument for splitting a migration into these two halves is in [nobody should migrate twice](/insights/nobody-should-migrate-twice/).

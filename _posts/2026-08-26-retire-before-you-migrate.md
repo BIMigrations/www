@@ -45,3 +45,5 @@ Rationalization is part of every [estate assessment](/services/estate-assessment
 If you are pricing a migration, [a dashboard count is the wrong basis for the estimate](/insights/dashboard-count-is-the-wrong-estimate/).
 
 If a Domo renewal is coming up, [price the exit before you sign](/insights/domo-renewal-exit-price/).
+
+And whatever is left to move, move it once: [nobody should migrate twice](/insights/nobody-should-migrate-twice/).

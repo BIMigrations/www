@@ -114,3 +114,4 @@ Teams usually move to consolidate onto the Microsoft data platform they already 
 - [Domo to Power BI concept mapping](/migration-guides/domo-to-power-bi/): the detailed guide
 - [Tableau to Power BI migration](/tableau-to-power-bi/): the other route we're asked about most
 - [Estate assessment](/services/estate-assessment/) and [rationalization](/services/rationalization/): size and shrink the estate first
+- [Price the exit before you renew Domo](/insights/domo-renewal-exit-price/): the inventory to run before the renewal date

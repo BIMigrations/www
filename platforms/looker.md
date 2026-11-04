@@ -46,7 +46,7 @@ LookML is code, which makes Looker estates easier to read than most. The hard pa
 
 ## Where the *care* goes
 
-- **Symmetric aggregates.** Looker protects measures from fan-out joins automatically. On the target, the model's grain has to be right, and parity tests prove it.
+- **Symmetric aggregates.** Looker protects measures from fan-out joins automatically. On the target, the model's grain has to be right, and parity tests prove it. [What symmetric aggregates did, and where the protection goes](/insights/looker-symmetric-aggregates/).
 - **Liquid templating.** Templated filters and parameters are resolved into explicit parameters or field selections.
 - **Dimension groups.** Timeframes become a shared date table instead of per-view variants.
 

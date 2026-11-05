@@ -24,6 +24,8 @@
 #   ESTATE_SCANNER_FORCE_UV=1  ignore any Python already on the machine
 #   ESTATE_SCANNER_UV_INSTALLER  where the Python installer (uv) is fetched from if one is needed
 #   ESTATE_SCANNER_NO_LAUNCH=1 install only
+#   ESTATE_SCANNER_PLAN_ONLY=1 after choosing platforms, print what would be installed (the extras, whether
+#                              Chrome or Edge is needed, each platform's menu hint) and stop: nothing is installed
 #   ESTATE_SCANNER_NO_APP=1    skip the Start menu shortcut
 #   ESTATE_SCANNER_PLAIN=1     no colour, spinner or prompts (also when NO_COLOR is set or output is redirected)
 #
@@ -297,6 +299,7 @@ function Install-EstateScanner {
             }
         }
 
+        $hint = { param($r) if ($r.Browser -eq 'chrome') { 'signs in with Chrome or Edge' } elseif ($r.Browser -eq 'system') { 'signs in with your browser' } elseif ($r.Browser -eq 'token') { 'signs in with an access token' } else { '' } }
         Step 'Step 1 of 4' 'Choose your platform'
         if ($env:ESTATE_SCANNER_PLATFORMS) {
             $selected = @{}
@@ -311,7 +314,6 @@ function Install-EstateScanner {
                 }
             }
         } elseif ($ask) {
-            $hint = { param($r) if ($r.Browser -eq 'chrome') { 'signs in with Chrome or Edge' } elseif ($r.Browser -eq 'system') { 'signs in with your browser' } else { '' } }
             $cur = $avail[0]
             W '   Which BI platforms will you scan?' '' $true
             W ("   $gUp $gDown move   space select   a all   enter continue") 'DarkGray' $true
@@ -372,6 +374,12 @@ function Install-EstateScanner {
         $needBrowser = (@($chosen | Where-Object { $rows[$_].Browser -eq 'chrome' }).Count -gt 0)
         Set-Content -Path $savedFile -Value $chosenKeys -Encoding ASCII
         Ok ('Platforms: ' + $chosenNames)
+        if ($env:ESTATE_SCANNER_PLAN_ONLY -eq '1') {
+            Write-Host ('plan: platforms=' + $chosenKeys + ' extras=' + $extras + ' needs_browser=' + [int]$needBrowser)
+            foreach ($r in $rows) { if ($r.Status -eq 'available') { Write-Host ('hint: ' + $r.Key + ': ' + (& $hint $r)) } }
+            $global:LASTEXITCODE = 0
+            return
+        }
 
         # =========================================================================
         # Step 2: Python 3.11 or newer

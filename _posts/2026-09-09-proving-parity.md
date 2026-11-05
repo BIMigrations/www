@@ -39,3 +39,5 @@ Parity isn't only about values. For each security role, check that a user in tha
 Parity reports work best as the basis for business sign-off. Instead of "does this look right to you?", owners are asked to approve a report showing every metric that was tested, at which slices, and with what result. That's a much easier conversation, and a much more defensible one.
 
 Parity testing is built into every [full migration](/services/full-migration/). Read more about [risk and governance](/risk-governance/). If you are comparing vendors, [here is a checklist for testing a Domo migration](/insights/test-an-automated-domo-migration/) before you commit.
+
+And once the old platform is switched off, the signed-off numbers need a home too: [the parity report should outlive the migration](/insights/parity-report-should-outlive-migration/).

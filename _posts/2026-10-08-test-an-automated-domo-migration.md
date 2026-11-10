@@ -12,7 +12,7 @@ So don't test the bar chart. Here is how I'd run a proof of concept, whoever you
 
 ## Pick the dashboards that scare you
 
-Choose five to ten. Include a card built on a Magic ETL flow with several joins, a handful of Beast Modes that you suspect are subtly different from each other, one page with row-level restrictions, and one dataset with a scheduled refresh that people complain about when it is late. A vendor who wants to pick the sample for you is telling you something.
+Choose five to ten. Include a card built on a Magic ETL flow with several joins, a handful of Beast Modes that you suspect are subtly different from each other, one page with row-level restrictions, and one dataset with a scheduled refresh that people complain about when it is late (the [trigger model changes underneath it](/insights/domo-triggers-vs-power-bi-clock/), too). A vendor who wants to pick the sample for you is telling you something.
 
 ## Ask for these seven things
 

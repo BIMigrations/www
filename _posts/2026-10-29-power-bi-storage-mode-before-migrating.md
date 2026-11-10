@@ -44,7 +44,7 @@ Two more things hide in the choice.
 Before you build anything, go through the datasets and make four calls, table by table, since storage mode is set per table and a model can mix them:
 
 1. Where does each group of Domo transformations land: in the warehouse or lake, or in Power Query inside a model?
-2. Which tables are large enough that Import refresh or capacity limits will bite?
+2. Which tables are large enough that Import refresh or capacity limits will bite? (Refresh slots are capped per day, and [Domo's event triggers have no equivalent](/insights/domo-triggers-vs-power-bi-clock/).)
 3. Where is row-level security written, and who tests it as a non-admin?
 4. Which of these choices can you undo cheaply, and which can you not?
 

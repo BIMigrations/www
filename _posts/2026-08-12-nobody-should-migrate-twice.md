@@ -35,6 +35,6 @@ When the estate lives in open specifications in your own repository:
 
 > The expensive half is done once, and it never expires.
 
-Part of that half is deciding where each metric lives. We wrote about [why metric definitions belong below the dashboard](/insights/metric-definitions-live-in-the-model/). Another part is checking that the rebuilt numbers match the old ones, which we cover in [proving parity after a migration](/insights/proving-parity/).
+Part of that half is deciding where each metric lives. We wrote about [why metric definitions belong below the dashboard](/insights/metric-definitions-live-in-the-model/). Another part is checking that the rebuilt numbers match the old ones, which we cover in [proving parity after a migration](/insights/proving-parity/). A third is choosing who runs the work, because the reasons behind each number are made during the project: see [who inherits your BI migration](/insights/who-inherits-the-migration/).
 
 Whether you're planning a [Domo to Power BI migration](/domo-to-power-bi/), a [Tableau to Power BI migration](/tableau-to-power-bi/) or something else, the principle is the same. If a migration is on your roadmap, [start with a free estate scan](/#scan) and find out what's actually in your estate.

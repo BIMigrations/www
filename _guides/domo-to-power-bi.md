@@ -38,6 +38,10 @@ Beast Modes are evaluated in the context of a single card. DAX measures are eval
 
 Large Domo instances often contain several copies of the same Beast Mode that have drifted apart. Pick one definition before migrating, rather than creating several DAX measures with confusingly similar names.
 
+### Dedupe steps in Magic ETL
+
+Remove Duplicates, Rank & Window and Group By all keep one row, and Domo's documentation does not say how ties resolve. Write the tiebreaker down before the flow is rebuilt as SQL, or a parity check can pass by luck. The reasoning is in [Magic ETL never told you which duplicate it kept](/insights/magic-etl-dedupe-tiebreaker/).
+
 ### Dates and fiscal calendars
 
 Domo's fiscal calendar and date granularity settings should become an explicit date table in Power BI, marked as a date table and related to every fact table.

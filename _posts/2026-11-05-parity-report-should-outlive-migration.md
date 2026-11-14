@@ -54,6 +54,6 @@ One more place the warehouse helps, and it is before cutover. The dbt-audit-help
 
 ## Where this sits in a *migration*
 
-The parity report is the one artifact of a migration that is about the business's numbers rather than the tool's mechanics, so it is a shame to throw it away. In our [full migrations](/services/full-migration/) it is delivered per wave and signed by the owners. What happens to it afterward is a choice, and my advice is to put it in version control next to the model it protects.
+The parity report is the one artifact of a migration that is about the business's numbers rather than the tool's mechanics, so it is a shame to throw it away. In our [full migrations](/services/full-migration/) it is delivered per wave and signed by the owners. What happens to it afterward is a choice, and my advice is to put it in version control next to the model it protects, and to name the person who will read it when a number moves. [Who inherits your BI migration](/insights/who-inherits-the-migration/) is about choosing that person before the project closes.
 
 The same instinct sits behind our [open specifications](/open-specifications/): write down what each number means while someone still remembers, so the next change, or the next platform, starts from a record and not a guess.

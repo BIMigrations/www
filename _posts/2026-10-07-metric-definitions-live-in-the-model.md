@@ -42,6 +42,6 @@ The hard cases are the ones where the translation changes the meaning, not just 
 
 When we migrate an estate, the definitions are the part we capture first. For the [Domo to Power BI migration](/domo-to-power-bi/), our automated migration tool inventories the estate and rebuilds transformations as warehouse SQL, and the result is documented in [open specifications](/open-specifications/) that you own. That is what lets a metric have one address, in your hands, rather than a copy in every card.
 
-Ask each team a short question before cutover: if this number changed tomorrow, who would be told? If the answer is a shrug, you have found a definition that has been living without an owner. [Power BI](/platforms/power-bi/) will happily host it. It won't give it one.
+Ask each team a short question before cutover: if this number changed tomorrow, who would be told? If the answer is a shrug, you have found a definition that has been living without an owner. [Power BI](/platforms/power-bi/) will happily host it. It won't give it one. Whether that owner will still be around in month six is the question in [who inherits your BI migration](/insights/who-inherits-the-migration/).
 
 A definition with an owner also deserves a test: [freeze the signed-off numbers and keep checking them](/insights/parity-report-should-outlive-migration/) after the old platform is gone.

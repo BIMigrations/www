@@ -54,7 +54,7 @@ Tableau estates spread fast: a workbook per question, an extract per workbook, a
 ## Where the *care* goes
 
 - **LOD expressions**: `FIXED`, `INCLUDE` and `EXCLUDE` become explicit filter-context logic, and each one is parity-tested.
-- **Table calculations**: addressing and partitioning set on each sheet are made explicit in the target.
+- **Table calculations**: addressing and partitioning set on each sheet are made explicit in the target. [Why they live in the view](/insights/tableau-table-calculations-live-in-the-view/).
 - **Duplicated data sources**: near-identical extracts are consolidated into shared models.
 - **Blends**: secondary data sources become real relationships.
 

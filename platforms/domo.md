@@ -50,10 +50,11 @@ Domo estates grow quickly: a connector here, a Magic ETL there, a Beast Mode cop
 
 Most of a Domo estate converts with no analyst in the loop. The work that needs an engineer tends to sit in a few places:
 
-- **Beast Modes that mix row-level and aggregate logic.** These are split into the right mix of calculated columns and measures, then parity-tested.
+- **Beast Modes that mix row-level and aggregate logic.** These are split into the right mix of calculated columns and measures, then parity-tested. [Why a Beast Mode and a DAX measure can disagree](/insights/beast-mode-fixed-to-dax/).
 - **Near-duplicate Beast Modes.** Copies that drifted apart are flagged, so owners can agree on one definition instead of migrating five.
 - **Dedupe steps in Magic ETL.** Domo's docs don't say how ties resolve, so a SQL rebuild has to choose a rule. [The tiebreaker explained](/insights/magic-etl-dedupe-tiebreaker/).
 - **Fiscal calendars and date granularity.** These become an explicit date table rather than platform settings.
+- **Refresh timing.** A DataFlow can start when its input lands, while a scheduled Power BI refresh runs at a slot. [Decide each dashboard's freshness first](/insights/domo-triggers-vs-power-bi-clock/).
 - **Drill paths.** These are rebuilt as hierarchies or drill-through on the target.
 
 {% include cards.html items=page.related %}

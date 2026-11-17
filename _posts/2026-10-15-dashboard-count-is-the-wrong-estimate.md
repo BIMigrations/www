@@ -24,7 +24,7 @@ Dashboards are an output. Count the inputs that drive effort:
 
 - **Distinct calculations.** Not calculated fields in total, but distinct ones after you collapse the copies. A hundred copies of one margin formula is one problem. Ten different "margin" formulas is ten, and a [definitions question](/insights/metric-definitions-live-in-the-model/) before it is a translation question.
 - **Hard-to-translate constructs.** Every platform has a few expressions with no neat equivalent in the target. [Domo Beast Modes that use FIXED](/insights/beast-mode-fixed-to-dax/) and [Tableau table calculations](/insights/tableau-table-calculations-live-in-the-view/) are two examples. A short list of these decides more of the schedule than the other thousand simple ones.
-- **Security rules.** Row-level and column-level access is where a migration can quietly go wrong, because a mistake produces no error. It produces a correct-looking report that shows someone the wrong rows. Count the rules, and count the people whose access depends on each one.
+- **Security rules.** Row-level and column-level access is where a migration can quietly go wrong, because a mistake produces no error. It produces a correct-looking report that shows someone the wrong rows. Count the rules, and count the people whose access depends on each one. Count the people the rules skip, too: [who sees every row](/insights/who-skips-pdp/) is a separate list on each platform.
 - **Data sources and their owners.** A source nobody owns cannot be signed off. Each one needs a person to say the migrated numbers are right.
 - **Usage.** How many of these objects did anyone open last quarter? The honest estate is often smaller than the listed one.
 

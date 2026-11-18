@@ -68,7 +68,7 @@ We work directly with data and analytics teams, and alongside the consultancies 
 
 ## Get in *touch*
 
-- Planning a migration? [Start with a free estate scan](/#scan).
+- Planning a migration? [Sign up and run a free estate scan](/dashboard/#/signup).
 - Want to work with us? See [careers](/careers/).
 - A consultancy or platform team? See [partners](/partners/).
 - Anything else? [Contact us](/contact/).

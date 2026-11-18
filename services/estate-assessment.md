@@ -24,7 +24,7 @@ Most migration estimates are guesses: a count of dashboards, multiplied by a num
 
 Every assessment starts with the **free estate scan**. It works from a read-only metadata export: no platform access is required, and a mutual NDA is standard. The scan gives you a headline inventory: how many datasets, calculations and dashboards you have, and how many of them anyone still opens.
 
-[Request a free scan →](/#scan)
+[Sign up to run the free scan →](/dashboard/#/signup)
 
 ## What the full assessment *covers*
 

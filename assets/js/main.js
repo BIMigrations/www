@@ -561,6 +561,19 @@
      resolved request is treated as delivered; only a network failure errors.
      Without JavaScript the form posts natively to Google instead. */
 
+  /* ---------- CTA tracking (GA4 cta_click) ---------- */
+  function wireCtaTracking() {
+    document.addEventListener('click', function (e) {
+      var el = e.target && e.target.closest ? e.target.closest('[data-cta]') : null;
+      if (!el || typeof window.gtag !== 'function') return;
+      window.gtag('event', 'cta_click', {
+        cta_location: el.getAttribute('data-cta'),
+        cta_label: (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60),
+        link_url: el.href
+      });
+    });
+  }
+
   /* ---------- Init ---------- */
   function init() {
     buildToc();
@@ -574,6 +587,7 @@
     wireCompare();
     wirePillars();
     wireDock();
+    wireCtaTracking();
     startField();
   }
 

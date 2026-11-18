@@ -29,7 +29,7 @@ description: "Automated BI migration to Power BI and beyond. Domo, Tableau, Qlik
         <div class="hero-foot">
           <p class="hero-lead">Your BI estate (models, transformations, calculations, dashboards) decompiled into open specifications you own, then regenerated natively on whichever BI platform you choose.</p>
           <div class="hero-ctas">
-            <a class="btn btn-teal" href="{{ '/dashboard/' | relative_url }}">Free estate scan <span aria-hidden="true">→</span></a>
+            <a class="btn btn-teal" href="{{ '/dashboard/#/signup' | relative_url }}" data-cta="hero_signup">Sign up to scan your estate <span aria-hidden="true">→</span></a>
             <a class="btn btn-ghost" href="#reveal">See the reveal</a>
           </div>
         </div>
@@ -207,14 +207,10 @@ description: "Automated BI migration to Power BI and beyond. Domo, Tableau, Qlik
       <div class="scan-ring"></div>
       <div class="wrap scan-inner">
         <h2 class="scan-title">Show us your <span class="serif c-teal">estate.</span></h2>
-        <form class="scan-form" {% include form-attrs.html %}>
-          {% include form-hidden.html form='scan' %}
-          <input type="hidden" name="interest" value="Free estate scan (home page)">
-          <label class="sr-only" for="scan-email">Work email</label>
-          <input class="scan-input" id="scan-email" type="email" name="email" placeholder="work@company.com" autocomplete="email" inputmode="email" required>
-          <button class="scan-submit" type="submit">Request free scan →</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
+        <div class="scan-cta">
+          <a class="btn btn-teal" href="{{ '/dashboard/#/signup' | relative_url }}" data-cta="home_scan_signup">Sign up to scan your estate <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="{{ '/contact/' | relative_url }}" data-cta="home_scan_talk">Talk to a migration lead</a>
+        </div>
         <p class="scan-note">A read-only metadata export is enough to start. No platform access required, mutual NDA as standard.</p>
       </div>
     </section>
@@ -222,8 +218,8 @@ description: "Automated BI migration to Power BI and beyond. Domo, Tableau, Qlik
 
   {% include footer.html %}
 
-  <a class="dock" id="dock" href="{{ '/dashboard/' | relative_url }}" aria-hidden="true" tabindex="-1">
-    <span><strong>Free estate scan</strong><small>Read-only export · mutual NDA</small></span>
+  <a class="dock" id="dock" href="{{ '/dashboard/#/signup' | relative_url }}" data-cta="dock_signup" aria-hidden="true" tabindex="-1">
+    <span><strong>Sign up to scan your estate</strong><small>Read-only export · mutual NDA</small></span>
     <span class="dock-arrow" aria-hidden="true">→</span>
   </a>
 </div>

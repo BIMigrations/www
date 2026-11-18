@@ -27,8 +27,8 @@ layout: default
         {%- endif %}
         {%- if page.hero_ctas %}
         <div class="subpage-ctas">
-          <a class="btn btn-teal" href="{{ '/#scan' | relative_url }}">Free estate scan <span aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="{{ '/contact/' | relative_url }}">Talk to a migration lead</a>
+          <a class="btn btn-teal" href="{{ '/dashboard/#/signup' | relative_url }}" data-cta="page_hero_signup">Sign up to scan your estate <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="{{ '/contact/' | relative_url }}" data-cta="page_hero_talk">Talk to a migration lead</a>
         </div>
         {%- endif %}
         {%- if page.collection == "posts" %}
@@ -64,7 +64,7 @@ layout: default
           <div class="aside-card">
             <span class="eyebrow">Free estate scan</span>
             <p>A read-only metadata export is enough to start.</p>
-            <a class="btn btn-teal btn-sm" href="{{ '/#scan' | relative_url }}">Start a scan <span aria-hidden="true">→</span></a>
+            <a class="btn btn-teal btn-sm" href="{{ '/dashboard/#/signup' | relative_url }}" data-cta="post_aside_signup">Sign up <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </aside>

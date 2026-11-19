@@ -29,15 +29,17 @@
   {%- endif %}
   {% include schema.html %}
   <script>
-    // Set theme before paint to avoid a flash. Design default: light.
+    // Set theme before paint to avoid a flash. A saved choice wins; otherwise follow the system.
     (function () {
+      var t = 'light';
       try {
-        var t = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', t);
-        if (t === 'dark') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#05070A');
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') t = saved;
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+      } catch (e) {}
+      document.documentElement.setAttribute('data-theme', t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m && t === 'dark') m.setAttribute('content', '#05070A');
     })();
   </script>
 </head>

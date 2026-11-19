@@ -38,9 +38,14 @@
       {%- endif -%}
       {%- endfor %}
     </nav>
-    <button class="nav-link theme-toggle" type="button" onclick="BIToggleTheme()"><span id="theme-label">Dark</span></button>
-    <a class="nav-link nav-signin" href="{{ '/dashboard/#/signin' | relative_url }}" data-cta="header_signin">Sign in</a>
-    <a class="nav-cta" href="{{ '/dashboard/#/signup' | relative_url }}" data-cta="header_signup">Sign up</a>
+    <button class="theme-btn theme-toggle" id="theme-btn" type="button" aria-label="Switch to dark mode" title="Switch to dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+    <div class="nav-split" id="nav-split">
+      <a class="nav-cta nav-cta-main" href="{{ '/dashboard/#/signup' | relative_url }}" data-cta="header_signup">Sign up</a>
+      <button class="nav-cta nav-cta-caret" id="auth-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="auth-menu" aria-label="Sign in options"><svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+      <div class="auth-menu" id="auth-menu" role="menu" aria-labelledby="auth-toggle" hidden>
+        <a role="menuitem" href="{{ '/dashboard/#/signin' | relative_url }}" data-cta="header_signin"><strong>Sign in</strong><small>I already have an account</small></a>
+      </div>
+    </div>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
   </div>
 </header>
@@ -76,8 +81,8 @@
     </div>
     <div class="menu-foot">
       <div class="theme-switch" role="group" aria-label="Theme">
-        <button type="button" data-set-theme="light" aria-pressed="false">Light</button>
-        <button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>
+        <button type="button" data-set-theme="light" aria-pressed="false" aria-label="Light mode"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+        <button type="button" data-set-theme="dark" aria-pressed="false" aria-label="Dark mode"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
       </div>
       <a class="menu-signin" href="{{ '/dashboard/#/signin' | relative_url }}" data-cta="menu_signin">Sign in</a>
       <a class="btn btn-teal" href="{{ '/dashboard/#/signup' | relative_url }}" data-cta="menu_signup">Sign up <span aria-hidden="true">→</span></a>

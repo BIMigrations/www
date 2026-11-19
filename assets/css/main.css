@@ -113,6 +113,47 @@ img { max-width: 100%; }
   .nav-cta:hover { background: var(--teal); color: var(--teal-ink); }
 }
 
+/* Theme toggle (circular, sun / moon) */
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+.theme-btn {
+  position: relative; width: 34px; height: 34px; padding: 0; margin: 0 2px 0 4px; display: grid; place-items: center;
+  border-radius: 999px; border: 1px solid var(--line2); background: transparent; color: var(--ink2); cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.theme-btn svg { grid-area: 1 / 1; transition: opacity .25s var(--ease), transform .4s var(--ease); }
+.theme-btn .i-sun { opacity: 0; transform: rotate(-70deg) scale(.5); }
+:root[data-theme="dark"] .theme-btn .i-sun { opacity: 1; transform: none; }
+:root[data-theme="dark"] .theme-btn .i-moon { opacity: 0; transform: rotate(70deg) scale(.5); }
+@media (hover: hover) { .theme-btn:hover { background: var(--line); color: var(--ink); border-color: var(--ink2); } }
+.theme-btn:focus-visible, .nav-cta-caret:focus-visible, .auth-menu a:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+/* Sign up + sign in split button */
+.nav-split { position: relative; display: flex; align-items: stretch; margin-left: 4px; }
+.nav-split .nav-cta { margin-left: 0; }
+.nav-cta-main { border-radius: 999px 0 0 999px; padding-right: 13px; }
+.nav-cta-caret {
+  display: grid; place-items: center; border: none; cursor: pointer; font-family: inherit;
+  border-radius: 0 999px 999px 0; padding: 0 12px 0 10px;
+  border-left: 1px solid color-mix(in srgb, var(--bg) 30%, transparent);
+}
+.nav-cta-caret svg { transition: transform .25s var(--ease); }
+.nav-cta-caret[aria-expanded="true"] svg { transform: rotate(180deg); }
+.nav-cta-caret[aria-expanded="true"] { background: var(--teal); color: var(--teal-ink); }
+@media (hover: hover) { .nav-split:hover .nav-cta { background: var(--teal); color: var(--teal-ink); } }
+.auth-menu {
+  position: absolute; top: calc(100% + 12px); right: 0; min-width: 220px; padding: 6px; z-index: 70;
+  background: var(--bg); border: 1px solid var(--line2); border-radius: 18px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .22); animation: authIn .18s var(--ease);
+}
+.auth-menu[hidden] { display: none; }
+.auth-menu a { display: grid; gap: 2px; padding: 11px 14px; border-radius: 12px; color: var(--ink); }
+.auth-menu a strong { font-size: 14px; font-weight: 600; }
+.auth-menu a small { font-size: 12px; color: var(--muted); }
+@media (hover: hover) { .auth-menu a:hover { background: var(--line); color: var(--ink); } }
+@keyframes authIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .auth-menu { animation: none; } .theme-btn svg, .nav-cta-caret svg { transition: none; } }
+
 .menu {
   position: fixed; inset: 0; z-index: 55; background: var(--bg); color: var(--ink);
   overflow-y: auto; overscroll-behavior: contain;
@@ -166,10 +207,11 @@ img { max-width: 100%; }
 .menu-foot .btn { justify-content: space-between; padding: 20px 26px; }
 .theme-switch { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line2); border-radius: 999px; padding: 4px; }
 .theme-switch button {
-  font-family: inherit; font-size: 14px; font-weight: 600; color: var(--ink2);
+  display: grid; place-items: center; color: var(--ink2);
   background: transparent; border: none; padding: 12px; border-radius: 999px; cursor: pointer;
   transition: background .2s, color .2s;
 }
+.theme-switch button svg { width: 18px; height: 18px; }
 .theme-switch button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
 
 @media (max-width: 1000px) {
@@ -366,8 +408,7 @@ img { max-width: 100%; }
 }
 @media (hover: hover) { .scan-submit:hover { background: var(--teal); color: var(--teal-ink); } }
 .scan-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-.nav-signin { margin-left: 4px; }
-.menu-signin { font-size: 15px; font-weight: 600; color: var(--ink); margin-right: 18px; }
+.menu-signin { font-size: 15px; font-weight: 600; color: var(--ink); text-align: center; padding: 6px 0; }
 .scan-note { font-size: 14px; color: var(--muted); margin: 22px 0 0; }
 
 /* Floating scan dock — mobile only */
@@ -418,7 +459,7 @@ img { max-width: 100%; }
    ========================================================================== */
 @media (max-width: 760px) {
   .wrap { padding-left: 20px; padding-right: 20px; }
-  .nav-cta, .nav-signin { display: none; }
+  .nav-split { display: none; }
 
   /* Hero: a vertical "funnel" stage on top, type-led block below.
      Particles rain down and converge into the teal "Anywhere" dot. */

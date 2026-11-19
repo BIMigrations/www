@@ -11,27 +11,66 @@
   }
 
   /* ---------- Theme ---------- */
+  var mqDark = window.matchMedia('(prefers-color-scheme: dark)');
   function currentTheme() { return root.getAttribute('data-theme') || 'light'; }
+  function savedTheme() {
+    try { var t = localStorage.getItem('theme'); return t === 'light' || t === 'dark' ? t : null; } catch (e) { return null; }
+  }
   function syncThemeUI() {
     var t = currentTheme();
-    var label = document.getElementById('theme-label');
-    if (label) label.textContent = t === 'dark' ? 'Light' : 'Dark';
+    var btn = document.getElementById('theme-btn');
+    if (btn) {
+      var next = t === 'dark' ? 'light' : 'dark';
+      btn.setAttribute('aria-label', 'Switch to ' + next + ' mode');
+      btn.setAttribute('title', 'Switch to ' + next + ' mode');
+    }
     document.querySelectorAll('[data-set-theme]').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.getAttribute('data-set-theme') === t));
     });
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', THEME_COLORS[t] || THEME_COLORS.light);
   }
-  function setTheme(t) {
+  function applyTheme(t) {
     root.setAttribute('data-theme', t);
-    try { localStorage.setItem('theme', t); } catch (e) {}
     syncThemeUI();
+  }
+  function setTheme(t) {
+    applyTheme(t);
+    try { localStorage.setItem('theme', t); } catch (e) {}
   }
   window.BIToggleTheme = function () { setTheme(currentTheme() === 'dark' ? 'light' : 'dark'); };
 
   function wireThemeSwitch() {
+    var btn = document.getElementById('theme-btn');
+    if (btn) btn.addEventListener('click', function () { window.BIToggleTheme(); });
     document.querySelectorAll('[data-set-theme]').forEach(function (b) {
       b.addEventListener('click', function () { setTheme(b.getAttribute('data-set-theme')); });
+    });
+    // With no saved choice, follow the system when it changes.
+    onChange(mqDark, function () { if (!savedTheme()) applyTheme(mqDark.matches ? 'dark' : 'light'); });
+  }
+
+  /* ---------- Sign up / sign in split button ---------- */
+  function wireAuthMenu() {
+    var wrap = document.getElementById('nav-split');
+    var toggle = document.getElementById('auth-toggle');
+    var menu = document.getElementById('auth-menu');
+    if (!wrap || !toggle || !menu) return;
+    function set(open, focusFirst) {
+      menu.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+      if (open && focusFirst) { var first = menu.querySelector('[role="menuitem"]'); if (first) first.focus(); }
+    }
+    toggle.addEventListener('click', function () { set(menu.hidden); });
+    toggle.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); set(true, true); }
+    });
+    document.addEventListener('click', function (e) { if (!menu.hidden && !wrap.contains(e.target)) set(false); });
+    wrap.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !menu.hidden) { set(false); toggle.focus(); }
+    });
+    wrap.addEventListener('focusout', function (e) {
+      if (!menu.hidden && e.relatedTarget && !wrap.contains(e.relatedTarget)) set(false);
     });
   }
 
@@ -581,6 +620,7 @@
     wireForms();
     syncThemeUI();
     wireThemeSwitch();
+    wireAuthMenu();
     wireMenu();
     buildGrids();
     buildMarquee();

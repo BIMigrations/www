@@ -1,0 +1,165 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.356
+BI Migrations takes you from one analytics platform to another, quickly and accurately.
+
+2
+00:00:05.356 --> 00:00:07.080
+Ready to watch it in action?
+
+3
+00:00:08.100 --> 00:00:09.734
+Your journey is simple.
+
+4
+00:00:09.734 --> 00:00:10.942
+Scan your estate.
+
+5
+00:00:10.942 --> 00:00:12.719
+Convert it to open specs.
+
+6
+00:00:12.719 --> 00:00:14.851
+Build it on your new platform.
+
+7
+00:00:14.851 --> 00:00:21.389
+We read Domo, Tableau, Power BI and more, and write to Power BI, Superset, Tableau and more.
+
+8
+00:00:21.389 --> 00:00:24.160
+Today, we will follow Domo to Power BI.
+
+9
+00:00:25.200 --> 00:00:32.280
+It starts in your Dashboard: eleven steps, each completing when something real happens, like a scan or a signature.
+
+10
+00:00:33.300 --> 00:00:36.897
+Install Estate Scanner on a machine that can reach your platform.
+
+11
+00:00:36.897 --> 00:00:39.110
+The Dashboard gives you a one-time code.
+
+12
+00:00:40.100 --> 00:00:41.305
+Type the code in.
+
+13
+00:00:41.305 --> 00:00:45.910
+The Dashboard knows this copy is yours, and no scan data is sent.
+
+14
+00:00:46.900 --> 00:00:49.180
+The Dashboard now sees your device.
+
+15
+00:00:50.200 --> 00:00:51.578
+Connect your platform.
+
+16
+00:00:51.578 --> 00:00:57.280
+Domo and Power BI use their own sign-in page, so single sign-on and multi-factor just work.
+
+17
+00:00:58.300 --> 00:00:59.048
+Now scan.
+
+18
+00:00:59.048 --> 00:01:08.600
+Datasets, dataflows, cards, dashboards, calculations, users and every relationship: read-only, into one local file.
+
+19
+00:01:09.600 --> 00:01:11.280
+Press Sync when you are ready.
+
+20
+00:01:11.280 --> 00:01:13.800
+Nothing leaves your machine until you decide.
+
+21
+00:01:15.200 --> 00:01:19.740
+The scan arrives as a summary of your estate, and your quote is drafted from it.
+
+22
+00:01:22.400 --> 00:01:24.368
+A person approves the quote.
+
+23
+00:01:24.368 --> 00:01:27.250
+Accept, sign, and BIMControl is unlocked.
+
+24
+00:01:29.600 --> 00:01:31.579
+Pair BIMControl the same way.
+
+25
+00:01:31.579 --> 00:01:33.490
+It runs inside your network.
+
+26
+00:01:34.500 --> 00:01:42.230
+BIMControl rebuilds a dashboard in ten stages: understand it, move the data, build it, publish it, prove it.
+
+27
+00:01:43.200 --> 00:01:47.400
+Choose your target: Power BI, or Apache Superset.
+
+28
+00:01:48.400 --> 00:01:52.379
+Pick a dashboard, and BIMControl shows everything it depends on.
+
+29
+00:01:52.379 --> 00:01:53.560
+Then press Migrate.
+
+30
+00:01:56.400 --> 00:01:57.999
+Watch the ten stages run.
+
+31
+00:01:57.999 --> 00:02:01.325
+Each saves what it produced, and nothing is guessed.
+
+32
+00:02:01.325 --> 00:02:02.860
+The report is published.
+
+33
+00:02:08.400 --> 00:02:09.126
+Now, proof.
+
+34
+00:02:09.126 --> 00:02:16.780
+Every Domo card is compared with its new visual, category by category, and every element gets a status and a reason.
+
+35
+00:02:17.800 --> 00:02:19.438
+Here, most elements match.
+
+36
+00:02:19.438 --> 00:02:21.769
+Where something differs, you see why.
+
+37
+00:02:21.769 --> 00:02:26.180
+A difference with a stated reason is a finished result, not a failure.
+
+38
+00:02:27.200 --> 00:02:32.050
+And here is your report, live in Power BI, with its semantic model behind it.
+
+39
+00:02:33.000 --> 00:02:38.160
+The evidence and the report return to your Dashboard timeline, then it is handed over to you.
+
+40
+00:02:39.200 --> 00:02:42.719
+Scanned, quoted, migrated and proven.
+
+41
+00:02:42.719 --> 00:02:44.050
+BI Migrations.

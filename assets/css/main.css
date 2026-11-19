@@ -113,6 +113,47 @@ img { max-width: 100%; }
   .nav-cta:hover { background: var(--teal); color: var(--teal-ink); }
 }
 
+/* ==========================================================================
+   Home v4: 78% callout + demo video, then "built for your environment"
+   ========================================================================== */
+.usp { position: relative; padding-top: 120px; padding-bottom: 120px; background: var(--bg); overflow: hidden; }
+.usp-glow { background: radial-gradient(60% 70% at 100% 40%, var(--glow-teal), transparent 70%), radial-gradient(40% 50% at 0% 100%, var(--glow-amber), transparent 70%); }
+.usp-grid { position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.usp-copy .eyebrow { margin-bottom: 20px; }
+.usp-num { display: flex; align-items: baseline; gap: 4px; font-size: clamp(96px, 11.5vw, 184px); line-height: .82; font-weight: 700; letter-spacing: -0.06em; color: var(--ink); }
+.usp-num .serif { font-size: .62em; letter-spacing: 0; }
+.usp-lead { font-size: clamp(20px, 2vw, 28px); line-height: 1.32; letter-spacing: -0.02em; color: var(--ink); margin: 22px 0 28px; max-width: 24em; }
+.usp-facts { list-style: none; display: flex; gap: 32px; flex-wrap: wrap; margin: 0 0 34px; padding: 22px 0 0; border-top: 1px solid var(--line2); }
+.usp-facts li { display: grid; gap: 4px; }
+.usp-facts strong { font-size: 24px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); }
+.usp-facts span { font-size: 13px; color: var(--muted); }
+.usp-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.usp-video { margin: 0; }
+.usp-frame {
+  border-radius: 22px; overflow: hidden; background: #05070A; aspect-ratio: 16 / 9;
+  border: 1px solid var(--line2); box-shadow: 0 30px 80px rgba(0, 0, 0, .28), 0 0 0 6px color-mix(in srgb, var(--ink) 4%, transparent);
+}
+.usp-frame video { display: block; width: 100%; height: 100%; object-fit: cover; background: #05070A; }
+.usp-video figcaption { margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--muted); max-width: 44em; }
+.usp-video figcaption strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 900px) {
+  .usp { padding-top: 96px; padding-bottom: 80px; }
+  .usp-grid { grid-template-columns: 1fr; gap: 40px; }
+  .usp-facts { gap: 24px; }
+}
+
+.tech { padding-top: 110px; padding-bottom: 130px; }
+.tech-head { margin-bottom: 48px; }
+.tech-head .eyebrow { margin-bottom: 20px; }
+.tech-title { font-size: clamp(40px, 5.6vw, 88px); line-height: .95; letter-spacing: -0.045em; font-weight: 700; margin: 0; color: var(--ink); max-width: 14ch; }
+.tech-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.tech-card { border: 1px solid var(--line2); border-top: 2px solid var(--teal); border-radius: 18px; padding: 26px 24px 28px; background: color-mix(in srgb, var(--bg2) 55%, transparent); }
+.tech-ico { color: var(--teal); margin-bottom: 20px; }
+.tech-card h3 { font-size: 20px; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 10px; color: var(--ink); }
+.tech-card p { font-size: 15px; line-height: 1.55; color: var(--ink2); margin: 0; }
+@media (max-width: 1100px) { .tech-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .tech { padding-top: 80px; padding-bottom: 90px; } .tech-grid { grid-template-columns: 1fr; } }
+
 /* Theme toggle (circular, sun / moon) */
 :root[data-theme="light"] { color-scheme: light; }
 :root[data-theme="dark"] { color-scheme: dark; }

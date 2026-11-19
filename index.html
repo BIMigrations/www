@@ -30,85 +30,85 @@ description: "Automated BI migration to Power BI and beyond. Domo, Tableau, Qlik
           <p class="hero-lead">Your BI estate (models, transformations, calculations, dashboards) decompiled into open specifications you own, then regenerated natively on whichever BI platform you choose.</p>
           <div class="hero-ctas">
             <a class="btn btn-teal" href="{{ '/dashboard/#/signup' | relative_url }}" data-cta="hero_signup">Sign up to scan your estate <span aria-hidden="true">→</span></a>
-            <a class="btn btn-ghost" href="#reveal">See the reveal</a>
+            <a class="btn btn-ghost" href="#manifesto">Watch the demo</a>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="marquee" aria-label="Supported platforms"><div id="marquee"></div></div>
-
-    <section id="manifesto" class="wrap manifesto">
-      <div class="manifesto-grid">
-        <div class="manifesto-aside">
-          <div class="eyebrow">§ 01 · Why</div>
-          <h2 class="manifesto-title">Nobody should <span class="serif c-amber">migrate</span> twice.</h2>
-          <div class="orbit" aria-hidden="true">
-            <div style="left:50%;top:50%;width:1px;height:100%;background:var(--line2);transform:translate(-50%,-50%) rotate(28deg)"></div>
-            <div style="left:50%;top:50%;width:100%;height:1px;background:var(--line2);transform:translate(-50%,-50%) rotate(28deg)"></div>
-            <div style="left:12%;top:31%;width:15%;aspect-ratio:1;border-radius:3px;background:var(--amber);transform:rotate(14deg)"></div>
-            <div style="left:24%;top:58%;width:9%;aspect-ratio:1;border-radius:2px;border:1.5px solid var(--amber);transform:rotate(-20deg)"></div>
-            <div style="left:42%;top:42%;width:16%;aspect-ratio:1;border-radius:999px;background:var(--ink)"></div>
-            <div style="right:14%;top:40%;width:20%;aspect-ratio:1;border-radius:4px;background:var(--teal)"></div>
-            <div style="right:26%;top:20%;width:8%;aspect-ratio:1;border-radius:999px;background:var(--teal)"></div>
-            <div style="right:20%;bottom:20%;width:11%;aspect-ratio:1;border-radius:2px;border:1.5px solid var(--teal)"></div>
-          </div>
+    {% include platform-logos.html %}
+    <div class="marquee marquee-logos" aria-label="Supported platforms">
+      <div id="marquee">
+        <div class="marquee-track">
+          <ul class="marquee-set">
+            {% include marquee-item.html id="domo" name="Domo" wide="true" %}{% include marquee-item.html id="powerbi" name="Power BI" %}{% include marquee-item.html id="tableau" name="Tableau" %}{% include marquee-item.html id="metabase" name="Metabase" %}{% include marquee-item.html id="qlik" name="Qlik Sense" %}{% include marquee-item.html id="looker" name="Looker" %}{% include marquee-item.html id="lightdash" name="Lightdash" %}{% include marquee-item.html id="superset" name="Superset" %}
+          </ul>
+          <ul class="marquee-set" aria-hidden="true">
+            {% include marquee-item.html id="domo" name="Domo" wide="true" %}{% include marquee-item.html id="powerbi" name="Power BI" %}{% include marquee-item.html id="tableau" name="Tableau" %}{% include marquee-item.html id="metabase" name="Metabase" %}{% include marquee-item.html id="qlik" name="Qlik Sense" %}{% include marquee-item.html id="looker" name="Looker" %}{% include marquee-item.html id="lightdash" name="Lightdash" %}{% include marquee-item.html id="superset" name="Superset" %}
+          </ul>
         </div>
-        <div>
-          <div class="pillars" id="pillars">
-            <article class="pillar">
-              <div class="pillar-letter">A</div>
-              <p class="pillar-lead">A hand-rebuilt dashboard binds all of the analysis to one vendor's file format.</p>
-              <p class="pillar-body">Every calculation gets re-derived by an analyst interpreting the old estate and inferring intent. Choose a different BI platform years later and the same estate is interpreted from scratch, by different people, resulting in potentially different answers.</p>
-            </article>
-            <article class="pillar">
-              <div class="pillar-letter">B</div>
-              <p class="pillar-lead">So we split the migration in two, and only the second half is platform-specific.</p>
-              <p class="pillar-body">First the estate becomes open specifications: SQL for models, Airflow and Python for transformations, JSON and YAML for dashboard definitions, plus a field-level lineage graph. It lands in your repository, not inside a black box.</p>
-            </article>
-            <article class="pillar">
-              <div class="pillar-letter">C</div>
-              <p class="pillar-lead">The expensive half is done once, and it never expires.</p>
-              <p class="pillar-body">Our automated migration tool turns open specs into native artifacts in Power BI, Tableau, Looker, Sigma or Superset. Change your mind about your BI platform and you re-run the tool, not a complete migration project.</p>
-            </article>
+      </div>
+    </div>
+
+    <section id="manifesto" class="usp">
+      <div class="abs usp-glow"></div>
+      <div class="wrap usp-grid">
+        <div class="usp-copy">
+          <div class="eyebrow">Why BI Migrations</div>
+          <div class="usp-num" aria-label="78 percent"><span aria-hidden="true">78</span><em class="serif c-teal" aria-hidden="true">%</em></div>
+          <p class="usp-lead">of a typical estate is converted by our automated migration tool, with no analyst in the loop.</p>
+          <ul class="usp-facts">
+            <li><strong>11 weeks</strong><span>Median, kickoff to cutover</span></li>
+            <li><strong>1 : 1</strong><span>Value parity, tested before cutover</span></li>
+          </ul>
+        </div>
+        <figure class="usp-video">
+          <div class="usp-frame" id="usp-frame">
+            <video controls preload="metadata" playsinline poster="{{ '/assets/video/estate-to-power-bi-cover.jpg' | relative_url }}" aria-describedby="usp-cap">
+              <source src="{{ '/assets/video/estate-to-power-bi.mp4' | relative_url }}" type="video/mp4">
+              <track kind="captions" src="{{ '/assets/video/estate-to-power-bi.en.vtt' | relative_url }}" srclang="en" label="English">
+              Your browser cannot play this video.
+            </video>
+            <button class="video-play" id="video-play" type="button" aria-label="Play the demo video, 2 minutes 45 seconds" hidden>
+              <span class="video-play-disc" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.4-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></span>
+              <span class="video-play-label" aria-hidden="true">Watch the demo <small>2:45</small></span>
+            </button>
           </div>
-          <div class="pillar-nav">
-            <div class="pillar-dots">
-              <button type="button" class="is-active" aria-label="Show point A"></button>
-              <button type="button" aria-label="Show point B"></button>
-              <button type="button" aria-label="Show point C"></button>
-            </div>
-            <span class="pillar-hint" aria-hidden="true">Swipe →</span>
-          </div>
+          <figcaption id="usp-cap"><strong>Watch an estate move.</strong> Domo to Power BI, from the dashboard to a proven report, in 2:45. Sample data. Captions on request.</figcaption>
+        </figure>
+        <div class="usp-actions">
+          <a class="btn btn-teal" href="{{ '/dashboard/#/signup' | relative_url }}" data-cta="usp_signup">Sign up to scan your estate <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#method">How it works</a>
         </div>
       </div>
     </section>
 
-    <section id="reveal" class="reveal">
-      <div class="wrap reveal-inner">
-        <div class="reveal-head">
-          <div>
-            <div class="eyebrow">§ 02 · Before / after</div>
-            <h2 class="reveal-title">Drag to see an estate <span class="serif c-teal">rationalized.</span></h2>
-          </div>
-          <p class="reveal-copy">Left: the incumbent estate as we find it, duplicated, dormant, undocumented. Right: the same estate rationalized, translated and regenerated.</p>
-        </div>
-
-        <div class="compare" id="compare">
-          <div class="compare-grid compare-before" id="chaos-grid" aria-hidden="true"></div>
-          <div class="compare-after" id="after-clip" aria-hidden="true"><div class="compare-grid" id="order-grid"></div></div>
-          <div class="compare-divider" id="divider" aria-hidden="true"><div class="compare-handle">⇠⇢</div></div>
-          <div class="compare-label compare-label-l"><span class="dot dot-amber"></span>As found</div>
-          <div class="compare-label compare-label-r">Regenerated<span class="dot dot-teal"></span></div>
-          <input id="split-range" class="compare-range" type="range" min="0" max="100" step="0.1" value="50" aria-label="Before / after comparison">
-        </div>
-
-        <div class="stats">
-          <div class="stat"><div class="stat-num">1,180 <span class="serif c-amber">found</span></div><div class="stat-label">Dashboards inventoried</div></div>
-          <div class="stat"><div class="stat-num">380 <span class="serif c-muted">retired</span></div><div class="stat-label">Dormant or duplicated, retired</div></div>
-          <div class="stat"><div class="stat-num">800 <span class="serif c-teal">regenerated</span></div><div class="stat-label">Rebuilt natively on the target</div></div>
-          <div class="stat"><div class="stat-num">11 <span class="serif c-teal">weeks</span></div><div class="stat-label">Kickoff to cutover</div></div>
-        </div>
+    <section id="built" class="wrap tech">
+      <div class="tech-head">
+        <div class="eyebrow">§ 02 · Built for your environment</div>
+        <h2 class="tech-title">Runs where your data <span class="serif c-teal">lives.</span></h2>
+      </div>
+      <div class="tech-grid">
+        <article class="tech-card">
+          <svg class="tech-ico" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="14" width="22" height="13" rx="3"/><path d="M10 14v-3a6 6 0 0 1 12 0v3"/><circle cx="16" cy="20.5" r="1.6"/></svg>
+          <h3>Air-gapped if you need it</h3>
+          <p>The migration tool runs inside your environment: cloud, on-premises or fully air-gapped. A scan leaves the machine only when you choose to send it.</p>
+        </article>
+        <article class="tech-card">
+          <svg class="tech-ico" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="16" height="16" rx="3"/><path d="M12 4v4M20 4v4M12 24v4M20 24v4M4 12h4M4 20h4M24 12h4M24 20h4"/></svg>
+          <h3>Private AI, on your premises</h3>
+          <p>The conversion runs on private, secure AI inside your environment, so your estate is never handed to a third-party AI assistant.</p>
+        </article>
+        <article class="tech-card">
+          <svg class="tech-ico" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 9 4 16l7 7M21 9l7 7-7 7M18 6l-4 20"/></svg>
+          <h3>Open specifications you own</h3>
+          <p>Your estate becomes SQL, Python, JSON and YAML that you keep, whichever BI platform you choose next.</p>
+        </article>
+        <article class="tech-card">
+          <svg class="tech-ico" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16.5 12 23 27 8"/><circle cx="16" cy="16" r="12.5"/></svg>
+          <h3>Parity proven, not promised</h3>
+          <p>Every metric is compared between the old platform and the new one before cutover, with a stated reason for any difference.</p>
+        </article>
       </div>
     </section>
 
@@ -171,20 +171,6 @@ description: "Automated BI migration to Power BI and beyond. Domo, Tableau, Qlik
         <p class="routes-copy">The two routes we're asked about most, Domo to Power BI and Tableau to Power BI, each with a dedicated page on what converts automatically, what needs care and how parity is proved.</p>
       </div>
       {% include routes.html %}
-    </section>
-
-    <section class="proof">
-      <div class="abs proof-glow"></div>
-      <div class="abs proof-rings"></div>
-      <div class="wrap proof-inner">
-        <div class="proof-num">78%</div>
-        <p class="proof-copy serif">of a typical estate is converted by our automated migration tool, with no analyst in the loop.</p>
-        <div class="proof-stats">
-          <div><div class="proof-stat-num">11 wk</div><div class="proof-stat-label">Median cutover</div></div>
-          <div><div class="proof-stat-num">1 : 1</div><div class="proof-stat-label">Value parity</div></div>
-          <div><div class="proof-stat-num">$3.4M</div><div class="proof-stat-label">Rebuild cost avoided</div></div>
-        </div>
-      </div>
     </section>
 
     <section id="insights" class="wrap blog">

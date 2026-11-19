@@ -50,6 +50,7 @@ a { color: var(--teal); text-decoration: none; }
 img { max-width: 100%; }
 
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marqueeLtr { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes pulse { from { transform: scale(.92); opacity: .55; } to { transform: scale(1.55); opacity: 0; } }
 
@@ -193,6 +194,7 @@ img { max-width: 100%; }
 
 /* Supported-platforms strip with logos */
 .marquee-logos { padding: 22px 0; }
+.marquee-logos .marquee-track { animation-name: marqueeLtr; }
 .marquee-set { display: flex; flex: none; margin: 0; padding: 0; list-style: none; }
 .marquee-logos .marquee-item { gap: 12px; padding: 0 0 0 22px; }
 .marquee-logos .marquee-item span { color: inherit; }

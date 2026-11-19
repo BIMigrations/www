@@ -40,7 +40,19 @@ description: "Automated BI migration to Power BI and beyond. Domo, Tableau, Qlik
       </div>
     </section>
 
-    <div class="marquee" aria-label="Supported platforms"><div id="marquee"></div></div>
+    {% include platform-logos.html %}
+    <div class="marquee marquee-logos" aria-label="Supported platforms">
+      <div id="marquee">
+        <div class="marquee-track">
+          <ul class="marquee-set">
+            {% include marquee-item.html id="domo" name="Domo" wide="true" %}{% include marquee-item.html id="powerbi" name="Power BI" %}{% include marquee-item.html id="tableau" name="Tableau" %}{% include marquee-item.html id="metabase" name="Metabase" %}{% include marquee-item.html id="qlik" name="Qlik Sense" %}{% include marquee-item.html id="looker" name="Looker" %}{% include marquee-item.html id="lightdash" name="Lightdash" %}{% include marquee-item.html id="superset" name="Superset" %}
+          </ul>
+          <ul class="marquee-set" aria-hidden="true">
+            {% include marquee-item.html id="domo" name="Domo" wide="true" %}{% include marquee-item.html id="powerbi" name="Power BI" %}{% include marquee-item.html id="tableau" name="Tableau" %}{% include marquee-item.html id="metabase" name="Metabase" %}{% include marquee-item.html id="qlik" name="Qlik Sense" %}{% include marquee-item.html id="looker" name="Looker" %}{% include marquee-item.html id="lightdash" name="Lightdash" %}{% include marquee-item.html id="superset" name="Superset" %}
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <section id="manifesto" class="usp">
       <div class="abs usp-glow"></div>
@@ -53,21 +65,25 @@ description: "Automated BI migration to Power BI and beyond. Domo, Tableau, Qlik
             <li><strong>11 weeks</strong><span>Median, kickoff to cutover</span></li>
             <li><strong>1 : 1</strong><span>Value parity, tested before cutover</span></li>
           </ul>
-          <div class="usp-actions">
-            <a class="btn btn-teal" href="{{ '/dashboard/#/signup' | relative_url }}" data-cta="usp_signup">Sign up to scan your estate <span aria-hidden="true">→</span></a>
-            <a class="btn btn-ghost" href="#method">How it works</a>
-          </div>
         </div>
         <figure class="usp-video">
-          <div class="usp-frame">
+          <div class="usp-frame" id="usp-frame">
             <video controls preload="metadata" playsinline poster="{{ '/assets/video/estate-to-power-bi-poster.jpg' | relative_url }}" aria-describedby="usp-cap">
               <source src="{{ '/assets/video/estate-to-power-bi.mp4' | relative_url }}" type="video/mp4">
               <track kind="captions" src="{{ '/assets/video/estate-to-power-bi.en.vtt' | relative_url }}" srclang="en" label="English">
               Your browser cannot play this video.
             </video>
+            <button class="video-play" id="video-play" type="button" aria-label="Play the demo video, 2 minutes 45 seconds" hidden>
+              <span class="video-play-disc" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.4-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></span>
+              <span class="video-play-label" aria-hidden="true">Watch the demo <small>2:45</small></span>
+            </button>
           </div>
           <figcaption id="usp-cap"><strong>Watch an estate move.</strong> Domo to Power BI, from the dashboard to a proven report, in 2:45. Sample data. Captions on request.</figcaption>
         </figure>
+        <div class="usp-actions">
+          <a class="btn btn-teal" href="{{ '/dashboard/#/signup' | relative_url }}" data-cta="usp_signup">Sign up to scan your estate <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#method">How it works</a>
+        </div>
       </div>
     </section>
 

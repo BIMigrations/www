@@ -152,7 +152,7 @@
   /* ---------- Platform marquee ---------- */
   function buildMarquee() {
     var host = document.getElementById('marquee');
-    if (!host) return;
+    if (!host || host.children.length) return; // already rendered in the page
     var names = ['Domo', 'Qlik Sense', 'Tableau', 'Looker', 'MicroStrategy', 'Cognos', 'QlikView', 'Power BI', 'Sigma', 'Superset'];
     var track = document.createElement('div');
     track.className = 'marquee-track';
@@ -272,14 +272,16 @@
     var dock = document.getElementById('dock');
     if (!dock || !('IntersectionObserver' in window)) return;
     // Hidden while the hero CTAs, the scan form or the footer are on screen, or the menu is open.
-    var state = { ctas: true, scan: false, foot: false, menu: false };
+    var state = { ctas: true, scan: false, foot: false, menu: false, uspv: false, uspa: false };
     var targets = [
       [document.querySelector('.hero-ctas'), 'ctas'],
       [document.getElementById('scan'), 'scan'],
-      [document.querySelector('.site-footer'), 'foot']
+      [document.querySelector('.site-footer'), 'foot'],
+      [document.querySelector('.usp-frame'), 'uspv'],
+      [document.querySelector('.usp-actions'), 'uspa']
     ];
     function render() {
-      var show = !state.ctas && !state.scan && !state.foot && !state.menu;
+      var show = !state.ctas && !state.scan && !state.foot && !state.menu && !state.uspv && !state.uspa;
       dock.classList.toggle('is-visible', show);
       dock.setAttribute('aria-hidden', String(!show));
       dock.tabIndex = show ? 0 : -1;
@@ -613,6 +615,23 @@
     });
   }
 
+  /* ---------- Demo video: play button on the cover ---------- */
+  function wireDemoVideo() {
+    var frame = document.getElementById('usp-frame');
+    var btn = document.getElementById('video-play');
+    var video = frame && frame.querySelector('video');
+    if (!video || !btn) return;
+    video.controls = false;       // cover shows only the play button until the visitor starts it
+    btn.hidden = false;
+    function start() {
+      var p = video.play();
+      if (p && p.catch) p.catch(function () { video.controls = true; btn.hidden = true; });
+    }
+    btn.addEventListener('click', start);
+    video.addEventListener('play', function () { video.controls = true; btn.hidden = true; });
+    video.addEventListener('ended', function () { video.controls = false; btn.hidden = false; video.currentTime = 0; });
+  }
+
   /* ---------- Init ---------- */
   function init() {
     buildToc();
@@ -627,6 +646,7 @@
     wireCompare();
     wirePillars();
     wireDock();
+    wireDemoVideo();
     wireCtaTracking();
     startField();
   }

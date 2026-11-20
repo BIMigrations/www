@@ -6,6 +6,17 @@ description: How LookML models, explores, views, derived tables and access filte
 from: Looker
 to: Power BI
 order: 4
+faqs:
+  - q: What does a Looker explore become in Power BI?
+    a: "Join logic in an explore becomes relationships within a semantic model, a view becomes a table, and a measure becomes a DAX measure. Wide explores with many optional joins may become several focused semantic models, or one model with carefully chosen relationship directions."
+  - q: Does Power BI have symmetric aggregates like Looker?
+    a: "No. Looker automatically protects measures from double-counting when joins fan out, and Power BI doesn't. Relationships and grain have to be modeled so that measures aggregate correctly, and parity tests confirm they do."
+  - q: What replaces a Looker persistent derived table (PDT) in Power BI?
+    a: "Power BI has no equivalent object, because the storage layer is not the BI tool's job. Each PDT becomes a table or view in the warehouse, and its trigger becomes a pipeline schedule or a dependency on the upstream load. Write the trigger down before migrating, since it is often the only record of when the business expects that number to refresh."
+  - q: How do Looker access filters map to Power BI row-level security?
+    a: "A user attribute that drives row-level access maps to a row-level security role, a DAX expression that returns true or false per row, such as `[UserEmail] = USERPRINCIPALNAME()`. Microsoft documents that RLS applies only to workspace Viewers, so test with one real user per role and compare row counts on both platforms."
+  - q: How do I translate a Looker measure with a filter into DAX?
+    a: "A Looker measure with `filters: [is_contractor: \"yes\"]` becomes a measure that changes the filter context with `CALCULATE`. Keep layered Looker `type: number` measures as separate DAX measures and combine them, rather than flattening them into one long expression."
 ---
 
 Looker and Power BI both put a semantic layer at the center, which makes this one of the more natural migrations. LookML is already code. The work is in resolving what that code does at query time, and in modeling it correctly for Power BI's engine.
@@ -92,6 +103,10 @@ A parity test for security is a table: one real user per role, the row count eac
 5. Resolve Liquid templating into parameters or model logic.
 6. Rebuild dashboards and Looks as reports; map access filters to row-level security.
 7. Run both platforms in parallel, sign off each wave, then cut over.
+
+## Looker to Power BI *FAQs*
+
+{% include faq.html items=page.faqs %}
 
 Sources: Looker's reference pages for measure `filters`, measure types, `access_filter` and persistent derived tables (docs.cloud.google.com/looker), and Microsoft Learn's pages on `CALCULATE` and row-level security.
 

@@ -6,6 +6,17 @@ description: "How Tableau calculated fields, LOD expressions, table calculations
 from: Tableau
 to: Power BI
 order: 2
+faqs:
+  - q: How do Tableau LOD expressions translate to DAX?
+    a: "`{FIXED ...}` usually becomes `CALCULATE` with `ALLEXCEPT` or `REMOVEFILTERS`, `{INCLUDE ...}` becomes a measure that iterates a finer grain with `SUMX` over `VALUES`, and `{EXCLUDE ...}` becomes `CALCULATE` removing that dimension's filters. The part that needs care is filters: Tableau computes `FIXED` before dimension filters but after context filters, while DAX applies filter context unless you remove it explicitly."
+  - q: What replaces Tableau table calculations in Power BI?
+    a: "`RUNNING_SUM` and `WINDOW_AVG` map to `WINDOW` or visual calculations, `LOOKUP` and `PREVIOUS_VALUE` map to `OFFSET`, and `RANK` maps to `RANKX` or `INDEX`. A table calculation's result depends on its addressing and partitioning, which can differ from sheet to sheet, so record the addressing for each use first. One Tableau calculation often becomes several DAX measures."
+  - q: How do I write AVG of a FIXED expression in DAX?
+    a: "An expression such as `AVG({FIXED [Customer] : SUM([Sales])})` needs an explicit iterator, for example `AVERAGEX(VALUES(Customer[Customer]), [Sales])`."
+  - q: What happens to Tableau user filters and USERNAME()?
+    a: "`USERNAME()` and `ISMEMBEROF()` map to row-level security using `USERPRINCIPALNAME()`. Test each role separately before cutover."
+  - q: How should I test a migrated Tableau calculation?
+    a: "Parity-test every measure at the slices each dashboard actually uses, with the same filters applied, not only at the grand total."
 ---
 
 This guide covers the part of a [Tableau to Power BI migration](/tableau-to-power-bi/) that takes the most time when it's done by hand: turning Tableau calculations into DAX. The two languages look similar, but they evaluate differently. Tableau calculates in the context of the marks in a view, while DAX calculates in the filter context of a semantic model.
@@ -55,5 +66,9 @@ Calculations that mix fields from a primary and a secondary data source rely on 
 5. Parity-test every measure at the slices each dashboard uses.
 6. Rebuild dashboards and actions as report pages, cross-filtering and drill-through.
 7. Map user filters to row-level security, test each role, then cut over in waves.
+
+## Tableau to Power BI *FAQs*
+
+{% include faq.html items=page.faqs %}
 
 See also: [Tableau to Power BI migration](/tableau-to-power-bi/) · [Tableau](/platforms/tableau/) · [Power BI](/platforms/power-bi/)

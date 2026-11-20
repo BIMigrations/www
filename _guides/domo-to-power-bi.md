@@ -6,6 +6,17 @@ description: How Domo DataSets, DataFlows, Beast Modes, cards and PDP policies m
 from: Domo
 to: Power BI
 order: 1
+faqs:
+  - q: What does a Domo DataSet become in Power BI?
+    a: "A table in a semantic model. Several related DataSets usually become one model with relationships, and a Domo card becomes a report visual. Power BI centers on the semantic model shared by many reports, so a good migration reshapes the estate around the model instead of copying cards one by one."
+  - q: How do Beast Modes translate to DAX?
+    a: "An aggregate Beast Mode becomes a DAX measure, and a row-level Beast Mode becomes a calculated column or, better, a column computed upstream. A formula that looks identical can give a different answer, because a Beast Mode is evaluated in the context of one card and a DAX measure in the model's filter context. Parity-test every translated Beast Mode against the original card."
+  - q: What replaces a Domo FIXED function in DAX?
+    a: "Nothing matches directly. Domo's FIXED has four filter behaviors: a bare `FIXED (BY ...)` keeps every filter, `FILTER NONE` applies none, `FILTER ALLOW` applies only the fields you name, and `FILTER DENY` applies all except the fields you name. `ALLEXCEPT` and `ALLSELECTED` in DAX match none of the four exactly. For each FIXED Beast Mode, write down which behavior it had, then test with a filter on one dimension at a time."
+  - q: How do Domo PDP policies map to Power BI row-level security?
+    a: "Each Domo policy becomes a row-level security role, and a policy with two values becomes one role whose expression requires both. Domo treats separate policies as OR logic, and Power BI roles are additive. RLS restricts only workspace Viewers, so an All Rows member needs a decision, not a port. RLS also can't hide columns, which takes object-level security."
+  - q: What happens to Magic ETL flows?
+    a: "Heavy transformations belong upstream of the model, in warehouse SQL pipelines or Power Query. Dedupe steps need care: Remove Duplicates, Rank & Window and Group By all keep one row, and Domo's documentation does not say how ties resolve. Write the tiebreaker down before the flow is rebuilt as SQL."
 ---
 
 This guide is the detailed companion to our [Domo to Power BI migration](/domo-to-power-bi/) service. Domo and Power BI organize analytics differently. Domo keeps data preparation, calculations and visuals close together around each DataSet. Power BI centers on the semantic model: tables, relationships and measures shared by many reports. A good migration doesn't copy one into the other. It reshapes the estate around the model.
@@ -95,6 +106,10 @@ A parity test for security is a table: one real user for each policy, one owner,
 5. Translate Beast Modes into DAX measures and parity-test them, FIXED filter behavior included.
 6. Rebuild pages as reports; map PDP policies, All Rows members and column masking to row-level security roles, workspace roles and object-level security.
 7. Run both platforms in parallel, sign off each wave, then cut over.
+
+## Domo to Power BI *FAQs*
+
+{% include faq.html items=page.faqs %}
 
 Sources: Domo's Knowledge Base pages on Personalized Data Permissions and Beast Mode FIXED Functions, and Microsoft Learn's pages on row-level security, object-level security, `ALLEXCEPT` and `ALLSELECTED`, all read on 18 October 2026. Confirm each behavior in your own instance before you rely on it.
 

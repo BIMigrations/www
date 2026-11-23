@@ -12,7 +12,7 @@ The harder question is who the filters never apply to. In Domo that is a longer 
 
 ## In Domo, the unfiltered people are quiet
 
-Domo's Personalized Data Permissions let you filter a DataSet by row for the users and groups you name. A card, an alert or a DataFlow powered by that DataSet then shows each person only their rows. The knowledge base is direct about who is not in that picture: "DataSet owners and admins have access to all data in a DataSet." Every DataSet also has a default policy called All Rows, which gives other users and groups the same level of access.
+Domo's Personalized Data Permissions let you filter a DataSet by row for the users and groups you name. A card, [an alert](/insights/domo-alerts-are-shared/) or a DataFlow powered by that DataSet then shows each person only their rows. The knowledge base is direct about who is not in that picture: "DataSet owners and admins have access to all data in a DataSet." Every DataSet also has a default policy called All Rows, which gives other users and groups the same level of access.
 
 That second group grows without anyone deciding it should. The documentation says why. A DataFlow built on a DataSet only keeps running after PDP is switched on if its owner is an Admin, or has the Manage DataFlow grant, or owns the input DataSet, or sits in the All Rows policy. Domo's impact review even has a Fix It button that adds the owners of affected assets to All Rows so their flows don't break. Reasonable. Also how an All Rows list quietly becomes "everybody who ever built something on this data".
 

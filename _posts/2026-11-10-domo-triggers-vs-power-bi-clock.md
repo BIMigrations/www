@@ -36,7 +36,7 @@ Three things, none of which show up in a row-count comparison.
 
 **The ceiling.** An estate with many DataFlows on event triggers has no daily count in its head. In Power BI, every Import model competes for a limited number of slots per day or for capacity. Whether that is a problem depends on the plan, and it is much cheaper to find out in week one than in week twelve.
 
-**Who gets told.** Whatever alerting the team relies on in Domo does not travel. A schedule that deactivates after four failures, or an API refresh that fails without an email, is silent in a new way.
+**Who gets told.** Whatever alerting the team relies on in Domo does not travel, and [a Domo alert is shared where a Power BI dashboard alert is private](/insights/domo-alerts-are-shared/). A schedule that deactivates after four failures, or an API refresh that fails without an email, is silent in a new way.
 
 ## Decide it per dashboard
 

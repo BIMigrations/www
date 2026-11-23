@@ -113,6 +113,7 @@ A parity test for security is a table: one real user for each policy, one owner,
 - [Domo runs when the data arrives. Power BI runs on a clock.](/insights/domo-triggers-vs-power-bi-clock/): decide each dashboard's freshness before you pick a refresh schedule.
 - [Your Domo renewal needs an exit price](/insights/domo-renewal-exit-price/): how to get the number for leaving before you sign again.
 - [How to test an automated Domo to Power BI migration before you buy one](/insights/test-an-automated-domo-migration/): what a proof of concept should hit.
+- [Domo alerts are shared. Power BI dashboard alerts are private.](/insights/domo-alerts-are-shared/): who gets notified today, and who will after cutover.
 - [Retire before you migrate](/insights/retire-before-you-migrate/) and [Proving parity](/insights/proving-parity/): the first and last steps of the checklist above.
 
 ## Domo to Power BI *FAQs*

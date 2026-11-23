@@ -39,7 +39,7 @@ In a typical estate, around 78% is converted by our automated migration tool wit
 
 - **Open specifications** in your repository: the platform-neutral record of your estate.
 - **Native artifacts** on your chosen BI platform, built the way your own team would build them.
-- **A parity report** for every migrated metric.
+- **A parity report** for every migrated metric, [kept after cutover](/insights/parity-report-should-outlive-migration/) so a later change to the model has something to be tested against.
 - **A lineage graph** from every dashboard back to its source columns.
 - **A cutover runbook** for each wave.
 

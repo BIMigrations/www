@@ -514,6 +514,7 @@
 
         var payload = {};
         new FormData(form).forEach(function (v, k) { payload[k] = v; });
+        try { var bvid = localStorage.getItem('bi_vid'); if (bvid) payload.visitor_id = bvid; } catch (e) {}
 
         // bots fill the honeypot; let them think it worked
         if (payload.website) { succeed(); return; }
@@ -615,12 +616,116 @@
     });
   }
 
+  /* ---------- Demo video analytics ----------
+     GA4 events: video_start, video_progress (10/25/50/75/90 % of the film actually played),
+     video_complete, video_summary (sent when the visitor leaves or the film ends).
+     Optional first-party log: if the video element carries data-video-endpoint, the same events
+     are also posted there (Supabase edge function video-events). Nothing is stored in the browser
+     and nothing is sent to that endpoint unless the endpoint is configured. */
+  function uuid() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16);
+    });
+  }
+  function visitorId() {
+    try {
+      var id = localStorage.getItem('bi_vid');
+      if (!id) { id = uuid(); localStorage.setItem('bi_vid', id); }
+      return id;
+    } catch (e) { return null; }
+  }
+  function trackVideo(video) {
+    var endpoint = video.getAttribute('data-video-endpoint') || '';
+    var VIDEO_ID = video.getAttribute('data-video-id') || 'video';
+    var VIDEO_TITLE = video.getAttribute('data-video-title') || VIDEO_ID;
+    var debug = /[?&]ga_debug=1/.test(location.search);
+    var sessionId = uuid();
+    var vid = endpoint ? visitorId() : null;
+    var MARKS = [10, 25, 50, 75, 90];
+    var fired = {}, seen = {}, uniq = 0, watched = 0, lastT = null, maxPos = 0;
+    var plays = 0, started = false, completed = false, lastSummary = -1;
+
+    function dur() { return isFinite(video.duration) && video.duration > 0 ? video.duration : 0; }
+    function pct() { var d = dur(); return d ? Math.min(100, Math.round(uniq / Math.ceil(d) * 100)) : 0; }
+    function bucket(p) { return completed ? 'complete' : p >= 75 ? 'most' : p >= 25 ? 'partial' : p > 0 ? 'glance' : 'none'; }
+    function captionsOn() {
+      for (var i = 0; i < video.textTracks.length; i++) if (video.textTracks[i].mode === 'showing') return 1;
+      return 0;
+    }
+    function utm() {
+      var out = {}, q = new URLSearchParams(location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) { if (q.get(k)) out[k] = q.get(k).slice(0, 100); });
+      return out;
+    }
+    function firstParty(name, params) {
+      if (!endpoint || !vid) return;
+      var body = JSON.stringify({
+        event: name, session_id: sessionId, visitor_id: vid, video_id: VIDEO_ID, params: params,
+        page: location.pathname, referrer: (document.referrer || '').slice(0, 300), utm: utm(),
+        screen: window.innerWidth + 'x' + window.innerHeight
+      });
+      var sent = false;
+      try { if (navigator.sendBeacon) sent = navigator.sendBeacon(endpoint, new Blob([body], { type: 'text/plain;charset=UTF-8' })); } catch (e) {}
+      if (!sent) { try { fetch(endpoint, { method: 'POST', body: body, keepalive: true, headers: { 'content-type': 'text/plain;charset=UTF-8' } }); } catch (e) {} }
+    }
+    function emit(name, extra, beacon) {
+      var params = { video_id: VIDEO_ID, video_title: VIDEO_TITLE, video_duration: Math.round(dur()), video_provider: 'self' };
+      for (var k in extra) params[k] = extra[k];
+      if (debug) params.debug_mode = true;
+      if (typeof window.gtag === 'function') {
+        var g = {}; for (var k2 in params) g[k2] = params[k2];
+        if (beacon) g.transport_type = 'beacon';
+        window.gtag('event', name, g);
+      }
+      firstParty(name, params);
+    }
+    function summaryParams() {
+      var p = pct();
+      return { watched_seconds: Math.round(watched), percent_watched: p, max_position_seconds: Math.round(maxPos),
+               play_count: plays, completed: completed ? 1 : 0, engagement: bucket(p), captions_on: captionsOn(), muted: video.muted ? 1 : 0 };
+    }
+    function summary() {
+      if (!started || Math.round(watched) === lastSummary) return;
+      lastSummary = Math.round(watched);
+      emit('video_summary', summaryParams(), true);
+    }
+
+    video.addEventListener('play', function () {
+      plays++; lastT = video.currentTime;
+      if (!started) { started = true; emit('video_start', {}); }
+    });
+    video.addEventListener('timeupdate', function () {
+      if (video.paused || video.seeking || video.ended) { lastT = null; return; }
+      var t = video.currentTime;
+      if (lastT !== null) { var d = t - lastT; if (d > 0 && d < 1.5) watched += d; }
+      lastT = t;
+      var s = Math.floor(t);
+      if (!seen[s]) { seen[s] = 1; uniq++; }
+      if (t > maxPos) maxPos = t;
+      var p = pct();
+      MARKS.forEach(function (m) {
+        if (!fired[m] && p >= m) { fired[m] = 1; emit('video_progress', { video_percent: m, watched_seconds: Math.round(watched), percent_watched: p }); }
+      });
+    });
+    video.addEventListener('seeking', function () { lastT = null; });
+    video.addEventListener('pause', function () { lastT = null; });
+    video.addEventListener('ended', function () {
+      lastT = null;
+      if (!completed) { completed = true; emit('video_complete', summaryParams()); }
+      summary();
+    });
+    document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') summary(); });
+    window.addEventListener('pagehide', summary);
+  }
+
   /* ---------- Demo video: play button on the cover ---------- */
   function wireDemoVideo() {
     var frame = document.getElementById('usp-frame');
     var btn = document.getElementById('video-play');
     var video = frame && frame.querySelector('video');
     if (!video || !btn) return;
+    trackVideo(video);
     video.controls = false;       // cover shows only the play button until the visitor starts it
     btn.hidden = false;
     function start() {

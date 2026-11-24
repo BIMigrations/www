@@ -21,6 +21,8 @@ export interface Submission {
   /** ms since epoch when the form was rendered, for the time trap */
   renderedAt?: number | string;
   page?: string;
+  /** random id from the demo-video tracker, so a lead can be matched to what they watched */
+  visitor_id?: string;
 }
 
 export interface Normalized {

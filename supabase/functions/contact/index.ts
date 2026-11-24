@@ -171,6 +171,9 @@ Deno.serve(async (req: Request) => {
 
   const body = await parseBody(req);
   if (!body) return json({ ok: false, errors: ["Could not read that submission."] }, 400, origin);
+  // Only present when a visitor has played the demo video; optional and never validated against.
+  const visitorId = /^[0-9a-f-]{36}$/i.test(String(body.visitor_id ?? "")) ? String(body.visitor_id) : undefined;
+  const withVisitor = visitorId ? { visitor_id: visitorId } : {};
 
   const result = validate(body, {
     minFillSeconds: MIN_FILL_SECONDS,
@@ -195,6 +198,7 @@ Deno.serve(async (req: Request) => {
       message: String(body.message ?? "").slice(0, 5000),
       page: String(body.page ?? "").slice(0, 200),
       user_agent: req.headers.get("user-agent") ?? "",
+      ...withVisitor,
     });
     return json({ ok: false, errors: result.errors }, 422, origin);
   }
@@ -247,6 +251,7 @@ Deno.serve(async (req: Request) => {
       message: data.message,
       page: data.page,
       user_agent: meta.userAgent,
+      ...withVisitor,
     });
     console.log(JSON.stringify({
       event: "accepted",

@@ -31,6 +31,7 @@ export interface SubmissionRow {
   page?: string;
   user_agent?: string;
   form?: string;
+  visitor_id?: string;
 }
 
 /** How many submissions this IP made inside the window; null if unavailable. */

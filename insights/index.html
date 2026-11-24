@@ -7,6 +7,42 @@ parent_title: Resources
 full_width: true
 ---
 <div class="wrap page-body page-body-full">
+  <section class="prose" aria-labelledby="start-here" style="margin-bottom:72px;">
+    <h2 id="start-here">Start here</h2>
+    <p>The full list is below, newest first. If you are short on time, read the group that matches where you are. Each one is about a specific thing that breaks or gets decided in a migration, not a general overview. For the product side, see how <a href="{{ '/domo-to-power-bi/' | relative_url }}">a Domo to Power BI migration</a> and a <a href="{{ '/tableau-to-power-bi/' | relative_url }}">Tableau to Power BI migration</a> work here.</p>
+
+    <h3>Leaving Domo for Power BI</h3>
+    <ul>
+      <li><a href="{% post_url 2026-10-20-domo-renewal-exit-price %}">Your Domo renewal needs an exit price</a></li>
+      <li><a href="{% post_url 2026-10-08-test-an-automated-domo-migration %}">How to test an automated Domo to Power BI migration before you buy one</a></li>
+      <li><a href="{% post_url 2026-10-06-beast-mode-fixed-to-dax %}">Beast Mode FIXED to DAX: where it bites</a></li>
+      <li><a href="{% post_url 2026-11-03-magic-etl-dedupe-tiebreaker %}">Magic ETL never told you which duplicate it kept</a></li>
+      <li><a href="{% post_url 2026-11-17-who-skips-pdp %}">Who skips your Domo row policies?</a></li>
+      <li><a href="{% post_url 2026-11-10-domo-triggers-vs-power-bi-clock %}">Domo runs when the data arrives. Power BI runs on a clock.</a></li>
+      <li><a href="{% post_url 2026-11-23-domo-alerts-are-shared %}">Domo alerts are shared. Power BI dashboard alerts are private.</a></li>
+    </ul>
+
+    <h3>Tableau, Looker and Qlik to Power BI</h3>
+    <ul>
+      <li><a href="{% post_url 2026-11-19-tableau-converter-claims-compared %}">Tableau converters quote a percentage. Of what?</a></li>
+      <li><a href="{% post_url 2026-10-13-tableau-table-calculations-live-in-the-view %}">Tableau table calculations live in the view. DAX measures live in the model.</a></li>
+      <li><a href="{% post_url 2026-10-19-looker-symmetric-aggregates %}">Looker to Power BI: what symmetric aggregates did</a></li>
+      <li><a href="{% post_url 2026-10-27-qlik-set-analysis-identifier %}">Qlik's {1} ignores selections, not the axis</a></li>
+    </ul>
+
+    <h3>Planning a migration and proving it worked</h3>
+    <ul>
+      <li><a href="{% post_url 2026-10-15-dashboard-count-is-the-wrong-estimate %}">Why counting dashboards gives you the wrong migration estimate</a></li>
+      <li><a href="{% post_url 2026-08-26-retire-before-you-migrate %}">Retire before you migrate</a></li>
+      <li><a href="{% post_url 2026-10-29-power-bi-storage-mode-before-migrating %}">Choose a Power BI storage mode before you migrate</a></li>
+      <li><a href="{% post_url 2026-10-07-metric-definitions-live-in-the-model %}">Where metric definitions should live</a></li>
+      <li><a href="{% post_url 2026-09-09-proving-parity %}">Proving parity after a BI migration</a></li>
+      <li><a href="{% post_url 2026-11-05-parity-report-should-outlive-migration %}">The parity report should outlive the migration</a></li>
+      <li><a href="{% post_url 2026-11-12-who-inherits-the-migration %}">Who inherits your BI migration?</a></li>
+      <li><a href="{% post_url 2026-08-12-nobody-should-migrate-twice %}">Nobody should migrate twice</a></li>
+    </ul>
+  </section>
+  <h2 id="all-posts" class="section-title" style="margin-bottom:32px;">All posts</h2>
   <div class="blog-grid blog-grid-index">
     {%- for post in site.posts %}
     {% include post-card.html post=post featured=forloop.first %}

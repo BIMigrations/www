@@ -643,12 +643,22 @@
     var sessionId = uuid();
     var vid = endpoint ? visitorId() : null;
     var MARKS = [10, 25, 50, 75, 90];
-    var fired = {}, seen = {}, uniq = 0, watched = 0, lastT = null, maxPos = 0;
+    var fired = {}, watched = 0, lastT = null, maxPos = 0;
     var plays = 0, started = false, completed = false, lastSummary = -1;
 
     function dur() { return isFinite(video.duration) && video.duration > 0 ? video.duration : 0; }
-    function pct() { var d = dur(); return d ? Math.min(100, Math.round(uniq / Math.ceil(d) * 100)) : 0; }
-    function bucket(p) { return completed ? 'complete' : p >= 75 ? 'most' : p >= 25 ? 'partial' : p > 0 ? 'glance' : 'none'; }
+    // Seconds of the film actually played, counted once however often they were replayed (from the
+    // browser's own played ranges, so seeking and fast playback cannot inflate it).
+    function playedSeconds() {
+      var r = video.played, total = 0;
+      for (var i = 0; i < r.length; i++) total += r.end(i) - r.start(i);
+      return total;
+    }
+    function pct() { var d = dur(); return d ? Math.min(100, Math.round(playedSeconds() / d * 100)) : 0; }
+    function bucket(p) {
+      if (completed) return p >= 75 ? 'complete' : 'skipped_to_end';
+      return p >= 75 ? 'most' : p >= 25 ? 'partial' : p > 0 ? 'glance' : 'none';
+    }
     function captionsOn() {
       for (var i = 0; i < video.textTracks.length; i++) if (video.textTracks[i].mode === 'showing') return 1;
       return 0;
@@ -698,10 +708,8 @@
     video.addEventListener('timeupdate', function () {
       if (video.paused || video.seeking || video.ended) { lastT = null; return; }
       var t = video.currentTime;
-      if (lastT !== null) { var d = t - lastT; if (d > 0 && d < 1.5) watched += d; }
+      if (lastT !== null) { var d = t - lastT; if (d > 0 && d < 0.5 + 1.2 * video.playbackRate) watched += d; }
       lastT = t;
-      var s = Math.floor(t);
-      if (!seen[s]) { seen[s] = 1; uniq++; }
       if (t > maxPos) maxPos = t;
       var p = pct();
       MARKS.forEach(function (m) {

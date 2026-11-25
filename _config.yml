@@ -26,9 +26,9 @@ twitter:
 # Contact + estate scan forms post here (Supabase edge function).
 # Validation, spam filtering and email live in supabase/functions/contact.
 contact_endpoint: "https://iiznemotvcrukeajsist.supabase.co/functions/v1/contact"
-# Optional first-party log of demo-video viewing (supabase/functions/video-events). Leave empty until the
-# function is deployed. While empty, only GA4 events are sent and nothing is stored in the browser.
-video_endpoint: ""
+# First-party log of demo-video viewing (BIMDash repo, supabase/functions/video-events), live since
+# 2026-11-25. Empty it to switch the log off: GA4 events keep flowing and nothing is stored in the browser.
+video_endpoint: "https://iiznemotvcrukeajsist.supabase.co/functions/v1/video-events"
 
 # Build settings
 markdown: kramdown

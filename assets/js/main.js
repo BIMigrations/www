@@ -641,7 +641,6 @@
     var VIDEO_TITLE = video.getAttribute('data-video-title') || VIDEO_ID;
     var debug = /[?&]ga_debug=1/.test(location.search);
     var sessionId = uuid();
-    var vid = endpoint ? visitorId() : null;
     var MARKS = [10, 25, 50, 75, 90];
     var fired = {}, watched = 0, lastT = null, maxPos = 0;
     var plays = 0, started = false, completed = false, lastSummary = -1;
@@ -669,6 +668,7 @@
       return out;
     }
     function firstParty(name, params) {
+      var vid = endpoint ? visitorId() : null; // created on the first event, i.e. only once the film is played
       if (!endpoint || !vid) return;
       var body = JSON.stringify({
         event: name, session_id: sessionId, visitor_id: vid, video_id: VIDEO_ID, params: params,

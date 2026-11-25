@@ -5,7 +5,7 @@ permalink: /llms.txt
 ---
 # BI Migrations
 
-> BI Migrations LLC migrates BI estates to Power BI with an automated migration tool. It reads the source estate (models, transformations, calculations, dashboards, permissions), writes it out as open specifications the client owns, regenerates it natively in the target platform, and parity-tests every metric before cutover. Domo to Power BI is the most developed route. Tableau to Power BI is offered as a service.
+> BI Migrations LLC migrates BI estates between BI platforms with an automated migration tool. Sources include Domo, Tableau, Power BI and Superset; destinations include Power BI, Superset and Lightdash, with more being added. It reads the source estate (models, transformations, calculations, dashboards, permissions), writes it out as open specifications the client owns, regenerates it natively on the destination platform, and parity-tests every metric before cutover.
 
 Figures published on this site: around 78% of a typical estate is converted by the tool with no analyst in the loop, with engineers handling the rest, and the median time from kickoff to cutover is 11 weeks across engagements. The free estate scan works from a read-only metadata export under a mutual NDA.
 
